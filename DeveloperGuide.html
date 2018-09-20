@@ -70,7 +70,24 @@
 </li>
 <li><a href="#product-scope">Appendix B: Product Scope</a></li>
 <li><a href="#user-stories">Appendix C: User Stories</a></li>
-<li><a href="#use-cases">Appendix D: Use Cases</a></li>
+<li><a href="#use-cases">Appendix D: Use Cases</a>
+<ul class="sectlevel2">
+<li><a href="#use-case-delete-person">D.1. Use case: Delete Person</a></li>
+<li><a href="#use-case-apply-off-days">D.2. Use case: Apply Off days</a></li>
+<li><a href="#use-case-check-in-and-out">D.3. Use case: Check in and out</a></li>
+<li><a href="#use-case-temporary-restrict-access-to-address-book">D.4. Use case: Temporary restrict access to address book</a></li>
+<li><a href="#use-case-access-payroll">D.5. Use case: Access payroll</a></li>
+<li><a href="#use-case-check-notification">D.6. Use case: Check notification</a></li>
+<li><a href="#use-case-sort-contact-by-department">D.7. Use case: Sort contact by department</a></li>
+<li><a href="#use-case-change-priority-level-of-user">D.8. Use case: Change priority level of user</a></li>
+<li><a href="#use-case-edit-personal-particulars">D.9. Use case: Edit personal particulars</a></li>
+<li><a href="#use-case-find-person">D.10. Use case: Find person</a></li>
+<li><a href="#use-case-approve-reject-off-day-request">D.11. Use case: Approve/reject off day request</a></li>
+<li><a href="#use-case-check-schedule">D.12. Use case: Check schedule</a></li>
+<li><a href="#use-case-set-schedule">D.13. Use case: Set schedule</a></li>
+<li><a href="#use-case-set-password">D.14. Use case: Set password</a></li>
+</ul>
+</li>
 <li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix F: Glossary</a></li>
 <li><a href="#product-survey">Appendix G: Product Survey</a></li>
@@ -2000,39 +2017,147 @@ for <code>RemarkCommandParser</code>.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">new user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see usage instructions</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">refer to instructions when I forget how to use the App</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Access my payroll</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Calculate my incoming pay according to the number of hours I have worked easily</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add a new person</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Check my schedule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Know where I am deployed for the day</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete a person</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove entries that I no longer need</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Check my notifications via CLI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">View my notifications</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elevated user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set employees’ access levels</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ensure that employees have the appropriate level of access to classified items/areas</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elevated user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add/Delete/Edit employees into the database</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ensure that the company manpower list is updated</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elevated user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set schedule for employee</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deploy employees to their designated location.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edit my personal particulars</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update them as required (Edit function)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elevated user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Access employee off-day requests</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Approve/Reject off for employees</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Search for a specific contact</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Obtain the particulars of the contact easily</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elevated user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort contacts by department</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allocate manpower accordingly</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort my address book by name/department</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Look for contacts that I want easily</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Filter and view my relevant colleague’s contact details</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Get in touch in them seamlessly</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set password to my address book</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prevent unauthorized access to my address book</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find a person by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate details of persons without having to go through the entire list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">access my remaining off days</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Apply for my off</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">check in and out during my work days</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I will be able to view the number of hours I have worked for</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elevated user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Check my employees’ working hours</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pay them accordingly</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Administrator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Restrict employee access to the address book application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Perform maintenance or upgrades</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hide <a href="#private-contact-detail">private contact details</a> by default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">minimize chance of someone else seeing them by accident</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Check the staff’s direct superior</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Feedback to the particular superior</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user with many persons in the address book</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sort persons by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate a person easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set my availability status (available, busy, away)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Let colleagues decide their best course of action according to my status</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elevated User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Send out alerts to an individual/group</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ensure that everyone is caught up with the latest developments</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notified via email/sms</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Get the latest updates at the earliest possible time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Upload profile picture</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can be identified easily by others</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use keyboard shortcuts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quickly navigate around the address book</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">`*	`</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deploy available cleaners</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Get the place cleaned up as soon as possible.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2047,23 +2172,23 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
+<h3 id="use-case-add-person" class="discrete">Use case: Add Person</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list persons</p>
+<p>User enters add command.</p>
 </li>
 <li>
-<p>AddressBook shows a list of persons</p>
+<p>AddressBook prompts to add person.</p>
 </li>
 <li>
-<p>User requests to delete a specific person in the list</p>
+<p>User enters the details of the new person.</p>
 </li>
 <li>
-<p>AddressBook deletes the person</p>
+<p>AddressBook adds the new person.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2073,8 +2198,78 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="paragraph">
 <p><strong>Extensions</strong></p>
 </div>
-<div class="ulist none">
-<ul class="none">
+<div class="ulist">
+<ul>
+<li>
+<p>4a. Person already exists in the AddressBook.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>4a1. AddressBook shows person already exists message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>4b. The added person has missing details.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>4b1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>4c. The added person has wrong entry format.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>4c1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="use-case-delete-person"><a class="link" href="#use-case-delete-person">D.1. Use case: Delete Person</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters delete command</p>
+</li>
+<li>
+<p>AddressBook shows the list of employees</p>
+</li>
+<li>
+<p>User requests to delete a specific employee</p>
+</li>
+<li>
+<p>AddressBook deletes the employee</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p>2a. The list is empty.</p>
 <div class="paragraph">
@@ -2082,13 +2277,13 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </li>
 <li>
-<p>3a. The given index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
+<p>4a. The given employee name is invalid</p>
+<div class="ulist">
+<ul>
 <li>
-<p>3a1. AddressBook shows an error message.</p>
+<p>4a1. AddressBook shows an error message.</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Use case resumes to step 2.</p>
 </div>
 </li>
 </ul>
@@ -2096,8 +2291,639 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="use-case-apply-off-days"><a class="link" href="#use-case-apply-off-days">D.2. Use case: Apply Off days</a></h3>
 <div class="paragraph">
-<p><em>{More to be added}</em></p>
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters command to apply off day</p>
+</li>
+<li>
+<p>AddressBook list the remaining off days left and prompts the date the user wants to apply on</p>
+</li>
+<li>
+<p>User enters date</p>
+</li>
+<li>
+<p>AddressBook add the request to the database for approval</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>2a. No remaining days left</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>4a. The given date is not available for application</p>
+</li>
+<li>
+<p>4a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes to step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-check-in-and-out"><a class="link" href="#use-case-check-in-and-out">D.3. Use case: Check in and out</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters command to check in.</p>
+</li>
+<li>
+<p>AddressBook starts to time the user working hours.</p>
+</li>
+<li>
+<p>User enters command to check out.</p>
+</li>
+<li>
+<p>AddressBook stops timer, and records the user working hours.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-temporary-restrict-access-to-address-book"><a class="link" href="#use-case-temporary-restrict-access-to-address-book">D.4. Use case: Temporary restrict access to address book</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters command to switch to superuser</p>
+</li>
+<li>
+<p>AddressBook prompts for password.</p>
+</li>
+<li>
+<p>User enters password</p>
+</li>
+<li>
+<p>AddressBook prompts a superuser command</p>
+</li>
+<li>
+<p>User enters restrict access command</p>
+</li>
+<li>
+<p>AddressBook restrict access for all users.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>4a. Incorrect password</p>
+<div class="ulist">
+<ul>
+<li>
+<p>4a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes to step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>6a. No such command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>6a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes to step 4.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-access-payroll"><a class="link" href="#use-case-access-payroll">D.5. Use case: Access payroll</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters command to check payroll.</p>
+</li>
+<li>
+<p>AddressBook shows the user payroll.
+Use case ends.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-check-notification"><a class="link" href="#use-case-check-notification">D.6. Use case: Check notification</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters command to check for notification</p>
+</li>
+<li>
+<p>AddressBook list out notifications</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-sort-contact-by-department"><a class="link" href="#use-case-sort-contact-by-department">D.7. Use case: Sort contact by department</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters sort command.</p>
+</li>
+<li>
+<p>AddressBook shows a list of sorted names by their department.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-change-priority-level-of-user"><a class="link" href="#use-case-change-priority-level-of-user">D.8. Use case: Change priority level of user</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters superuser command</p>
+</li>
+<li>
+<p>AddressBook prompts password</p>
+</li>
+<li>
+<p>User enters password</p>
+</li>
+<li>
+<p>AddressBook prompts user for ‘superuser’ command</p>
+</li>
+<li>
+<p>User enters priority level command</p>
+</li>
+<li>
+<p>AddressBook prompts user for employee name and new priority level</p>
+</li>
+<li>
+<p>User enters both employee name and new priority level</p>
+</li>
+<li>
+<p>AddressBook updates the changes</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>4a. Incorrect password</p>
+<div class="ulist">
+<ul>
+<li>
+<p>4a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes to step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>6a. No such command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>6a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes to step 4.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>8a. No such employee found</p>
+<div class="ulist">
+<ul>
+<li>
+<p>8a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes to step 6.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>8b. No such priority level</p>
+<div class="ulist">
+<ul>
+<li>
+<p>8b1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes to step 6.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-edit-personal-particulars"><a class="link" href="#use-case-edit-personal-particulars">D.9. Use case: Edit personal particulars</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters edit command.</p>
+</li>
+<li>
+<p>AddressBook shows the format to edit the person details.</p>
+</li>
+<li>
+<p>User edit his/her particulars.</p>
+</li>
+<li>
+<p>AddressBook updates the new particulars.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>4a. The edited format is wrong</p>
+<div class="ulist">
+<ul>
+<li>
+<p>4a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-find-person"><a class="link" href="#use-case-find-person">D.10. Use case: Find person</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User keys in the keyword to search in find command.</p>
+</li>
+<li>
+<p>AddressBook displays the list of names which contains the keyword given.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>2a. AddressBook does not contain the keyword entered.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2a1. AddressBook displays entered keyword not found.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-approve-reject-off-day-request"><a class="link" href="#use-case-approve-reject-off-day-request">D.11. Use case: Approve/reject off day request</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters command to switch to superuser</p>
+</li>
+<li>
+<p>AddressBook prompts for password</p>
+</li>
+<li>
+<p>User enters password</p>
+</li>
+<li>
+<p>AddressBook prompts for superuser command</p>
+</li>
+<li>
+<p>User enters command to view requests</p>
+</li>
+<li>
+<p>AddressBook list out all requests</p>
+</li>
+<li>
+<p>User enters employee name</p>
+</li>
+<li>
+<p>AddressBook prompts user to approve or reject request</p>
+</li>
+<li>
+<p>User enters approve/reject</p>
+</li>
+<li>
+<p>AddressBook update database</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>4a. Incorrect password</p>
+<div class="ulist">
+<ul>
+<li>
+<p>4a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes to step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>6a. No such command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>6a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes to step 4.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>6b. No request found</p>
+<div class="ulist">
+<ul>
+<li>
+<p>6b1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>8a. No such employee with existing request found</p>
+<div class="ulist">
+<ul>
+<li>
+<p>8a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes to step 6.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-check-schedule"><a class="link" href="#use-case-check-schedule">D.12. Use case: Check schedule</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters command to check schedule</p>
+</li>
+<li>
+<p>AddressBook display user’s schedule</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>2a. No user schedule found.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2a1. Address book displays message “No tasks scheduled for the day”.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-set-schedule"><a class="link" href="#use-case-set-schedule">D.13. Use case: Set schedule</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters command to switch to superuser</p>
+</li>
+<li>
+<p>AddressBook prompts for password</p>
+</li>
+<li>
+<p>User enters password</p>
+</li>
+<li>
+<p>AddressBook prompts for superuser command</p>
+</li>
+<li>
+<p>User enters command to set schedule</p>
+</li>
+<li>
+<p>AddressBook prompts for the employee name</p>
+</li>
+<li>
+<p>User enters employee name</p>
+</li>
+<li>
+<p>AddressBook prompts for the date of schedule and location</p>
+</li>
+<li>
+<p>User enters the date and location</p>
+</li>
+<li>
+<p>AddressBook updates the schedule</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>8a. Employee name not found.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>8a1. AddressBook displays message “Employee not found”.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>10a. The date of schedule is already occupied.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>10a1. AddressBook displays message “Employee is busy on the given date”.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-set-password"><a class="link" href="#use-case-set-password">D.14. Use case: Set password</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters password command.</p>
+</li>
+<li>
+<p>AddressBook shows the password format to be keyed in.</p>
+</li>
+<li>
+<p>User keys in password.</p>
+</li>
+<li>
+<p>AddressBook stores the person’s new password.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>4a. The password is keyed in the wrong format</p>
+<div class="ulist">
+<ul>
+<li>
+<p>4a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -2285,4 +3111,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-09-19 17:05:17 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-09-20 10:03:27 UTC</div></div></div></body></html>
