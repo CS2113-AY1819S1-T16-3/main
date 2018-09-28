@@ -3,6 +3,7 @@ package seedu.address.model;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
+import seedu.address.model.department.Department;
 import seedu.address.model.person.Person;
 
 /**
@@ -24,6 +25,11 @@ public interface Model {
     boolean hasPerson(Person person);
 
     /**
+     * Returns true if a department with the same identity as {@code department} exists in the address book.
+     */
+    boolean hasDepartment(Department department);
+
+    /**
      * Deletes the given person.
      * The person must exist in the address book.
      */
@@ -34,6 +40,12 @@ public interface Model {
      * {@code person} must not already exist in the address book.
      */
     void addPerson(Person person);
+
+    /**
+     * Creates the given department.
+     * {@code department} must not already exist in the address book.
+     */
+    void createDepartment(Department department);
 
     /**
      * Replaces the given person {@code target} with {@code editedPerson}.

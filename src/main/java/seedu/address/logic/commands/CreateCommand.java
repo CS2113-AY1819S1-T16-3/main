@@ -5,6 +5,7 @@ import static java.util.Objects.requireNonNull;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.department.Department;
 
 /**
  * Creates a department to the address book.
@@ -36,7 +37,7 @@ public class CreateCommand extends Command {
     public CommandResult execute(Model model, CommandHistory history) throws CommandException {
         requireNonNull(model);
 
-        if (model.hasPerson(toCreate)) {
+        if (model.hasDepartment(toCreate)) {
             throw new CommandException(MESSAGE_DUPLICATE_DEPARTMENT);
         }
 

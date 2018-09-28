@@ -2,6 +2,8 @@ package seedu.address.logic.parser;
 
 import seedu.address.logic.commands.CreateCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.department.Department;
+import seedu.address.model.department.DepartmentName;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
@@ -20,6 +22,9 @@ public class CreateCommandParser implements Parser<CreateCommand> {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, CreateCommand.MESSAGE_USAGE));
         }
-        return new CreateCommand(trimmedArgs);
+
+        DepartmentName departmentName = new DepartmentName(trimmedArgs);
+
+        return new CreateCommand(new Department(departmentName));
     }
 }
