@@ -12,6 +12,7 @@ import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.ComponentManager;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.events.model.AddressBookChangedEvent;
+import seedu.address.model.department.Department;
 import seedu.address.model.person.Person;
 
 /**
@@ -22,6 +23,7 @@ public class ModelManager extends ComponentManager implements Model {
 
     private final VersionedAddressBook versionedAddressBook;
     private final FilteredList<Person> filteredPersons;
+    private final FilteredList<Department> filteredDepartments;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
@@ -34,6 +36,7 @@ public class ModelManager extends ComponentManager implements Model {
 
         versionedAddressBook = new VersionedAddressBook(addressBook);
         filteredPersons = new FilteredList<>(versionedAddressBook.getPersonList());
+        filteredDepartments = new FilteredList<>(versionedAddressBook.getDepartmentList());
     }
 
     public ModelManager() {
@@ -63,6 +66,12 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     @Override
+    public boolean hasDepartment(Department department) {
+        requireNonNull(department);
+        return versionedAddressBook.hasDepartment(department);
+    }
+
+    @Override
     public void deletePerson(Person target) {
         versionedAddressBook.removePerson(target);
         indicateAddressBookChanged();
@@ -73,6 +82,11 @@ public class ModelManager extends ComponentManager implements Model {
         versionedAddressBook.addPerson(person);
         updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         indicateAddressBookChanged();
+    }
+
+    @Override
+    public void createDepartment(Department department) {
+        //TODO
     }
 
     @Override
@@ -144,7 +158,8 @@ public class ModelManager extends ComponentManager implements Model {
         // state check
         ModelManager other = (ModelManager) obj;
         return versionedAddressBook.equals(other.versionedAddressBook)
-                && filteredPersons.equals(other.filteredPersons);
+                && filteredPersons.equals(other.filteredPersons)
+                && filteredDepartments.equals(other.filteredDepartments);
     }
 
 }
