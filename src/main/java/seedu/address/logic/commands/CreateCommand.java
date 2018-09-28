@@ -20,7 +20,7 @@ public class CreateCommand extends Command {
             + "Example: " + COMMAND_WORD + " "
             + "Junior Management";
 
-    public static final String MESSAGE_SUCCESS = "New person added: %1$s";
+    public static final String MESSAGE_SUCCESS = "New department added: %1$s";
     public static final String MESSAGE_DUPLICATE_DEPARTMENT = "This department already exists in the address book";
 
     private final Department toCreate;
