@@ -65,15 +65,15 @@ Format: `help`
 === Adding a person: `add`
 
 Adds an employee to the address book +
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...`
+Format: `add n/NAME ic/NRIC pwd/PASSWORD p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...`
 
 [TIP]
 A person can have any number of tags (including 0)
 
 Examples:
 
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
+* `add n/John Doe ic/T0249855I pwd/9EwciT p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
+* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal ic/S1875858E pwd/Fed528F`
 
 === Listing all persons : `list`
 
@@ -83,8 +83,7 @@ Format: `list`
 === Editing a person : `edit`
 
 Edits the existing particulars of the logged in user. +
-Format (DEPRECATED): `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]...` +
-Format: `edit n/NAME ic/NRIC pass/PASSWORD [en/NAME] [ep/PHONE] [ee/EMAIL] [ea/ADDRESS]....`
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]...` +
 
 ****
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index *must be a positive integer* 1, 2, 3, ...
@@ -102,24 +101,28 @@ Format: `edit n/NAME ic/NRIC pass/PASSWORD [en/NAME] [ep/PHONE] [ee/EMAIL] [ea/A
 | n/Lewis
 
 | Phone number
-| ep/PHONE
-| ep/96549950
+| p/PHONE
+| p/96549950
 
 | Email address
-| ee/EMAIL
-| ee/lewis@hotmail.com
+| e/EMAIL
+| e/lewis@hotmail.com
 
 | Address
-| ea/ADDRESS
-| ea/Blk 26, Tiong Bahru Rd #19-22, s(190026)
+| a/ADDRESS
+| a/Blk 26, Tiong Bahru Rd #19-22, s(190026)
+
+| Tag(s) (OPTIONAL)
+| [t/TAG]...
+| t/friends t/OweMoney
 |===
 ****
 
 Examples:
 
-* `edit n/John Doe ic/s1234567h pass/NeUeR2018 ep/91234567 ee/johndoe@example.com` +
+* `edit n/John Doe ic/s1234567h pwd/NeUeR2018 ep/91234567 ee/johndoe@example.com` +
 Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-* `edit n/John Doe2 ic/s1234567h pass/NeUeR2018 en/John Doe` +
+* `edit n/John Doe2 ic/s1234567h pwd/NeUeR2018 en/John Doe` +
 Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 
 === Locating persons by name: `find`
@@ -226,7 +229,7 @@ The `undo` command fails as there are no undoable commands executed previously.
 `undo` (reverses the `clear` command) +
 `undo` (reverses the `delete 1` command) +
 
-////
+
 === Redoing the previously undone command : `redo`
 
 Reverses the most recent `undo` command. +
@@ -249,11 +252,22 @@ The `redo` command fails as there are no `undo` commands executed previously.
 `redo` (reapplies the `delete 1` command) +
 `redo` (reapplies the `clear` command) +
 // end::undoredo[]
-////
+
+=== Login to the application: `login`
+Logs into the app using a user's NRIC and password. +
+Format: `login ic/NRIC pwd/PASSWORD` +
+
+=== Logs out of the application: `logout`
+Logs out of the current session. +
+Format: `logout`
+
+=== Check the current user that is logged into the application: `checkloginstatus`
+Prints the NRIC that is logged into the current session. +
+Format: `checkloginstatus`
 
 === Setting password: `setpass`
 Set password for employee on the address book. +
-Format: `setpass n/NAME ic/s1234567h sp/PASSWORD` +
+Format: `setpass ic/s1234567h pwd/PASSWORD` +
 
 * The password is case sensitive. +
 * Password length is limited to 15 characters. +
@@ -265,8 +279,8 @@ Sets PaS88of as a password for John Doe.
 
 === Switch to superuser: `superuser`
 Switch to superuser profile to use ‘superuser’ commands +
-Format: `superuser n/NAME ic/s1234567h pass/PASSWORD` +
-Example: `superuser n/John Doe ic/s1234567h pass/888888`
+Format: `superuser n/NAME ic/s1234567h pwd/PASSWORD` +
+Example: `superuser n/John Doe ic/s1234567h pwd/888888`
 
 
 === Check in/out working hours: `check`
@@ -293,18 +307,18 @@ Date should be in the format DDMMYY
 
 === Access payroll: `payroll`
 List payroll of the employee. +
-Format: `payroll n/NAME ic/NRIC pass/PASSWORD` +
-Example: `payroll n/John Doe ic/s1234567h pass/NeUeR2018`
+Format: `payroll n/NAME ic/NRIC pwd/PASSWORD` +
+Example: `payroll n/John Doe ic/s1234567h pwd/NeUeR2018`
 
 === Check off days: `checkoffstatus`
 Checks the number of off days available and off application status for an employee. +
-Format: `checkoffstatus ic/NRIC pass/PASSWORD` +
-Example: `checkoffstatis ic/S9486222J pass/NeUeR2018`
+Format: `checkoffstatus ic/NRIC pwd/PASSWORD` +
+Example: `checkoffstatis ic/S9486222J pwd/NeUeR2018`
 
 === Apply off days: `applyoff`
 Apply off days for employee. +
-Format: `applyoff n/NAME ic/NRIC pass/PASSWORD date/DATE` +
-Example: `applyoff n/John Doe ic/s123457h pass/NeUeR2018 date/080818` +
+Format: `applyoff n/NAME ic/NRIC pwd/PASSWORD date/DATE` +
+Example: `applyoff n/John Doe ic/s123457h pwd/NeUeR2018 date/080818` +
 ====
 Apply off day for John Doe on the 8th of August 2018 (DDMMYY).
 ====
@@ -377,13 +391,13 @@ _{explain how the user can enable/disable data encryption}_
 •	*Help*: `help`
 •	*Check in/out working hours*: `check n/NAME ic/NRIC mode/IN-OUT`
 •	*List schedule*: `schedule n/NAME ic/NRIC`
-•	*Access payroll*: `payroll n/NAME ic/NRIC pass/PASSWORD`
-•	*Apply off days*: `applyoff n/NAME ic/NRIC pass/PASSWORD date/DATE`
-•	*Edit particulars*: `edit n/NAME ic/NRIC pass/PASSWORD [en/NAME] [ep/PHONE] [ee/EMAIL] [ea/ADDRESS]....`
+•	*Access payroll*: `payroll n/NAME ic/NRIC pwd/PASSWORD`
+•	*Apply off days*: `applyoff n/NAME ic/NRIC pwd/PASSWORD date/DATE`
+•	*Edit particulars*: `edit n/NAME ic/NRIC pwd/PASSWORD [en/NAME] [ep/PHONE] [ee/EMAIL] [ea/ADDRESS]....`
 •	*Add employee*: `add n/NAME ic/s1234567h p/PHONE NUMBER e/EMAIL a/ADDRESS`
 •	*Setting password*: `setpass n/NAME ic/s1234567h sp/PASSWORD`
 •	*Find employee*: `find KEYWORD [MORE_KEYWORDS]`
-•	*Switch to superuser*: `superuser n/NAME ic/s1234567h pass/PASSWORD`
+•	*Switch to superuser*: `superuser n/NAME ic/s1234567h pwd/PASSWORD`
 •	*Approve/Reject off request*: `request ic/s1234567a mode/approve (3)`
 •	*Sort address book contacts*: `sort`
 •	*Deleting employee*: `delete INDEX [MORE_INDEX]`
