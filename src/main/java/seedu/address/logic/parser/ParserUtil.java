@@ -1,6 +1,7 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -19,6 +20,10 @@ import seedu.address.model.person.Name;
 import seedu.address.model.person.Nric;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.password.Password;
+import seedu.address.model.schedule.Schedule;
+import seedu.address.model.schedule.TimeEnd;
+import seedu.address.model.schedule.TimeStart;
+import seedu.address.model.schedule.Venue;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -214,5 +219,46 @@ public class ParserUtil {
             throw new ParseException(Password.MESSAGE_PASSWORD_CONSTRAINTS);
         }
         return new Password(trimmedPassword);
+    }
+
+    /**
+     * Parses a {@code String timeStart}, {@code String timeEnd}, {@code String venue} into a {@code Schedule}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     */
+    public static Schedule parseSchedule(String timeStart, String timeEnd, String venue) throws ParseException {
+        requireAllNonNull(timeStart, timeEnd, venue);
+
+        String trimmedTimeStart = timeStart.trim();
+        if (!TimeStart.isValidTimeStart(timeStart)) {
+            throw new ParseException(TimeStart.MESSAGE_TIME_START_CONSTRAINTS);
+        }
+        TimeStart start = new TimeStart(trimmedTimeStart);
+
+        String trimmedTimeEnd = timeEnd.trim();
+        if (!TimeEnd.isValidTimeEnd(timeEnd)) {
+            throw new ParseException(TimeEnd.MESSAGE_TIME_END_CONSTRAINTS);
+        }
+        TimeEnd end = new TimeEnd(trimmedTimeEnd);
+
+        String trimmedVenue = venue.trim();
+        if (!Venue.isValidVenue(venue)) {
+            throw new ParseException(Venue.MESSAGE_VENUE_CONSTRAINTS);
+        }
+        Venue place = new Venue(trimmedVenue);
+
+        return new Schedule(start, end, place);
+    }
+
+    /**
+     * Parses {@code Collection<String> schedules} into a {@code Set<Schedule>}.
+     */
+    public static Set<Schedule> parseSchedules(Collection<String> schedules) throws ParseException {
+        requireNonNull(schedules);
+        final Set<Schedule> scheduleSet = new HashSet<>();
+        for (String schedule : schedules) {
+            scheduleSet.add(parseSchedule(schedule, schedule, schedule));
+        }
+        return scheduleSet;
     }
 }

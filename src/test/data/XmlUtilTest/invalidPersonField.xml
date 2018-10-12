@@ -8,5 +8,10 @@
     <email>hans@example</email>
     <department>Junior Management</department>
     <address>4th street</address>
+	<schedule>
+        <venue>Level2</venue>
+        <startTime>1100</startTime>
+        <endTime>1500</endTime>
+    </schedule>
     <tagged>friends</tagged>
 </person>

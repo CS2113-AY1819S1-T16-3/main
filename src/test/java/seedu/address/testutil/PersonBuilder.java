@@ -11,6 +11,7 @@ import seedu.address.model.person.Nric;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.password.Password;
+import seedu.address.model.schedule.Schedule;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
@@ -35,6 +36,7 @@ public class PersonBuilder {
     private Department department;
     private Address address;
     private Set<Tag> tags;
+    private Set<Schedule> schedules;
 
     public PersonBuilder() {
         name = new Name(DEFAULT_NAME);
@@ -45,6 +47,7 @@ public class PersonBuilder {
         department = new Department(DEFAULT_DEPARTMENT);
         address = new Address(DEFAULT_ADDRESS);
         tags = new HashSet<>();
+        schedules = new HashSet<>();
     }
 
     /**
@@ -59,6 +62,7 @@ public class PersonBuilder {
         department = personToCopy.getDepartment();
         address = personToCopy.getAddress();
         tags = new HashSet<>(personToCopy.getTags());
+        schedules = new HashSet<>(personToCopy.getSchedule());
     }
 
     /**

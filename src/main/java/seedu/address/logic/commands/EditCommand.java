@@ -29,6 +29,7 @@ import seedu.address.model.person.Nric;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.password.Password;
+import seedu.address.model.schedule.Schedule;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -101,11 +102,12 @@ public class EditCommand extends Command {
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Department updatedDepartment = editPersonDescriptor.getDepartment().orElse(personToEdit.getDepartment());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
+        Set<Schedule> updatedSchedule = editPersonDescriptor.getSchedule().orElse(personToEdit.getSchedule());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
         return new Person(updatedName, personToEdit.getNric(),
                 personToEdit.getPassword(), updatedPhone, updatedEmail, updatedDepartment,
-                          updatedAddress, updatedTags);
+                          updatedAddress, updatedTags, updatedSchedule);
     }
 
     @Override
@@ -138,6 +140,7 @@ public class EditCommand extends Command {
         private Email email;
         private Department department;
         private Address address;
+        private Set<Schedule> schedules;
         private Set<Tag> tags;
 
         public EditPersonDescriptor() {}
@@ -148,19 +151,19 @@ public class EditCommand extends Command {
          */
         public EditPersonDescriptor(EditPersonDescriptor toCopy) {
             setName(toCopy.name);
-
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
             setDepartment(toCopy.department);
             setAddress(toCopy.address);
             setTags(toCopy.tags);
+            setSchedule(toCopy.schedules);
         }
 
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, department, address, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, department, address, tags, schedules);
         }
 
         public void setName(Name name) {
@@ -211,6 +214,14 @@ public class EditCommand extends Command {
             return Optional.ofNullable(address);
         }
 
+        public void setSchedule(Set<Schedule> schedules) {
+            this.schedules = (schedules != null) ? new HashSet<>(schedules) : null;
+        }
+
+        public Optional<Set<Schedule>> getSchedule() {
+            return (schedules != null) ? Optional.of(Collections.unmodifiableSet(schedules)) : Optional.empty();
+        }
+
         /**
          * Sets {@code tags} to this object's {@code tags}.
          * A defensive copy of {@code tags} is used internally.
@@ -248,6 +259,7 @@ public class EditCommand extends Command {
                     && getEmail().equals(e.getEmail())
                     && getDepartment().equals(e.getDepartment())
                     && getAddress().equals(e.getAddress())
+                    && getSchedule().equals(e.getSchedule())
                     && getTags().equals(e.getTags());
         }
     }

@@ -32,9 +32,6 @@ public class SessionManager {
      * Reutrns true if user is logged in to the application.
      */
     public static boolean isLoggedIn() {
-        if (loggedInNric == null) {
-            return false;
-        }
-        return true;
+        return loggedInNric != null;
     }
 }

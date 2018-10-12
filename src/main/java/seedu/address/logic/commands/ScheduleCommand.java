@@ -2,12 +2,14 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.util.List;
 
+import seedu.address.commons.core.Messages;
+import seedu.address.commons.core.index.Index;
 import seedu.address.logic.CommandHistory;
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.person.Person;
 
 /**
  * List schedule of a person in the address book to the user.
@@ -20,22 +22,28 @@ public class ScheduleCommand extends Command {
             + "Parameters: INDEX (must be a positive integer)";
 
     public static final String MESSAGE_SCHEDULE_SUCCESS = "Listed Schedule:";
-    public static final String MESSAGE_SCHEDULE_FAIL = "Person not found in address book.";
+    public static final String MESSAGE_SCHEDULE_FAIL = "Schedule Command Failed.";
 
-    private static final String FILE_PATH = "data\\schedule.txt";
+    private final Index index;
+
+    public ScheduleCommand(Index index) {
+        requireNonNull(index);
+
+        this.index = index;
+    }
 
     @Override
-    public CommandResult execute(Model model, CommandHistory history) {
-        File file = new File(FILE_PATH);
+    public CommandResult execute(Model model, CommandHistory history) throws CommandException {
+        requireNonNull(model);
 
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
+        List<Person> lastShownList = model.getFilteredPersonList();
 
-            String st = br.readLine();
-            requireNonNull(model);
-            return new CommandResult(MESSAGE_SCHEDULE_SUCCESS + "\n" + st);
-        } catch (Exception e) {
-            return new CommandResult(MESSAGE_SCHEDULE_FAIL);
+        if (index.getZeroBased() >= lastShownList.size()) {
+            throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
+
+        String schedule = lastShownList.get(index.getZeroBased()).getSchedule().toString();
+
+        return new CommandResult(MESSAGE_SCHEDULE_SUCCESS + " " + schedule);
     }
 }

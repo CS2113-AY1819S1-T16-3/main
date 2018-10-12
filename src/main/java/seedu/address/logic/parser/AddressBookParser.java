@@ -92,7 +92,7 @@ public class AddressBookParser {
             return new RedoCommand();
 
         case ScheduleCommand.COMMAND_WORD:
-            return new ScheduleCommand();
+            return new ScheduleCommandParser().parse(arguments);
 
         case SetScheduleCommand.COMMAND_WORD:
             return new SetScheduleCommandParser().parse(arguments);

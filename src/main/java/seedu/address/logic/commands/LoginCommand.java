@@ -61,11 +61,7 @@ public class LoginCommand extends Command {
 
         for (Person currPerson : allPersonsList) {
             if ((currPerson.getNric()).toString().equals(loginNric.toString())) {
-                if ((currPerson.getPassword()).toString().equals(loginPassword.toString())) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return (currPerson.getPassword()).toString().equals(loginPassword.toString());
             }
         }
 
