@@ -18,29 +18,32 @@
 <li><a href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></li>
 <li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
 <li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#sort-address-book-contacts-sort">3.6. Sort address book contacts: sort</a></li>
+<li><a href="#sort-address-book-contacts-code-sort-code">3.6. Sort address book contacts: <code>sort</code></a></li>
 <li><a href="#deleting-a-person-code-delete-code">3.7. Deleting a person : <code>delete</code></a></li>
 <li><a href="#selecting-a-person-code-select-code">3.8. Selecting a person : <code>select</code></a></li>
 <li><a href="#listing-entered-commands-code-history-code">3.9. Listing entered commands : <code>history</code></a></li>
 <li><a href="#undoing-previous-command-code-undo-code">3.10. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#setting-password-code-setpass-code">3.11. Setting password: <code>setpass</code></a></li>
-<li><a href="#switch-to-superuser-code-superuser-code">3.12. Switch to superuser: <code>superuser</code></a></li>
-<li><a href="#check-in-out-working-hours-code-check-code">3.13. Check in/out working hours: <code>check</code></a></li>
-<li><a href="#list-schedule-code-schedule-code">3.14. List schedule: <code>schedule</code></a></li>
-<li><a href="#list-schedule-code-setschedule-code">3.15. List schedule: <code>setschedule</code></a></li>
-<li><a href="#access-payroll-code-payroll-code">3.16. Access payroll: <code>payroll</code></a></li>
-<li><a href="#check-off-days-code-checkoffstatus-code">3.17. Check off days: <code>checkoffstatus</code></a></li>
-<li><a href="#apply-off-days-code-applyoff-code">3.18. Apply off days: <code>applyoff</code></a></li>
-<li><a href="#superuser-approve-reject-off-request-code-request-code">3.19. [SUPERUSER] Approve/Reject off request: <code>request</code></a></li>
-<li><a href="#change-priority-level-of-employee-code-priority-code">3.20. Change priority level of employee: <code>priority</code></a></li>
-<li><a href="#restrict-access-to-bankab-code-restrict-code">3.21. Restrict access to BankAB : <code>restrict</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.22. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.23. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.24. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.11. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#login-to-the-application-code-login-code">3.12. Login to the application: <code>login</code></a></li>
+<li><a href="#checks-the-login-status-of-the-application-code-checkloginstatus-code">3.13. Checks the login status of the application: <code>checkloginstatus</code></a></li>
+<li><a href="#logout-of-the-application-code-logout-code">3.14. Logout of the application: <code>logout</code></a></li>
+<li><a href="#check-in-out-working-hours-code-check-code">3.15. Check in/out working hours: <code>check</code></a></li>
+<li><a href="#list-schedule-code-schedule-code">3.16. List schedule: <code>schedule</code></a></li>
+<li><a href="#list-schedule-code-setschedule-code">3.17. List schedule: <code>setschedule</code></a></li>
+<li><a href="#access-payroll-code-payroll-code">3.18. Access payroll: <code>payroll</code></a></li>
+<li><a href="#check-off-days-code-checkoffstatus-code">3.19. Check off days: <code>checkoffstatus</code></a></li>
+<li><a href="#apply-off-days-code-applyoff-code">3.20. Apply off days: <code>applyoff</code></a></li>
+<li><a href="#approve-reject-off-request-code-request-code">3.21. Approve/Reject off request: <code>request</code></a></li>
+<li><a href="#change-priority-level-of-employee-code-setplvl-code">3.22. Change priority level of employee: <code>setplvl</code></a></li>
+<li><a href="#restrict-access-to-bankab-code-restrict-code">3.23. Restrict access to BankAB : <code>restrict</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.24. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.25. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.26. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
 <li><a href="#command-summary">5. Command Summary</a></li>
+<li><a href="#appendix-a-list-of-prefixes-in-the-application">6. Appendix A: List of prefixes in the application</a></li>
 </ul>
 </div>
 </div>
@@ -145,9 +148,30 @@ e.g.: Specifying parameters in the order ic/NRIC n/NAME is identical to n/NAME i
 </div>
 <div class="sect2">
 <h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Refer to <a href="#appendix-a-list-of-prefixes-in-the-application">Appendix A</a> for the list of prefixes and its' constraints.</p>
+</li>
+<li>
+<p>This operation requires administrator priviledge to perform.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Adds an employee to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL d/DEPARTMENT a/ADDRESS ic/NRIC pwd/PASSWORD [plvl/PRIORITY_LEVEL] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -156,7 +180,16 @@ Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;<
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A person can have any number of tags (including 0)
+<div class="ulist">
+<ul>
+<li>
+<p>A person can have any number of tags (including 0)<br></p>
+</li>
+<li>
+<p>Priority level will be set to BASIC if left empty.</p>
+</li>
+</ul>
+</div>
 </td>
 </tr>
 </table>
@@ -167,10 +200,13 @@ A person can have any number of tags (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
+<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 d/Legal Services ic/T0249855I
+pwd/9EwciT plvl/1</code></p>
 </li>
 <li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
+<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 d/Rehabilitation Management
+t/criminal
+ic/S1875858E pwd/Fed528F</code></p>
 </li>
 </ul>
 </div>
@@ -186,8 +222,7 @@ Format: <code>list</code></p>
 <h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Edits the existing particulars of the logged in user.<br>
-Format (DEPRECATED): <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
-Format: <code>edit n/NAME ic/NRIC pass/PASSWORD [en/NAME] [ep/PHONE] [ee/EMAIL] [ea/ADDRESS]&#8230;&#8203;.</code></p>
+Format : <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [d/DEPARTMENT] [t/TAG]&#8230;&#8203;</code><br></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -208,45 +243,30 @@ Format: <code>edit n/NAME ic/NRIC pass/PASSWORD [en/NAME] [ep/PHONE] [ee/EMAIL] 
 <li>
 <p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
 </li>
+<li>
+<p>You are able to edit the following fields for this command: -</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Name: n/NAME</p>
+</li>
+<li>
+<p>Address: a/ADDRESS</p>
+</li>
+<li>
+<p>Phone: p/PHONE_NUMBER</p>
+</li>
+<li>
+<p>Department: d/DEPARTMENT</p>
+</li>
+<li>
+<p>Tag(s): t/TAG1 t/TAG2 &#8230;&#8203;</p>
+</li>
 </ul>
 </div>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 1. List of parameters</caption>
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter name</th>
-<th class="tableblock halign-left valign-top">Format</th>
-<th class="tableblock halign-left valign-top">Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">n/NAME</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">n/Lewis</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Phone number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ep/PHONE</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ep/96549950</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Email address</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ee/EMAIL</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ee/lewis@hotmail.com</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Address</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ea/ADDRESS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ea/Blk 26, Tiong Bahru Rd #19-22, s(190026)</p></td>
-</tr>
-</tbody>
-</table>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -255,12 +275,12 @@ Format: <code>edit n/NAME ic/NRIC pass/PASSWORD [en/NAME] [ep/PHONE] [ee/EMAIL] 
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit n/John Doe ic/s1234567h pass/NeUeR2018 ep/91234567 ee/johndoe@example.com</code><br>
-Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+<p><code>edit 2 p/91234567 e/johndoe@example.com</code><br>
+Set the second person listed in the address book to the aforementioned email and phone number, and also clears tags if any.<br></p>
 </li>
 <li>
-<p><code>edit n/John Doe2 ic/s1234567h pass/NeUeR2018 en/John Doe</code><br>
-Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
+<p><code>edit 3 t/friend t/lecturer n/John Doe</code><br>
+Changes the name of the third person in the address book to by John Doe; clears all tag and sets the two aforementioned tags.<br></p>
 </li>
 </ul>
 </div>
@@ -327,7 +347,7 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sort-address-book-contacts-sort"><a class="link" href="#sort-address-book-contacts-sort">3.6. Sort address book contacts: sort</a></h3>
+<h3 id="sort-address-book-contacts-code-sort-code"><a class="link" href="#sort-address-book-contacts-code-sort-code">3.6. Sort address book contacts: <code>sort</code></a></h3>
 <div class="paragraph">
 <p>Shows the sorted list of the employees in the address book.<br>
 Format: <code>sort</code></p>
@@ -335,6 +355,20 @@ Format: <code>sort</code></p>
 </div>
 <div class="sect2">
 <h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.7. Deleting a person : <code>delete</code></a></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This operation requires administrator priviledge to perform.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Deletes the specified person from the address book.<br>
 Format: <code>delete INDEX [MORE_INDEX]&#8230;&#8203;</code></p>
@@ -482,45 +516,60 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="setting-password-code-setpass-code"><a class="link" href="#setting-password-code-setpass-code">3.11. Setting password: <code>setpass</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.11. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
-<p>Set password for employee on the address book.<br>
-Format: <code>setpass n/NAME ic/s1234567h sp/PASSWORD</code><br></p>
+<p>Reverses the most recent <code>undo</code> command.<br>
+Format: <code>redo</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The password is case sensitive.<br></p>
+<p><code>delete 1</code><br>
+<code>undo</code> (reverses the <code>delete 1</code> command)<br>
+<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
 </li>
 <li>
-<p>Password length is limited to 15 characters.<br></p>
+<p><code>delete 1</code><br>
+<code>redo</code><br>
+The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
 </li>
 <li>
-<p>Password must include both upper-case and lower-case letters and inclusion of one or more numerical digits.<br></p>
-</li>
-<li>
-<p>Example: <code>setpass n/John Doe ic/s1234567h sp/PaS88od</code><br></p>
+<p><code>delete 1</code><br>
+<code>clear</code><br>
+<code>undo</code> (reverses the <code>clear</code> command)<br>
+<code>undo</code> (reverses the <code>delete 1</code> command)<br>
+<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
+<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
 </li>
 </ul>
 </div>
-<div class="exampleblock">
-<div class="content">
+</div>
+<div class="sect2">
+<h3 id="login-to-the-application-code-login-code"><a class="link" href="#login-to-the-application-code-login-code">3.12. Login to the application: <code>login</code></a></h3>
 <div class="paragraph">
-<p>Sets PaS88of as a password for John Doe.</p>
-</div>
-</div>
+<p>Logs in to the application using a registered NRIC and password.<br>
+Format: <code>login ic/NRIC pwd/PASSWORD</code><br>
+Example: <code>login ic/T1234567U pwd/NeUeR2018</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="switch-to-superuser-code-superuser-code"><a class="link" href="#switch-to-superuser-code-superuser-code">3.12. Switch to superuser: <code>superuser</code></a></h3>
+<h3 id="checks-the-login-status-of-the-application-code-checkloginstatus-code"><a class="link" href="#checks-the-login-status-of-the-application-code-checkloginstatus-code">3.13. Checks the login status of the application: <code>checkloginstatus</code></a></h3>
 <div class="paragraph">
-<p>Switch to superuser profile to use ‘superuser’ commands<br>
-Format: <code>superuser n/NAME ic/s1234567h pass/PASSWORD</code><br>
-Example: <code>superuser n/John Doe ic/s1234567h pass/888888</code></p>
+<p>Prints whether this application is logged in.<br>
+Also prints the logged in NRIC if logged in.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="check-in-out-working-hours-code-check-code"><a class="link" href="#check-in-out-working-hours-code-check-code">3.13. Check in/out working hours: <code>check</code></a></h3>
+<h3 id="logout-of-the-application-code-logout-code"><a class="link" href="#logout-of-the-application-code-logout-code">3.14. Logout of the application: <code>logout</code></a></h3>
+<div class="paragraph">
+<p>Logs out of the application, allowing for other users to log in again.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="check-in-out-working-hours-code-check-code"><a class="link" href="#check-in-out-working-hours-code-check-code">3.15. Check in/out working hours: <code>check</code></a></h3>
 <div class="paragraph">
 <p>Updates check in/out timings for employee.<br>
 Format: <code>check n/NAME ic/NRIC mode/IN-OUT</code><br>
@@ -538,7 +587,7 @@ Examples: -<br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-schedule-code-schedule-code"><a class="link" href="#list-schedule-code-schedule-code">3.14. List schedule: <code>schedule</code></a></h3>
+<h3 id="list-schedule-code-schedule-code"><a class="link" href="#list-schedule-code-schedule-code">3.16. List schedule: <code>schedule</code></a></h3>
 <div class="paragraph">
 <p>List schedule for the employee.<br>
 Format: <code>schedule n/NAME ic/NRIC</code><br>
@@ -546,7 +595,7 @@ Examples: <code>schedule n/John Doe ic/s1234567h</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-schedule-code-setschedule-code"><a class="link" href="#list-schedule-code-setschedule-code">3.15. List schedule: <code>setschedule</code></a></h3>
+<h3 id="list-schedule-code-setschedule-code"><a class="link" href="#list-schedule-code-setschedule-code">3.17. List schedule: <code>setschedule</code></a></h3>
 <div class="paragraph">
 <p>Set schedule of the employee. This Requires superuser level 1.<br>
 Format: <code>setschedule n/NAME ic/NRIC start/DATE end/DATE place/VENUE</code><br>
@@ -568,7 +617,7 @@ Example: <code>setschedule n/John Doe ic/s1234567h start/110918 end/301018 place
 </div>
 </div>
 <div class="sect2">
-<h3 id="access-payroll-code-payroll-code"><a class="link" href="#access-payroll-code-payroll-code">3.16. Access payroll: <code>payroll</code></a></h3>
+<h3 id="access-payroll-code-payroll-code"><a class="link" href="#access-payroll-code-payroll-code">3.18. Access payroll: <code>payroll</code></a></h3>
 <div class="paragraph">
 <p>List payroll of the employee.<br>
 Format: <code>payroll n/NAME ic/NRIC pass/PASSWORD</code><br>
@@ -576,7 +625,7 @@ Example: <code>payroll n/John Doe ic/s1234567h pass/NeUeR2018</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="check-off-days-code-checkoffstatus-code"><a class="link" href="#check-off-days-code-checkoffstatus-code">3.17. Check off days: <code>checkoffstatus</code></a></h3>
+<h3 id="check-off-days-code-checkoffstatus-code"><a class="link" href="#check-off-days-code-checkoffstatus-code">3.19. Check off days: <code>checkoffstatus</code></a></h3>
 <div class="paragraph">
 <p>Checks the number of off days available and off application status for an employee.<br>
 Format: <code>checkoffstatus ic/NRIC pass/PASSWORD</code><br>
@@ -584,7 +633,7 @@ Example: <code>checkoffstatis ic/S9486222J pass/NeUeR2018</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="apply-off-days-code-applyoff-code"><a class="link" href="#apply-off-days-code-applyoff-code">3.18. Apply off days: <code>applyoff</code></a></h3>
+<h3 id="apply-off-days-code-applyoff-code"><a class="link" href="#apply-off-days-code-applyoff-code">3.20. Apply off days: <code>applyoff</code></a></h3>
 <div class="paragraph">
 <p>Apply off days for employee.<br>
 Format: <code>applyoff n/NAME ic/NRIC pass/PASSWORD date/DATE</code><br>
@@ -599,7 +648,21 @@ Example: <code>applyoff n/John Doe ic/s123457h pass/NeUeR2018 date/080818</code>
 </div>
 </div>
 <div class="sect2">
-<h3 id="superuser-approve-reject-off-request-code-request-code"><a class="link" href="#superuser-approve-reject-off-request-code-request-code">3.19. [SUPERUSER] Approve/Reject off request: <code>request</code></a></h3>
+<h3 id="approve-reject-off-request-code-request-code"><a class="link" href="#approve-reject-off-request-code-request-code">3.21. Approve/Reject off request: <code>request</code></a></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This operation requires a priority level of MANAGER to execute.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Approve or reject off day request applied by employees.
 Format: request [ic/NRIC] [mode/APPROVE/REJECT (INDEX)]</p>
@@ -668,60 +731,72 @@ Format: request [ic/NRIC] [mode/APPROVE/REJECT (INDEX)]</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="change-priority-level-of-employee-code-priority-code"><a class="link" href="#change-priority-level-of-employee-code-priority-code">3.20. Change priority level of employee: <code>priority</code></a></h3>
-<div class="paragraph">
-<p>Change priority level of employee.<br>
-Format: <code>priority ic/NRIC superuser/LEVEL</code><br></p>
-</div>
-<div class="exampleblock">
-<div class="content">
+<h3 id="change-priority-level-of-employee-code-setplvl-code"><a class="link" href="#change-priority-level-of-employee-code-setplvl-code">3.22. Change priority level of employee: <code>setplvl</code></a></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Command only available for superuser level 3 and above.</p>
+<p>This operations requires administrator priviledge to perform.</p>
 </li>
 <li>
-<p>LEVEL field must be integers 1, 2, 3.</p>
+<p>Refer to the Priority level section in Appendix A for the appropriate input value.</p>
 </li>
 </ul>
 </div>
-</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Example: <code>priority ic/s1234567a superuser/2</code></p>
+<p>Sets the priority level of an employee.<br>
+Format: <code>priority ic/NRIC superuser/LEVEL</code><br>
+Example: <code>priority ic/s1234567a superuser/2</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="restrict-access-to-bankab-code-restrict-code"><a class="link" href="#restrict-access-to-bankab-code-restrict-code">3.21. Restrict access to BankAB : <code>restrict</code></a></h3>
+<h3 id="restrict-access-to-bankab-code-restrict-code"><a class="link" href="#restrict-access-to-bankab-code-restrict-code">3.23. Restrict access to BankAB : <code>restrict</code></a></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This operation requires those with priviledge of <code>I.T. Unit</code> to perform.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Restrict access to BankAB for maintenance to all employees except superusers level 4 (Technicians).
 Anyone below superuser level 4 priority will not be able to log into the application.<br>
 Format: <code>restrict</code></p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>Command only available for superuser level 4.</p>
-</div>
-</div>
-</div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.22. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.24. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.23. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.25. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.24. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.26. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -758,19 +833,17 @@ There is no need to save manually.</p>
 <p><strong>Apply off days</strong>: <code>applyoff n/NAME ic/NRIC pass/PASSWORD date/DATE</code></p>
 </li>
 <li>
-<p><strong>Edit particulars</strong>: <code>edit n/NAME ic/NRIC pass/PASSWORD [en/NAME] [ep/PHONE] [ee/EMAIL] [ea/ADDRESS]&#8230;&#8203;.</code></p>
+<p><strong>Edit particulars</strong>: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]&#8230;&#8203;.</code></p>
 </li>
 <li>
-<p><strong>Add employee</strong>: <code>add n/NAME ic/s1234567h p/PHONE NUMBER e/EMAIL a/ADDRESS</code></p>
+<p><strong>Set priority level</strong>: <code>setplvl INDEX plvl/PRIORITY_LEVEL</code></p>
 </li>
 <li>
-<p><strong>Setting password</strong>: <code>setpass n/NAME ic/s1234567h sp/PASSWORD</code></p>
+<p><strong>Add employee</strong>: <code>add n/NAME p/PHONE NUMBER e/EMAIL a/ADDRESS ic/NRIC pwd/PASSWORD d/DEPARTMENT
+[plvl/PRIORITY_LEVEL] [t/TAGS]&#8230;&#8203;</code></p>
 </li>
 <li>
 <p><strong>Find employee</strong>: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
-</li>
-<li>
-<p><strong>Switch to superuser</strong>: <code>superuser n/NAME ic/s1234567h pass/PASSWORD</code></p>
 </li>
 <li>
 <p><strong>Approve/Reject off request</strong>: <code>request ic/s1234567a mode/approve (3)</code></p>
@@ -782,12 +855,95 @@ There is no need to save manually.</p>
 <p><strong>Deleting employee</strong>: <code>delete INDEX [MORE_INDEX]</code></p>
 </li>
 <li>
-<p><strong>Change priority level of employee</strong>: <code>priority ic/NRIC superuser/LEVEL</code></p>
-</li>
-<li>
-<p><strong>Restrict access to BankAB</strong>: <code>restrict</code></p>
+<p><strong>Change priority level of employee</strong>: <code>setplvl ic/NRIC plvl//LEVEL</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-13 12:42:19 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="appendix-a-list-of-prefixes-in-the-application"><a class="link" href="#appendix-a-list-of-prefixes-in-the-application">6. Appendix A: List of prefixes in the application</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. List of prefixes</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter name</th>
+<th class="tableblock halign-left valign-top">Prefix</th>
+<th class="tableblock halign-left valign-top">Constraints</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">n/NAME</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name must be alphabetical</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">n/Lewis Hamilton</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a/ADDRESS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a/Blk 25, Ang Mo Kio Street 23 #04-21, s(630025)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Phone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">p/PHONE_NUMBER</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Phone numbers should contain only numbers, and should have at least three digits.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">p/81667800</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Email</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e/EMAIL_ADDRESS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Emails should be of the format local-part@domain, and also satisfy the following requirements: -<br>
+    1) "local-part" should contain only alphanumeric characters and an underscore '_'<br>
+    2) "domain" can consist of alphanumeric characters, a period, or hyphen, but should start and end with only
+    alphanumeric characters.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e/jarvin@eltech.com</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NRIC Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ic/NRIC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NRIC should start with a character [S, T, F, G], followed by a seven-digit number, and ending with a upper-case
+alphabet.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ic/S9203948E</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pwd/PASSWORD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password should be alphanumeric and should contain at least five characters</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pwd/NeUeR2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Priority Level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">plvl/PRIORITY_LEVEL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Priority Level should be a number respective to the following classification: -<br>
+[0] I.T. Unit<br>
+[1] Administrator<br>
+[2] Manager<br>
+[3] Basic</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">plvl/2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tag(s)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">t/TAG1 t/TAG2 &#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tag names should be alphanumeric</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">t/Admin t/Boss t/OweMeMoney</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Department</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">d/DEPARTMENT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Department should contain alphanumeric characters, and may contain spaces.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">d/Legal Services</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-13 13:39:21 UTC</div></div></div></body></html>
