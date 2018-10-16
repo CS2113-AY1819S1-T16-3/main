@@ -30,9 +30,10 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#filterdepartment-feature">3.2. FilterDepartment feature</a></li>
+<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.4. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -805,20 +806,57 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
+<h3 id="filterdepartment-feature"><a class="link" href="#filterdepartment-feature">3.2. FilterDepartment feature</a></h3>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">3.2.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>filterdepartment</code> is a command that filters out department to list a particular department employee&#8217;s list.
+The <code>filterdepartment</code> mechanism is facilitated by the <code>FilterDepartmentCommandParser</code>, which parses input arguments and creates a new <code>FilterDepartmentCommand</code> object.
+The <code>FilterDepartmentCommandParser</code>, which implements the <code>Parser</code> interface, parses the arguments inputted in to the CLI, and checks if the user input conforms the expected format.</p>
+</div>
+<div class="paragraph">
+<p>Code snippet from <code>FilterDepartmentCommandParser.java</code> that shows the parsing of arguments and checking for invalid arguments:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> FilterDepartmentCommand parse(<span class="predefined-type">String</span> args) <span class="directive">throws</span> <span class="exception">ParseException</span> {
+        <span class="predefined-type">String</span> trimmedArgs = args.trim();
+        trimmedArgs = trimmedArgs.toLowerCase();
+        <span class="keyword">if</span> (trimmedArgs.isEmpty() || trimmedArgs.contains(<span class="string"><span class="delimiter">&quot;</span><span class="content">management</span><span class="delimiter">&quot;</span></span>)) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="exception">ParseException</span>(
+                    <span class="predefined-type">String</span>.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterDepartmentCommand.MESSAGE_USAGE));
+        }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the second phase, the command is being executed in <code>FilterDepartmentCommand</code>. The updateFilteredPersonList updates the filteredPersonList with the departments that matches the keywords use as the argument in <code>FilterDepartmentCommand</code>.
+The result of <code>FilterDepartmentCommand</code> execution is encapsulated as a <code>CommandResult</code> object and returns it to the <code>LogicManager</code> and subsequently to the UI and display the filtered department employee&#8217;s list.</p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below demonstrates the interaction within the <code>Logic</code> component of <code>FilterDepartmentCommand</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FilterDepartmentCommandSequenceDiagram.png" alt="FilterDepartmentCommandSequenceDiagram" width="800">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -849,7 +887,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2017,19 +2055,19 @@ for <code>RemarkCommandParser</code>.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Access my payroll</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Calculate my incoming pay according to the number of hours I have worked easily</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Check my schedule</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Know where I am deployed for the day</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Check my notifications via CLI</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">View my notifications</p></td>
 </tr>
@@ -2071,21 +2109,21 @@ for <code>RemarkCommandParser</code>.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Elevated user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sort contacts by department</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allocate manpower accordingly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List the manpower for the day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allocate my manpower accordingly</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sort my address book by name/department</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort my address book by name and department</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Look for contacts that I want easily</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Filter and view my relevant colleague’s contact details</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Get in touch in them seamlessly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Filter out and view my relevant colleague’s contact details</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Spend less time searching for their contact details and contact them</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -2095,14 +2133,14 @@ for <code>RemarkCommandParser</code>.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">access my remaining off days</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Access my remaining off days</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Apply for my off</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">check in and out during my work days</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Check in and out during my work days</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">I will be able to view the number of hours I have worked for</p></td>
 </tr>
 <tr>
@@ -2154,7 +2192,7 @@ for <code>RemarkCommandParser</code>.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Quickly navigate around the address book</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">`*	`</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Deploy available cleaners</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Get the place cleaned up as soon as possible.</p></td>
@@ -3111,4 +3149,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-16 08:18:29 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-16 14:59:50 UTC</div></div></div></body></html>
