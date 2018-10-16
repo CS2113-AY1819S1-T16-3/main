@@ -22,24 +22,28 @@
 <li><a href="#filtering-department-code-filterdepartment-code">3.7. Filtering department : <code>filterdepartment</code></a></li>
 <li><a href="#deleting-a-person-code-delete-code">3.8. Deleting a person : <code>delete</code></a></li>
 <li><a href="#selecting-a-person-code-select-code">3.9. Selecting a person : <code>select</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.10. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.11. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.12. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#login-to-the-application-code-login-code">3.13. Login to the application: <code>login</code></a></li>
-<li><a href="#checks-the-login-status-of-the-application-code-checkloginstatus-code">3.14. Checks the login status of the application: <code>checkloginstatus</code></a></li>
-<li><a href="#logout-of-the-application-code-logout-code">3.15. Logout of the application: <code>logout</code></a></li>
-<li><a href="#check-in-out-working-hours-code-check-code">3.16. Check in/out working hours: <code>check</code></a></li>
-<li><a href="#list-schedule-code-schedule-code">3.17. List schedule: <code>schedule</code></a></li>
-<li><a href="#list-schedule-code-setschedule-code">3.18. List schedule: <code>setschedule</code></a></li>
-<li><a href="#access-payroll-code-payroll-code">3.19. Access payroll: <code>payroll</code></a></li>
-<li><a href="#check-off-days-code-checkoffstatus-code">3.20. Check off days: <code>checkoffstatus</code></a></li>
-<li><a href="#apply-off-days-code-applyoff-code">3.21. Apply off days: <code>applyoff</code></a></li>
-<li><a href="#approve-reject-off-request-code-request-code">3.22. Approve/Reject off request: <code>request</code></a></li>
-<li><a href="#change-priority-level-of-employee-code-setplvl-code">3.23. Change priority level of employee: <code>setplvl</code></a></li>
-<li><a href="#restrict-access-to-bankab-code-restrict-code">3.24. Restrict access to BankAB : <code>restrict</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.25. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.26. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.27. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#add-leave-application-code-leave-code">3.10. Add Leave application : <code>leave</code></a></li>
+<li><a href="#list-leave-application-code-listleave-code">3.11. List Leave application : <code>listleave</code></a></li>
+<li><a href="#filter-leave-application-code-filterleave-code">3.12. Filter Leave application : <code>filterleave</code></a></li>
+<li><a href="#delete-leave-application-code-deleteleave-code">3.13. Delete Leave application : <code>deleteleave</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.14. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.15. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.16. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#login-to-the-application-code-login-code">3.17. Login to the application: <code>login</code></a></li>
+<li><a href="#checks-the-login-status-of-the-application-code-checkloginstatus-code">3.18. Checks the login status of the application: <code>checkloginstatus</code></a></li>
+<li><a href="#logout-of-the-application-code-logout-code">3.19. Logout of the application: <code>logout</code></a></li>
+<li><a href="#check-in-out-working-hours-code-check-code">3.20. Check in/out working hours: <code>check</code></a></li>
+<li><a href="#list-schedule-code-schedule-code">3.21. List schedule: <code>schedule</code></a></li>
+<li><a href="#list-schedule-code-setschedule-code">3.22. List schedule: <code>setschedule</code></a></li>
+<li><a href="#access-payroll-code-payroll-code">3.23. Access payroll: <code>payroll</code></a></li>
+<li><a href="#check-off-days-code-checkoffstatus-code">3.24. Check off days: <code>checkoffstatus</code></a></li>
+<li><a href="#apply-off-days-code-applyoff-code">3.25. Apply off days: <code>applyoff</code></a></li>
+<li><a href="#approve-reject-off-request-code-request-code">3.26. Approve/Reject off request: <code>request</code></a></li>
+<li><a href="#change-priority-level-of-employee-code-setplvl-code">3.27. Change priority level of employee: <code>setplvl</code></a></li>
+<li><a href="#restrict-access-to-bankab-code-restrict-code">3.28. Restrict access to BankAB : <code>restrict</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.29. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.30. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.31. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -468,7 +472,7 @@ Alias: <code>fd</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>filter department junior senior</code></p>
+<p><code>filterdepartment junior senior</code></p>
 </li>
 </ul>
 </div>
@@ -577,7 +581,166 @@ Selects the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.10. Listing entered commands : <code>history</code></a></h3>
+<h3 id="add-leave-application-code-leave-code"><a class="link" href="#add-leave-application-code-leave-code">3.10. Add Leave application : <code>leave</code></a></h3>
+<div class="paragraph">
+<p>Add leave application of the user for approval.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>leave date/DATE</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Requires the user to log in before using the command.</p>
+</li>
+<li>
+<p>DATE must be in the format DD/MM/YYYY</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example: <code>leave date/20/03/2019</code></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Request leave application on 20/03/2019.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="list-leave-application-code-listleave-code"><a class="link" href="#list-leave-application-code-listleave-code">3.11. List Leave application : <code>listleave</code></a></h3>
+<div class="paragraph">
+<p>List out all leave application in the leave list.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>listleave</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="filter-leave-application-code-filterleave-code"><a class="link" href="#filter-leave-application-code-filterleave-code">3.12. Filter Leave application : <code>filterleave</code></a></h3>
+<div class="paragraph">
+<p>Filter leave applications based on NRIC.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>filterleave NRIC</code></p>
+</div>
+<div class="paragraph">
+<p>Alias: <code>fl NRIC</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Filter is case insensative eg. <code>s1234567a</code> matches <code>S1234567A</code></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:
+<code>fl S1213452A</code></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>List all leave application requested by the user with NRIC, 'S1213452A'.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="delete-leave-application-code-deleteleave-code"><a class="link" href="#delete-leave-application-code-deleteleave-code">3.13. Delete Leave application : <code>deleteleave</code></a></h3>
+<div class="paragraph">
+<p>Delete the specified leave from leave list.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Requires the user to log in before using the command.</p>
+</li>
+<li>
+<p>User can only delete leave application he/she requested.</p>
+</li>
+<li>
+<p>To delete other user&#8217;s application, requires adminstrator priviledge to perform.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>deleteleave INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the leave at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed leave list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:
+<code>deleteleave 2</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the leave applicarion with ID 2 in the leave list.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.14. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -598,7 +761,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.11. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.15. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -643,7 +806,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.12. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.16. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -675,7 +838,7 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="login-to-the-application-code-login-code"><a class="link" href="#login-to-the-application-code-login-code">3.13. Login to the application: <code>login</code></a></h3>
+<h3 id="login-to-the-application-code-login-code"><a class="link" href="#login-to-the-application-code-login-code">3.17. Login to the application: <code>login</code></a></h3>
 <div class="paragraph">
 <p>Logs in to the application using a registered NRIC and password.<br>
 Format: <code>login ic/NRIC pwd/PASSWORD</code><br>
@@ -683,20 +846,20 @@ Example: <code>login ic/T1234567U pwd/NeUeR2018</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="checks-the-login-status-of-the-application-code-checkloginstatus-code"><a class="link" href="#checks-the-login-status-of-the-application-code-checkloginstatus-code">3.14. Checks the login status of the application: <code>checkloginstatus</code></a></h3>
+<h3 id="checks-the-login-status-of-the-application-code-checkloginstatus-code"><a class="link" href="#checks-the-login-status-of-the-application-code-checkloginstatus-code">3.18. Checks the login status of the application: <code>checkloginstatus</code></a></h3>
 <div class="paragraph">
 <p>Prints whether this application is logged in.<br>
 Also prints the logged in NRIC if logged in.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logout-of-the-application-code-logout-code"><a class="link" href="#logout-of-the-application-code-logout-code">3.15. Logout of the application: <code>logout</code></a></h3>
+<h3 id="logout-of-the-application-code-logout-code"><a class="link" href="#logout-of-the-application-code-logout-code">3.19. Logout of the application: <code>logout</code></a></h3>
 <div class="paragraph">
 <p>Logs out of the application, allowing for other users to log in again.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="check-in-out-working-hours-code-check-code"><a class="link" href="#check-in-out-working-hours-code-check-code">3.16. Check in/out working hours: <code>check</code></a></h3>
+<h3 id="check-in-out-working-hours-code-check-code"><a class="link" href="#check-in-out-working-hours-code-check-code">3.20. Check in/out working hours: <code>check</code></a></h3>
 <div class="paragraph">
 <p>Updates check in/out timings for employee.<br>
 Format: <code>check n/NAME ic/NRIC mode/IN-OUT</code><br>
@@ -714,7 +877,7 @@ Examples: -<br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-schedule-code-schedule-code"><a class="link" href="#list-schedule-code-schedule-code">3.17. List schedule: <code>schedule</code></a></h3>
+<h3 id="list-schedule-code-schedule-code"><a class="link" href="#list-schedule-code-schedule-code">3.21. List schedule: <code>schedule</code></a></h3>
 <div class="paragraph">
 <p>List schedule for the employee.<br>
 Format: <code>schedule n/NAME ic/NRIC</code><br>
@@ -722,7 +885,7 @@ Examples: <code>schedule n/John Doe ic/s1234567h</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-schedule-code-setschedule-code"><a class="link" href="#list-schedule-code-setschedule-code">3.18. List schedule: <code>setschedule</code></a></h3>
+<h3 id="list-schedule-code-setschedule-code"><a class="link" href="#list-schedule-code-setschedule-code">3.22. List schedule: <code>setschedule</code></a></h3>
 <div class="paragraph">
 <p>Set schedule of the employee. This Requires superuser level 1.<br>
 Format: <code>setschedule n/NAME ic/NRIC start/DATE end/DATE place/VENUE</code><br>
@@ -744,7 +907,7 @@ Example: <code>setschedule n/John Doe ic/s1234567h start/110918 end/301018 place
 </div>
 </div>
 <div class="sect2">
-<h3 id="access-payroll-code-payroll-code"><a class="link" href="#access-payroll-code-payroll-code">3.19. Access payroll: <code>payroll</code></a></h3>
+<h3 id="access-payroll-code-payroll-code"><a class="link" href="#access-payroll-code-payroll-code">3.23. Access payroll: <code>payroll</code></a></h3>
 <div class="paragraph">
 <p>List payroll of the employee.<br>
 Format: <code>payroll n/NAME ic/NRIC pass/PASSWORD</code><br>
@@ -752,7 +915,7 @@ Example: <code>payroll n/John Doe ic/s1234567h pass/NeUeR2018</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="check-off-days-code-checkoffstatus-code"><a class="link" href="#check-off-days-code-checkoffstatus-code">3.20. Check off days: <code>checkoffstatus</code></a></h3>
+<h3 id="check-off-days-code-checkoffstatus-code"><a class="link" href="#check-off-days-code-checkoffstatus-code">3.24. Check off days: <code>checkoffstatus</code></a></h3>
 <div class="paragraph">
 <p>Checks the number of off days available and off application status for an employee.<br>
 Format: <code>checkoffstatus ic/NRIC pass/PASSWORD</code><br>
@@ -760,7 +923,7 @@ Example: <code>checkoffstatis ic/S9486222J pass/NeUeR2018</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="apply-off-days-code-applyoff-code"><a class="link" href="#apply-off-days-code-applyoff-code">3.21. Apply off days: <code>applyoff</code></a></h3>
+<h3 id="apply-off-days-code-applyoff-code"><a class="link" href="#apply-off-days-code-applyoff-code">3.25. Apply off days: <code>applyoff</code></a></h3>
 <div class="paragraph">
 <p>Apply off days for employee.<br>
 Format: <code>applyoff n/NAME ic/NRIC pass/PASSWORD date/DATE</code><br>
@@ -775,7 +938,7 @@ Example: <code>applyoff n/John Doe ic/s123457h pass/NeUeR2018 date/080818</code>
 </div>
 </div>
 <div class="sect2">
-<h3 id="approve-reject-off-request-code-request-code"><a class="link" href="#approve-reject-off-request-code-request-code">3.22. Approve/Reject off request: <code>request</code></a></h3>
+<h3 id="approve-reject-off-request-code-request-code"><a class="link" href="#approve-reject-off-request-code-request-code">3.26. Approve/Reject off request: <code>request</code></a></h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -858,7 +1021,7 @@ Format: request [ic/NRIC] [mode/APPROVE/REJECT (INDEX)]</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="change-priority-level-of-employee-code-setplvl-code"><a class="link" href="#change-priority-level-of-employee-code-setplvl-code">3.23. Change priority level of employee: <code>setplvl</code></a></h3>
+<h3 id="change-priority-level-of-employee-code-setplvl-code"><a class="link" href="#change-priority-level-of-employee-code-setplvl-code">3.27. Change priority level of employee: <code>setplvl</code></a></h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -887,7 +1050,7 @@ Example: <code>priority ic/s1234567a superuser/2</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="restrict-access-to-bankab-code-restrict-code"><a class="link" href="#restrict-access-to-bankab-code-restrict-code">3.24. Restrict access to BankAB : <code>restrict</code></a></h3>
+<h3 id="restrict-access-to-bankab-code-restrict-code"><a class="link" href="#restrict-access-to-bankab-code-restrict-code">3.28. Restrict access to BankAB : <code>restrict</code></a></h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -909,21 +1072,21 @@ Format: <code>restrict</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.25. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.29. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.26. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.30. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.27. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.31. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -985,7 +1148,19 @@ There is no need to save manually.</p>
 <p><strong>Deleting employee</strong>: <code>delete INDEX [MORE_INDEX]</code></p>
 </li>
 <li>
-<p><strong>Change priority level of employee</strong>: <code>setplvl ic/NRIC plvl//LEVEL</code></p>
+<p><strong>Change priority level of employee</strong>: <code>setplvl ic/NRIC plvl/LEVEL</code></p>
+</li>
+<li>
+<p><strong>Add leave application</strong>: <code>leave date/DATE</code></p>
+</li>
+<li>
+<p><strong>List all leave applications</strong>: <code>listleave</code></p>
+</li>
+<li>
+<p><strong>Filter leave applications</strong>: <code>filterleave NRIC</code></p>
+</li>
+<li>
+<p><strong>Delete leave application</strong>: <code>deleteleave INDEX</code></p>
 </li>
 </ul>
 </div>
@@ -1077,4 +1252,4 @@ Department names should start with a name, and ends with 'Management'.</p></td>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-16 14:59:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-16 16:47:19 UTC</div></div></div></body></html>
