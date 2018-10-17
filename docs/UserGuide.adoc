@@ -393,12 +393,12 @@ Logs out of the application, allowing for other users to log in again.
 
 
 === Check in/out working hours: `check`
-Updates check in/out timings for employee. +
-Format: `check n/NAME ic/NRIC mode/IN-OUT` +
-Examples: - +
+Updates check in/out timings for employees. +
+Format: `check ic/NRIC pwd/PASSWORD m/IN-OUT` +
+Examples: +
 
-* `check n/John Doe ic/s1234567h mode/in` +
-* `check n/Jane Doe ic/s7654327h mode/out`
+* `check ic/s1234567h pwd/Hello12 m/in` +
+* `check ic/s7654327h pwd/Hello12 m/out`
 
 === List schedule: `schedule`
 List schedule for the employee. +

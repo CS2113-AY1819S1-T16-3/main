@@ -415,6 +415,45 @@ The sequence diagram below demonstrates the interaction within the `Logic` compo
 image::FilterDepartmentCommandSequenceDiagram.png[width="800"]
 // end::filterdepartment[]
 
+// tag::checkinout[]
+=== Check in/out feature
+==== Current implementation
+
+The `checkCommand` is a command that allows employees to check in and out to work so that their working hours will be recorded according to the time they checked in/out and calculate their pay accordingly.
+
+The `checkCommand` mechanism is facilitated by the `AddressBookParser`, which parses the user input to identify the requested command and calls the particular command parser to deal with the input arguments.
+
+The `checkCommandParser`, which implements the `Parser` interface, parses the arguments inputted in to the CLI, and checks if the user input conforms the expected format.
+
+- Code snippet from `checkCommandParser.java` that shows the parsing of arguments， checking for invalid arguments and returning a checkCommand object:
+
+[source, java]
+----
+public CheckCommand parse(String args) throws ParseException {
+        requireNonNull(args);
+        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_NRIC, PREFIX_PASSWORD, PREFIX_MODE);
+
+        if (!arePrefixesPresent(argMultimap, PREFIX_NRIC, PREFIX_PASSWORD, PREFIX_MODE)
+            || !argMultimap.getPreamble().isEmpty()) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, CheckCommand.MESSAGE_USAGE));
+        }
+
+        String nric = argMultimap.getValue(PREFIX_NRIC).orElse("");
+        String password = argMultimap.getValue(PREFIX_PASSWORD).orElse("");
+        String mode = argMultimap.getValue(PREFIX_MODE).orElse("");
+
+        return new CheckCommand(nric, password, new Mode(mode));
+    }
+----
+
+In the second phase, the command is being executed in `checkCommand`.
+The result of `checkCommand` execution is encapsulated as a `CommandResult` object and returns it to the `LogicManager` and subsequently to the UI and display check in/out mode as one of the fields.
+
+The sequence diagram below demonstrates the interaction within the `Logic` component of `CheckCommand`:
+
+image::CheckCommandSequenceDiagram.png[width="800"]
+// end::checkinout[]
+
 // tag::dataencryption[]
 === [Proposed] Data Encryption
 
