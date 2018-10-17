@@ -724,7 +724,7 @@ Alias: <code>fl NRIC</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the leave applicarion with ID 2 in the leave list.</p>
+<p>Deletes the leave application with ID 2 in the leave list.</p>
 </li>
 </ul>
 </div>
@@ -871,31 +871,70 @@ Examples: -<br></p>
 <div class="sect2">
 <h3 id="list-schedule-code-schedule-code"><a class="link" href="#list-schedule-code-schedule-code">3.21. List schedule: <code>schedule</code></a></h3>
 <div class="paragraph">
-<p>List schedule for the employee.<br>
-Format: <code>schedule n/NAME ic/NRIC</code><br>
-Examples: <code>schedule n/John Doe ic/s1234567h</code></p>
+<p>List schedule for the employee.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>schedule INDEX</code><br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Shows schedule at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed leave list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples: <code>schedule 1</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Shows the schedule of person with ID 1 in the leave list.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="list-schedule-code-setschedule-code"><a class="link" href="#list-schedule-code-setschedule-code">3.22. List schedule: <code>setschedule</code></a></h3>
 <div class="paragraph">
-<p>Set schedule of the employee. This Requires superuser level 1.<br>
-Format: <code>setschedule n/NAME ic/NRIC start/DATE end/DATE place/VENUE</code><br>
-Example: <code>setschedule n/John Doe ic/s1234567h start/110918 end/301018 place/Counter 1</code><br></p>
+<p>Set schedule of the employee. This Requires superuser level 1.<br></p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
 <div class="paragraph">
-<p>Date should be in the format DDMMYY</p>
+<p>Format: <code>setschedule INDEX ts/TIME_START te/TIME_END v/VENUE</code><br></p>
 </div>
-</td>
-</tr>
-</table>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Set the schedule at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed leave list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example: <code>setschedule INDEX ts/1100 te/1600 v/Toilet</code><br></p>
 </div>
 </div>
 <div class="sect2">
@@ -1106,7 +1145,10 @@ There is no need to save manually.</p>
 <p><strong>Check in/out working hours</strong>: <code>check n/NAME ic/NRIC mode/IN-OUT</code></p>
 </li>
 <li>
-<p><strong>List schedule</strong>: <code>schedule n/NAME ic/NRIC</code></p>
+<p><strong>List schedule</strong>: <code>schedule INDEX</code></p>
+</li>
+<li>
+<p><strong>Set schedule</strong>: <code>setschedule INDEX ts/TIME_START te/TIME_END v/VENUE</code></p>
 </li>
 <li>
 <p><strong>Access payroll</strong>: <code>payroll n/NAME ic/NRIC pass/PASSWORD</code></p>
@@ -1243,4 +1285,4 @@ Department names should start with a name, and ends with 'Management'.</p></td>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 13:59:35 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 15:25:38 UTC</div></div></div></body></html>
