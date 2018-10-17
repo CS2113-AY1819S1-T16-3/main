@@ -199,7 +199,7 @@ This operation requires administrator priviledge to perform.
 ====
 
 Deletes the specified person from the address book. +
-Format: `delete INDEX [MORE_INDEX]...`
+Format: `delete INDEX`
 
 ****
 * Deletes the person at the specified `INDEX`.
@@ -235,11 +235,8 @@ Selects the 2nd person in the address book.
 Selects the 1st person in the results of the `find` command.
 
 === Add Leave application : `leave`
-
-Add leave application of the user for approval.
-
+Add leave application of the user for approval. +
 Format: `leave date/DATE`
-
 [NOTE]
 ====
 * Requires the user to log in before using the command.
@@ -247,38 +244,31 @@ Format: `leave date/DATE`
 ====
 
 Example: `leave date/20/03/2019`
+
 ====
 Request leave application on 20/03/2019.
 ====
 
 === List Leave application : `listleave`
-
-List out all leave application in the leave list.
-
+List out all leave application in the leave list. +
 Format: `listleave`
 
 === Filter Leave application : `filterleave`
-
-Filter leave applications based on NRIC.
-
-Format: `filterleave NRIC`
-
+Filter leave applications based on NRIC. +
+Format: `filterleave NRIC` +
 Alias: `fl NRIC`
 
 [NOTE]
 ====
 * Filter is case insensative eg. `s1234567a` matches `S1234567A`
 ====
-
 Example:
 `fl S1213452A`
-
 ====
 * List all leave application requested by the user with NRIC, 'S1213452A'.
 ====
 
 === Delete Leave application : `deleteleave`
-
 Delete the specified leave from leave list.
 
 [NOTE]
@@ -289,7 +279,6 @@ Delete the specified leave from leave list.
 ====
 
 Format: `deleteleave INDEX`
-
 ****
 * Deletes the leave at the specified `INDEX`.
 * The index refers to the index number shown in the displayed leave list.
@@ -300,8 +289,9 @@ Example:
 `deleteleave 2`
 
 ****
-* Deletes the leave applicarion with ID 2 in the leave list.
+* Deletes the leave application with ID 2 in the leave list.
 ****
+
 
 === Listing entered commands : `history`
 
@@ -401,18 +391,36 @@ Examples: +
 * `check ic/s7654327h pwd/Hello12 m/out`
 
 === List schedule: `schedule`
+
 List schedule for the employee. +
-Format: `schedule n/NAME ic/NRIC` +
-Examples: `schedule n/John Doe ic/s1234567h`
+
+Format: `schedule INDEX` +
+
+****
+* Shows schedule at the specified `INDEX`.
+* The index refers to the index number shown in the displayed leave list.
+* The index *must be a positive integer* 1, 2, 3, ...
+****
+
+Examples: `schedule 1`
+
+****
+* Shows the schedule of person with ID 1 in the leave list.
+****
 
 === List schedule: `setschedule`
+
 Set schedule of the employee. This Requires superuser level 1. +
-Format: `setschedule n/NAME ic/NRIC start/DATE end/DATE place/VENUE` +
-Example: `setschedule n/John Doe ic/s1234567h start/110918 end/301018 place/Counter 1` +
-[NOTE]
-====
-Date should be in the format DDMMYY
-====
+
+Format: `setschedule INDEX ts/TIME_START te/TIME_END v/VENUE` +
+
+****
+* Set the schedule at the specified `INDEX`.
+* The index refers to the index number shown in the displayed leave list.
+* The index *must be a positive integer* 1, 2, 3, ...
+****
+
+Example: `setschedule INDEX ts/1100 te/1600 v/Toilet` +
 
 === Access payroll: `payroll`
 List payroll of the employee. +
@@ -504,13 +512,13 @@ _{explain how the user can enable/disable data encryption}_
 
 •	*Help*: `help`
 •	*Check in/out working hours*: `check n/NAME ic/NRIC mode/IN-OUT`
-•	*List schedule*: `schedule n/NAME ic/NRIC`
+•	*List schedule*: `schedule INDEX`
+•	*Set schedule*: `setschedule INDEX ts/TIME_START te/TIME_END v/VENUE`
 •	*Access payroll*: `payroll n/NAME ic/NRIC pass/PASSWORD`
 •	*Apply off days*: `applyoff n/NAME ic/NRIC pass/PASSWORD date/DATE`
 •	*Edit particulars*: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]....`
 •	*Set priority level*: `setplvl INDEX plvl/PRIORITY_LEVEL`
-•	*Add employee*: `add n/NAME ic/NRIC pwd/PASSWORD p/PHONE NUMBER e/EMAIL d/DEPARTMENT a/ADDRESS
-[plvl/PRIORITY_LEVEL] [t/TAGS]...`
+•	*Add employee*: `add n/NAME ic/NRIC pwd/PASSWORD p/PHONE NUMBER e/EMAIL d/DEPARTMENT a/ADDRESS [plvl/PRIORITY_LEVEL] [t/TAGS]...`
 //•	*Setting password*: `setpass n/NAME ic/s1234567h sp/PASSWORD`
 •	*Find employee*: `find KEYWORD [MORE_KEYWORDS]`
 •	*Approve/Reject off request*: `request ic/s1234567a mode/approve (3)`

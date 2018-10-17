@@ -11,8 +11,9 @@ ifdef::env-github[]
 :tip-caption: :bulb:
 :note-caption: :information_source:
 :warning-caption: :warning:
+:sourcedir: src/main/java
 endif::[]
-:repoURL: https://github.com/se-edu/addressbook-level4/tree/master
+:repoURL: https://github.com/CS2113-AY1819S1-T16-3/main/tree/master/
 
 By: `T16-3`      Since: `Aug 2018`      Licence: `MIT`
 
@@ -127,6 +128,7 @@ The rest of the App consists of four components.
 * <<Design-Logic,*`Logic`*>>: The command executor.
 * <<Design-Model,*`Model`*>>: Holds the data of the App in-memory.
 * <<Design-Storage,*`Storage`*>>: Reads data from, and writes data to, the hard disk.
+* <<Session, *`Session`*>>: Stores the data of the user who is logged in to the application during runtime.
 
 Each of the four components
 
@@ -229,6 +231,17 @@ The `Storage` component,
 
 * can save `UserPref` objects in json format and read it back.
 * can save the Address Book data in xml format and read it back.
+
+[[Design-Session]]
+=== Session component
+
+*API* : link:{repoURL}/src/main/java/seedu/address/model/SessionManager.java[`SessionManager.java`]
+
+The `Session` component,
+
+* stores the identity of the user who is logged in to the app during runtime.
+* allows other functions that require elevated user status, to inquire from `SessionManager` as to whether the user
+is logged in, and also to inquire if the user has sufficient level of access to execute that particular function.
 
 [[Design-Commons]]
 === Common classes
@@ -405,10 +418,40 @@ public FilterDepartmentCommand parse(String args) throws ParseException {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterDepartmentCommand.MESSAGE_USAGE));
         }
+        ...
+        ...
+}
 ----
 
 In the second phase, the command is being executed in `FilterDepartmentCommand`. The updateFilteredPersonList updates the filteredPersonList with the departments that matches the keywords use as the argument in `FilterDepartmentCommand`.
 The result of `FilterDepartmentCommand` execution is encapsulated as a `CommandResult` object and returns it to the `LogicManager` and subsequently to the UI and display the filtered department employee's list.
+
+Code snippet from `FilterDepartmentCommand.java`:
+
+[source, java]
+----
+public class FilterDepartmentCommand extends Command {
+
+    ...
+    ...
+
+    private final DepartmentContainsKeywordsPredicate predicate;
+
+    public FilterDepartmentCommand(DepartmentContainsKeywordsPredicate predicate) {
+        this.predicate = predicate;
+    }
+
+    @Override
+    public CommandResult execute(Model model, CommandHistory history) {
+        requireNonNull(model);
+        model.updateFilteredPersonList(predicate);
+        return new CommandResult(
+                String.format(Messages.MESSAGE_PERSONS_LISTED_OVERVIEW, model.getFilteredPersonList().size()));
+    }
+    ...
+    ...
+}
+----
 
 The sequence diagram below demonstrates the interaction within the `Logic` component of `FilterDepartmentCommand`:
 
@@ -453,6 +496,102 @@ The sequence diagram below demonstrates the interaction within the `Logic` compo
 
 image::CheckCommandSequenceDiagram.png[width="800"]
 // end::checkinout[]
+
+// tag::schedule[]
+=== Schedule Feature
+==== Implementation
+The `setschedule` is a command that set a particular department employee's schedule.
+The `setschedule` mechanism is facilitated by the `SetScheduleCommandParser`, which parses input arguments and creates a new `SetScheduleCommand` object.
+The `SetScheduleCommandParser`, which implements the `Parser` interface, parses the arguments inputted in to the CLI, and checks if the user input conforms the expected format.
+
+Code snippet from `SetScheduleCommandParser.java` that shows the parsing of arguments and checking for invalid arguments:
+
+[source, java]
+----
+public SetScheduleCommand parse(String args) throws ParseException {
+
+    ...
+    ...
+
+    EditPersonDescriptor editPersonDescriptor = new EditPersonDescriptor();
+    if (argMultimap.getValue(PREFIX_TIME_START).isPresent()
+            && argMultimap.getValue(PREFIX_TIME_END).isPresent()
+            && argMultimap.getValue(PREFIX_VENUE).isPresent()) {
+        Schedule schedule = ParserUtil.parseSchedule(
+                argMultimap.getValue(PREFIX_TIME_START).get(),
+                argMultimap.getValue(PREFIX_TIME_END).get(),
+                argMultimap.getValue(PREFIX_VENUE).get());
+
+        Set<Schedule> scheduleList = new HashSet<>();
+        scheduleList.add(schedule);
+
+        editPersonDescriptor.setSchedule(scheduleList);
+    }
+
+    ...
+    ...
+
+}
+----
+
+The sequence diagram below demonstrates the interaction within the `Logic` component of `SetScheduleCommand`:
+
+image::SetScheduleCommandParserSequenceDiagram.png[width="800"]
+
+==== Design Considerations
+
+===== Aspect: Storage for schedule
+
+* **Alternative 1 (current choice):** Store with AddressBook XML.
+** Pros: Easier to implement (able to add onto existing parser).
+** Cons: May require extra parameters to create a Person object.
+* **Alternative 2:** Store in a different XML file.
+** Pros: Easy to implement (duplicate existing parser but for different XML file).
+** Cons: Consumes extra time to delete schedule when a particular person is deleted.
+* **Alternative 3:** Store in a different file format.
+** Pros: Easier to understand.
+** Cons: Consumes extra time to implement different parser from scratch.
+
+// end::schedule[]
+
+// tag::priorityLevel[]
+=== Priority level restriction feature
+All employee accounts contain a priority level field. Depending on the priority level that they are given, administrative
+operations may be executed if they have sufficient priority level required to do so.
+
+==== Implementation
+Here is a code snippet of executing the AddCommand function. In this example, adding a person requires a person to be
+logged in with a priority level of ADMINISTRATOR or above, in order to execute this function: -
+
+.AddCommand.java
+[source,java]
+----
+public CommandResult execute(Model model, CommandHistory history) throws CommandException {
+    requireNonNull(model);
+
+    if (!SessionManager.isLoggedIn()) { //<1>
+        throw new CommandException(SessionManager.NOT_LOGGED_IN);
+    }
+    /**
+     * Throws exception if user does not have the required access level.
+     */
+    if (!SessionManager.hasSufficientPriorityLevelForThisSession(PriorityLevelEnum.ADMINISTRATOR)) {    //<2>
+        throw new CommandException(String.format(PriorityLevel.INSUFFICIENT_PRIORITY_LEVEL,
+                PriorityLevelEnum.ADMINISTRATOR));
+    }
+    ...
+    ... //Execute the rest of the code only when both checks above have passed.
+}
+----
+<1> Check if the user is logged in.
+<2> Check if the logged in user has a priority level of ADMINISTRATOR and above.
+** This function checks if the user is logged in at the same time.
+
+The following sequence diagram below shows the flow of how the feature works: -
+
+image::ImplementPlvlRestrictionSequenceDiagram.png[width=900]
+
+// end:priorityLevel[]
 
 // tag::dataencryption[]
 === [Proposed] Data Encryption
@@ -1129,38 +1268,32 @@ Use case ends.
 === Use case: Change priority level of user
 *MSS*
 
-. User enters superuser command
-. AddressBook prompts password
-. User enters password
-. AddressBook prompts user for ‘superuser’ command
-. User enters priority level command
-. AddressBook prompts user for employee name and new priority level
-. User enters both employee name and new priority level
-. AddressBook updates the changes
+. User enters `setplvl INDEX plvl/PRIORITY_LEVEL`
+. AddressBook updates the priority level of the person at stated index.
 +
 Use case ends.
 
 *Extensions*
 
-* 4a. Incorrect password
-** 4a1. AddressBook shows an error message.
+* 2a. User is not logged in
+** 2a1. AddressBook shows an error message.
 +
-Use case resumes to step 2.
+Use case ends.
 
-* 6a. No such command
-** 6a1. AddressBook shows an error message.
+* 2b. Invalid priority level
+** 2b1. AddressBook shows an error message.
 +
-Use case resumes to step 4.
+Use case ends.
 
-* 8a. No such employee found
-** 8a1. AddressBook shows an error message.
+* 2c. User logged in, but insufficient priority level
+** 2c1. AddressBook shows an error message.
 +
-Use case resumes to step 6.
+Use case ends.
 
-* 8b. No such priority level
-** 8b1. AddressBook shows an error message.
+* 2d. User logged in, sufficient priority level, but tries to edit his/her own priority level
+** 2d1. AddressBook shows an error message.
 +
-Use case resumes to step 6.
+Use case ends.
 
 === Use case: Edit personal particulars
 *MSS*

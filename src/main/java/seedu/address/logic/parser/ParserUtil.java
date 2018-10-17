@@ -225,10 +225,8 @@ public class ParserUtil {
     }
 
     /**
-<<<<<<< HEAD
      * Parses a {@code String timeStart}, {@code String timeEnd}, {@code String venue} into a {@code Schedule}.
-     * Leading and trailing whitespaces will be trimmed.
-     *
+     * Leading and trailing whitespaces will be trimmed
      */
     public static Schedule parseSchedule(String timeStart, String timeEnd, String venue) throws ParseException {
         requireAllNonNull(timeStart, timeEnd, venue);
