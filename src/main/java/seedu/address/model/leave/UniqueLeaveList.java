@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import seedu.address.model.leave.exceptions.DuplicateLeaveException;
 import seedu.address.model.leave.exceptions.LeaveNotFoundException;
 
+//@@author Hafizuddin-NUS
 /**
  * A list of leaves that enforces uniqueness between its elements and does not allow nulls.
  * A leave is considered unique by comparing using {@code Leave#isSameRequest(Leave)}. As such, adding and updating of

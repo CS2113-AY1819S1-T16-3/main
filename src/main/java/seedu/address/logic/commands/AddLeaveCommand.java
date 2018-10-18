@@ -9,6 +9,7 @@ import seedu.address.model.Model;
 import seedu.address.model.SessionManager;
 import seedu.address.model.leave.Leave;
 
+//@@author Hafizuddin-NUS
 /**
  * Adds a leave request to the Leave List.
  */

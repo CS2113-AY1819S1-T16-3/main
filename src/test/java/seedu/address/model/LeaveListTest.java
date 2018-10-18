@@ -19,6 +19,7 @@ import seedu.address.model.leave.Leave;
 import seedu.address.model.leave.exceptions.DuplicateLeaveException;
 import seedu.address.testutil.LeaveBuilder;
 
+//@@author Hafizuddin-NUS
 public class LeaveListTest {
 
     @Rule

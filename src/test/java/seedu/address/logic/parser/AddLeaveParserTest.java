@@ -11,6 +11,7 @@ import org.junit.Test;
 import seedu.address.logic.commands.AddLeaveCommand;
 import seedu.address.model.leave.Date;
 
+//@@author Hafizuddin-NUS
 public class AddLeaveParserTest {
 
     private AddLeaveParser parser = new AddLeaveParser();

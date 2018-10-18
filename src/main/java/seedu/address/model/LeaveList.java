@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import seedu.address.model.leave.Leave;
 import seedu.address.model.leave.UniqueLeaveList;
 
+//@@author Hafizuddin-NUS
 /**
  * Wraps all data at the leave-list level
  * Duplicates are not allowed (by .isSameRequest comparison)

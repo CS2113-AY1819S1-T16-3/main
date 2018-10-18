@@ -9,6 +9,7 @@ import seedu.address.model.leave.Date;
 import seedu.address.model.leave.EmployeeId;
 import seedu.address.model.leave.Leave;
 
+//@@author Hafizuddin-NUS
 /**
  * JAXB-friendly version of the Leave.
  */

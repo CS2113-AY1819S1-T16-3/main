@@ -18,6 +18,7 @@ import seedu.address.model.leave.exceptions.DuplicateLeaveException;
 import seedu.address.model.leave.exceptions.LeaveNotFoundException;
 import seedu.address.testutil.LeaveBuilder;
 
+//@@author Hafizuddin-NUS
 public class UniqueLeaveListTest {
     @Rule
     public ExpectedException thrown = ExpectedException.none();

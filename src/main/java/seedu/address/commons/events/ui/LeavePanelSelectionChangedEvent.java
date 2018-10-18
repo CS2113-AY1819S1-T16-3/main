@@ -3,6 +3,7 @@ package seedu.address.commons.events.ui;
 import seedu.address.commons.events.BaseEvent;
 import seedu.address.model.leave.Leave;
 
+//@@author Hafizuddin-NUS
 /**
  * Represents a selection change in the Event List Panel
  */

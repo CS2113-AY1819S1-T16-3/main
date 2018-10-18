@@ -13,6 +13,7 @@ import seedu.address.model.SessionManager;
 import seedu.address.model.leave.Leave;
 import seedu.address.model.prioritylevel.PriorityLevelEnum;
 
+//@@author Hafizuddin-NUS
 /**
  * Deletes a leave identified using it's displayed index from the leave book.
  */

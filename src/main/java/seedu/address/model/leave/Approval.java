@@ -2,6 +2,7 @@ package seedu.address.model.leave;
 
 import static java.util.Objects.requireNonNull;
 
+//@@author Hafizuddin-NUS
 /**
  * Represents a Leave's approval in the leave list.
  * Guarantees: immutable; is valid as declared in

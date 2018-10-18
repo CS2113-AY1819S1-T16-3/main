@@ -1,5 +1,6 @@
 package seedu.address.model.leave.exceptions;
 
+//@@author Hafizuddin-NUS
 /**
  * Signals that the operation will result in duplicate Leaves (Persons are considered duplicates if they have the same
  * identity).

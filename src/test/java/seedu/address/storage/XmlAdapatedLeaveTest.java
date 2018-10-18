@@ -12,6 +12,7 @@ import seedu.address.model.leave.Date;
 import seedu.address.model.leave.EmployeeId;
 import seedu.address.testutil.Assert;
 
+//@@author Hafizuddin-NUS
 public class XmlAdapatedLeaveTest {
 
     private static final String INVALID_NRIC = "S1212AA";

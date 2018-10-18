@@ -73,6 +73,7 @@ public class DeleteCommand extends Command {
             throw new CommandException(MESSAGE_CANNOT_DELETE_YOURSELF);
         }
 
+        //@@author Hafizuddin-NUS
         model.updateFilteredLeaveList(keyword);
         lastShownLeaveList = model.getFilteredLeaveList();
         model.deletePerson(personToDelete);
@@ -84,7 +85,7 @@ public class DeleteCommand extends Command {
         model.updateFilteredLeaveList(Model.PREDICATE_SHOW_ALL_LEAVES);
         model.commitLeaveList();
         model.commitAddressBook();
-
+        //@@author
 
         return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete));
     }

@@ -3,6 +3,7 @@ package seedu.address.commons.events.model;
 import seedu.address.commons.events.BaseEvent;
 import seedu.address.model.ReadOnlyLeaveList;
 
+//@@author Hafizuddin-NUS
 /** Indicates the LeaveList in the model has changed*/
 public class LeaveListChangedEvent extends BaseEvent {
     public final ReadOnlyLeaveList data;

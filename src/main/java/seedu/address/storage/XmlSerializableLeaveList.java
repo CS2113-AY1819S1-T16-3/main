@@ -12,6 +12,7 @@ import seedu.address.model.LeaveList;
 import seedu.address.model.ReadOnlyLeaveList;
 import seedu.address.model.leave.Leave;
 
+//@@author Hafizuddin-NUS
 /**
  * An Immutable AddressBook that is serializable to XML format
  */

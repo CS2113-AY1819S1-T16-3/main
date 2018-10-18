@@ -3,6 +3,7 @@ package seedu.address.model;
 import java.util.ArrayList;
 import java.util.List;
 
+//@@author Hafizuddin-NUS
 /**
  * {@code LeaveList} that keeps track of its own history.
  */
