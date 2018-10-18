@@ -19,6 +19,7 @@ import seedu.address.model.prioritylevel.PriorityLevelEnum;
 public class DeleteLeaveCommand extends Command {
 
     public static final String COMMAND_WORD = "deleteleave";
+    public static final String COMMAND_ALIAS = "dl";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Deletes the leave identified by the index number used in the displayed leave list.\n"
