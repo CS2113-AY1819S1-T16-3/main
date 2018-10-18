@@ -52,7 +52,7 @@ public class DeleteLeaveCommand extends Command {
 
 
         if (isLogin && leaveToDelete.getEmployeeId().nric != SessionManager.getLoggedInSessionNric().nric
-                && !SessionManager.hasSufficientPriorityLevelForThisSession(PriorityLevelEnum.MANAGER)) {
+                && SessionManager.hasSufficientPriorityLevelForThisSession(PriorityLevelEnum.MANAGER)) {
             throw new CommandException(MESSAGE_INVALID_LEAVE_DELETE);
         }
 
