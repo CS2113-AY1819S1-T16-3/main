@@ -128,7 +128,7 @@ The rest of the App consists of four components.
 * <<Design-Logic,*`Logic`*>>: The command executor.
 * <<Design-Model,*`Model`*>>: Holds the data of the App in-memory.
 * <<Design-Storage,*`Storage`*>>: Reads data from, and writes data to, the hard disk.
-* <<Session, *`Session`*>>: Stores the data of the user who is logged in to the application during runtime.
+* <<Design-Session, *`Session`*>>: Stores the data of the user who is logged in to the application during runtime.
 
 Each of the four components
 
