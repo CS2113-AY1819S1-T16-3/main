@@ -33,10 +33,11 @@
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
 <li><a href="#add-leave-command">3.2. Add Leave command</a></li>
 <li><a href="#filterdepartment-feature">3.3. FilterDepartment feature</a></li>
-<li><a href="#schedule-feature">3.4. Schedule Feature</a></li>
-<li><a href="#priority-level-restriction-feature">3.5. Priority level restriction feature</a></li>
-<li><a href="#logging">3.6. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
+<li><a href="#check-in-out-feature">3.4. Check in/out feature</a></li>
+<li><a href="#schedule-feature">3.5. Schedule Feature</a></li>
+<li><a href="#priority-level-restriction-feature">3.6. Priority level restriction feature</a></li>
+<li><a href="#logging">3.7. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -984,9 +985,62 @@ The result of <code>FilterDepartmentCommand</code> execution is encapsulated as 
 </div>
 </div>
 <div class="sect2">
-<h3 id="schedule-feature"><a class="link" href="#schedule-feature">3.4. Schedule Feature</a></h3>
+<h3 id="check-in-out-feature"><a class="link" href="#check-in-out-feature">3.4. Check in/out feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">3.4.1. Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.4.1. Current implementation</a></h4>
+<div class="paragraph">
+<p>The <code>checkCommand</code> is a command that allows employees to check in and out to work so that their working hours will be recorded according to the time they checked in/out and calculate their pay accordingly.</p>
+</div>
+<div class="paragraph">
+<p>The <code>checkCommand</code> mechanism is facilitated by the <code>AddressBookParser</code>, which parses the user input to identify the requested command and calls the particular command parser to deal with the input arguments.</p>
+</div>
+<div class="paragraph">
+<p>The <code>checkCommandParser</code>, which implements the <code>Parser</code> interface, parses the arguments inputted in to the CLI, and checks if the user input conforms the expected format.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Code snippet from <code>checkCommandParser.java</code> that shows the parsing of arguments， checking for invalid arguments and returning a checkCommand object:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> CheckCommand parse(<span class="predefined-type">String</span> args) <span class="directive">throws</span> <span class="exception">ParseException</span> {
+        requireNonNull(args);
+        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_NRIC, PREFIX_PASSWORD, PREFIX_MODE);
+
+        <span class="keyword">if</span> (!arePrefixesPresent(argMultimap, PREFIX_NRIC, PREFIX_PASSWORD, PREFIX_MODE)
+            || !argMultimap.getPreamble().isEmpty()) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="exception">ParseException</span>(<span class="predefined-type">String</span>.format(MESSAGE_INVALID_COMMAND_FORMAT, CheckCommand.MESSAGE_USAGE));
+        }
+
+        <span class="predefined-type">String</span> nric = argMultimap.getValue(PREFIX_NRIC).orElse(<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>);
+        <span class="predefined-type">String</span> password = argMultimap.getValue(PREFIX_PASSWORD).orElse(<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>);
+        <span class="predefined-type">String</span> mode = argMultimap.getValue(PREFIX_MODE).orElse(<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>);
+
+        <span class="keyword">return</span> <span class="keyword">new</span> CheckCommand(nric, password, <span class="keyword">new</span> Mode(mode));
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the second phase, the command is being executed in <code>checkCommand</code>.
+The result of <code>checkCommand</code> execution is encapsulated as a <code>CommandResult</code> object and returns it to the <code>LogicManager</code> and subsequently to the UI and display check in/out mode as one of the fields.</p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below demonstrates the interaction within the <code>Logic</code> component of <code>CheckCommand</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CheckCommandSequenceDiagram.png" alt="CheckCommandSequenceDiagram" width="800">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="schedule-feature"><a class="link" href="#schedule-feature">3.5. Schedule Feature</a></h3>
+<div class="sect3">
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>setschedule</code> is a command that set a particular department employee&#8217;s schedule.
 The <code>setschedule</code> mechanism is facilitated by the <code>SetScheduleCommandParser</code>, which parses input arguments and creates a new <code>SetScheduleCommand</code> object.
@@ -1041,7 +1095,7 @@ The <code>SetScheduleCommandParser</code>, which implements the <code>Parser</co
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.5.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-storage-for-schedule"><a class="link" href="#aspect-storage-for-schedule">Aspect: Storage for schedule</a></h5>
 <div class="ulist">
@@ -1091,13 +1145,13 @@ The <code>SetScheduleCommandParser</code>, which implements the <code>Parser</co
 </div>
 </div>
 <div class="sect2">
-<h3 id="priority-level-restriction-feature"><a class="link" href="#priority-level-restriction-feature">3.5. Priority level restriction feature</a></h3>
+<h3 id="priority-level-restriction-feature"><a class="link" href="#priority-level-restriction-feature">3.6. Priority level restriction feature</a></h3>
 <div class="paragraph">
 <p>All employee accounts contain a priority level field. Depending on the priority level that they are given, administrative
 operations may be executed if they have sufficient priority level required to do so.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-5"><a class="link" href="#implementation-5">3.5.1. Implementation</a></h4>
+<h4 id="implementation-5"><a class="link" href="#implementation-5">3.6.1. Implementation</a></h4>
 <div class="paragraph">
 <p>Here is a code snippet of executing the AddCommand function. In this example, adding a person requires a person to be
 logged in with a priority level of ADMINISTRATOR or above, in order to execute this function: -</p>
@@ -1153,14 +1207,14 @@ logged in with a priority level of ADMINISTRATOR or above, in order to execute t
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.7, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1191,7 +1245,7 @@ logged in with a priority level of ADMINISTRATOR or above, in order to execute t
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.7. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.8. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3435,4 +3489,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 08:34:55 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-19 10:10:09 UTC</div></div></div></body></html>
