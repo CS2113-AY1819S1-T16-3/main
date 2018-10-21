@@ -263,6 +263,7 @@ Additionally, it implements the following operations:</p>
 <div class="content">
 <img src="../images/UndoRedoStartingStateListDiagram.png" alt="UndoRedoStartingStateListDiagram" width="800">
 </div>
+<div class="title">Figure 1. Undo/Redo Command State List Diagram (Part 1)</div>
 </div>
 <div class="paragraph">
 <p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
@@ -271,6 +272,7 @@ Additionally, it implements the following operations:</p>
 <div class="content">
 <img src="../images/UndoRedoNewCommand1StateListDiagram.png" alt="UndoRedoNewCommand1StateListDiagram" width="800">
 </div>
+<div class="title">Figure 2. Undo/Redo Command State List Diagram (Part 2)</div>
 </div>
 <div class="paragraph">
 <p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
@@ -279,6 +281,7 @@ Additionally, it implements the following operations:</p>
 <div class="content">
 <img src="../images/UndoRedoNewCommand2StateListDiagram.png" alt="UndoRedoNewCommand2StateListDiagram" width="800">
 </div>
+<div class="title">Figure 3. Undo/Redo Command State List Diagram (Part 3)</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -299,6 +302,7 @@ If a command fails its execution, it will not call <code>Model#commitAddressBook
 <div class="content">
 <img src="../images/UndoRedoExecuteUndoStateListDiagram.png" alt="UndoRedoExecuteUndoStateListDiagram" width="800">
 </div>
+<div class="title">Figure 4. Undo/Redo Command State List Diagram (Part 4)</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -319,6 +323,7 @@ If the <code>currentStatePointer</code> is at index 0, pointing to the initial a
 <div class="content">
 <img src="../images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
 </div>
+<div class="title">Figure 5. Undo Command Sequence Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
@@ -342,6 +347,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="content">
 <img src="../images/UndoRedoNewCommand3StateListDiagram.png" alt="UndoRedoNewCommand3StateListDiagram" width="800">
 </div>
+<div class="title">Figure 6. Undo/Redo Command State List Diagram (Part 5)</div>
 </div>
 <div class="paragraph">
 <p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
@@ -350,6 +356,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="content">
 <img src="../images/UndoRedoNewCommand4StateListDiagram.png" alt="UndoRedoNewCommand4StateListDiagram" width="800">
 </div>
+<div class="title">Figure 7. Undo/Redo Command State List Diagram (Part 6)</div>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user executes a new command:</p>
@@ -358,6 +365,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="content">
 <img src="../images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
 </div>
+<div class="title">Figure 8. Undo/Redo Command Activity Diagram</div>
 </div>
 </div>
 <div class="sect3">
@@ -431,4 +439,4 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-19 17:13:29 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-21 10:12:50 UTC</div></div></div></body></html>
