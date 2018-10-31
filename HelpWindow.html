@@ -31,24 +31,31 @@
 <li><a href="#approve-leave-application-code-approve-code">3.16. Approve leave application  : <code>approve</code></a></li>
 <li><a href="#reject-leave-application-code-reject-code">3.17. Reject leave application  : <code>reject</code></a></li>
 <li><a href="#listing-entered-commands-code-history-code">3.18. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.19. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.20. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#login-to-the-application-code-login-code">3.21. Login to the application: <code>login</code></a></li>
-<li><a href="#checks-the-login-status-of-the-application-code-checkloginstatus-code">3.22. Checks the login status of the application: <code>checkloginstatus</code></a></li>
-<li><a href="#logout-of-the-application-code-logout-code">3.23. Logout of the application: <code>logout</code></a></li>
-<li><a href="#check-in-out-working-hours-code-check-code">3.24. Check in/out working hours: <code>check</code></a></li>
-<li><a href="#list-schedule-code-schedule-code">3.25. List schedule: <code>schedule</code></a></li>
-<li><a href="#set-schedule-code-setschedule-code">3.26. Set schedule: <code>setschedule</code></a></li>
-<li><a href="#access-payroll-code-payroll-code">3.27. Access payroll: <code>payroll</code></a></li>
-<li><a href="#change-priority-level-of-employee-code-setplvl-code">3.28. Change priority level of employee: <code>setplvl</code></a></li>
-<li><a href="#reset-the-application-code-reset-code">3.29. Reset the application : <code>reset</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.30. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.31. Saving the data</a></li>
+<li><a href="#login-to-the-application-code-login-code">3.19. Login to the application: <code>login</code></a></li>
+<li><a href="#checks-the-login-status-of-the-application-code-checkloginstatus-code">3.20. Checks the login status of the application: <code>checkloginstatus</code></a></li>
+<li><a href="#logout-of-the-application-code-logout-code">3.21. Logout of the application: <code>logout</code></a></li>
+<li><a href="#check-in-out-working-hours-code-check-code">3.22. Check in/out working hours: <code>check</code></a></li>
+<li><a href="#list-schedule-code-schedule-code">3.23. List schedule: <code>schedule</code></a></li>
+<li><a href="#set-schedule-code-setschedule-code">3.24. Set schedule: <code>setschedule</code></a></li>
+<li><a href="#change-priority-level-of-employee-code-setplvl-code">3.25. Change priority level of employee: <code>setplvl</code></a></li>
+<li><a href="#reset-the-application-code-reset-code">3.26. Reset the application : <code>reset</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.27. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.28. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
-<li><a href="#command-summary">5. Command Summary</a></li>
+<li><a href="#command-summary">5. Command Summary</a>
+<ul class="sectlevel2">
+<li><a href="#personal-user-account">5.1. Personal User Account</a></li>
+<li><a href="#employee-management-database">5.2. Employee Management Database</a></li>
+<li><a href="#leave-application">5.3. Leave Application</a></li>
+<li><a href="#scheduling">5.4. Scheduling</a></li>
+<li><a href="#filtering-sorting">5.5. Filtering/Sorting</a></li>
+<li><a href="#miscellaneous">5.6. Miscellaneous</a></li>
+</ul>
+</li>
 <li><a href="#appendix-a-list-of-prefixes-in-the-application">6. Appendix A: List of prefixes in the application</a></li>
+<li><a href="#appendix-b-privileges-in-accordance-to-priority-level">7. Appendix B: Privileges in accordance to priority level</a></li>
 </ul>
 </div>
 </div>
@@ -57,7 +64,7 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>Bank AddressBook (BankAB) is an employee management application.
-You can use BankAB to check working schedule, apply off day, check working hours, access payroll
+You can use BankAB to check working schedule, apply off day, check working hours
 and daily notification. The managers and boss will have more access of BankAB such as changing the
 priority level of the employee and approve or reject off day requests. This user guide will give
 you step by step instruction on how you can use the features of BankAB.</p>
@@ -74,7 +81,7 @@ you step by step instruction on how you can use the features of BankAB.</p>
 <a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">Download</a></p>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/CS2113-AY1819S1-T16-3/main/releases">here</a>.</p>
+<p>Download the latest <code>BankAddressBook.jar</code> <a href="https://github.com/CS2113-AY1819S1-T16-3/main/releases">here</a>.</p>
 </li>
 <li>
 <p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
@@ -92,7 +99,8 @@ you step by step instruction on how you can use the features of BankAB.</p>
 e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
 </li>
 <li>
-<p>A sample list of contacts will be provided when the application is first run.</p>
+<p>The following table contains a sample list of persons with the respective account details when the application is first run
+or when ResetCommand was executed in the previous runtime.</p>
 </li>
 </ol>
 </div>
@@ -106,10 +114,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NRIC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Password</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Priority Level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NRIC</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Password</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Priority Level</strong></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Highest Admin Account</p></td>
@@ -126,6 +134,12 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Bernice Yu</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T1234567E</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MANAGER</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Charlotte Oliveiro</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F1234567E</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Password</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">BASIC (Lowest Priority Level)</p></td>
 </tr>
@@ -254,9 +268,8 @@ Format: <code>add n/NAME ic/NRIC pwd/PASSWORD p/PHONE_NUMBER e/EMAIL d/DEPARTMEN
 pwd/9EwciT plvl/1</code></p>
 </li>
 <li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 d/Senior Management
-t/criminal
-ic/S1875858E pwd/Fed528F</code></p>
+<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Tower p/1234567 d/Senior Management
+t/Creditor ic/S1875858E pwd/Fed528F</code></p>
 </li>
 </ul>
 </div>
@@ -989,84 +1002,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.19. Undoing previous command : <code>undo</code></a></h3>
-<div class="paragraph">
-<p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
-Format: <code>undo</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Undoable commands: those commands that modify the address book&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code><br>
-<code>list</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>select 1</code><br>
-<code>list</code><br>
-<code>undo</code><br>
-The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.20. Redoing the previously undone command : <code>redo</code></a></h3>
-<div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>redo</code><br>
-The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="login-to-the-application-code-login-code"><a class="link" href="#login-to-the-application-code-login-code">3.21. Login to the application: <code>login</code></a></h3>
+<h3 id="login-to-the-application-code-login-code"><a class="link" href="#login-to-the-application-code-login-code">3.19. Login to the application: <code>login</code></a></h3>
 <div class="paragraph">
 <p>Logs in to the application using a registered NRIC and password.<br>
 Format: <code>login ic/NRIC pwd/PASSWORD</code><br>
@@ -1074,20 +1010,20 @@ Example: <code>login ic/T1234567E pwd/Password</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="checks-the-login-status-of-the-application-code-checkloginstatus-code"><a class="link" href="#checks-the-login-status-of-the-application-code-checkloginstatus-code">3.22. Checks the login status of the application: <code>checkloginstatus</code></a></h3>
+<h3 id="checks-the-login-status-of-the-application-code-checkloginstatus-code"><a class="link" href="#checks-the-login-status-of-the-application-code-checkloginstatus-code">3.20. Checks the login status of the application: <code>checkloginstatus</code></a></h3>
 <div class="paragraph">
 <p>Prints whether this application is logged in.<br>
 Also prints the logged in NRIC if logged in.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logout-of-the-application-code-logout-code"><a class="link" href="#logout-of-the-application-code-logout-code">3.23. Logout of the application: <code>logout</code></a></h3>
+<h3 id="logout-of-the-application-code-logout-code"><a class="link" href="#logout-of-the-application-code-logout-code">3.21. Logout of the application: <code>logout</code></a></h3>
 <div class="paragraph">
 <p>Logs out of the application, allowing for other users to log in again.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="check-in-out-working-hours-code-check-code"><a class="link" href="#check-in-out-working-hours-code-check-code">3.24. Check in/out working hours: <code>check</code></a></h3>
+<h3 id="check-in-out-working-hours-code-check-code"><a class="link" href="#check-in-out-working-hours-code-check-code">3.22. Check in/out working hours: <code>check</code></a></h3>
 <div class="paragraph">
 <p>Updates check in/out timings for employees.<br>
 Format: <code>check ic/NRIC pwd/PASSWORD m/IN-OUT</code><br>
@@ -1105,7 +1041,7 @@ Examples:<br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-schedule-code-schedule-code"><a class="link" href="#list-schedule-code-schedule-code">3.25. List schedule: <code>schedule</code></a></h3>
+<h3 id="list-schedule-code-schedule-code"><a class="link" href="#list-schedule-code-schedule-code">3.23. List schedule: <code>schedule</code></a></h3>
 <div class="paragraph">
 <p>List schedule for the employee.<br></p>
 </div>
@@ -1145,7 +1081,7 @@ Examples:<br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="set-schedule-code-setschedule-code"><a class="link" href="#set-schedule-code-setschedule-code">3.26. Set schedule: <code>setschedule</code></a></h3>
+<h3 id="set-schedule-code-setschedule-code"><a class="link" href="#set-schedule-code-setschedule-code">3.24. Set schedule: <code>setschedule</code></a></h3>
 <div class="paragraph">
 <p>Set schedule of the employee. This Requires superuser level 1.<br></p>
 </div>
@@ -1174,15 +1110,7 @@ Examples:<br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="access-payroll-code-payroll-code"><a class="link" href="#access-payroll-code-payroll-code">3.27. Access payroll: <code>payroll</code></a></h3>
-<div class="paragraph">
-<p>List payroll of the employee.<br>
-Format: <code>payroll n/NAME ic/NRIC pass/PASSWORD</code><br>
-Example: <code>payroll n/John Doe ic/s1234567h pass/NeUeR2018</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="change-priority-level-of-employee-code-setplvl-code"><a class="link" href="#change-priority-level-of-employee-code-setplvl-code">3.28. Change priority level of employee: <code>setplvl</code></a></h3>
+<h3 id="change-priority-level-of-employee-code-setplvl-code"><a class="link" href="#change-priority-level-of-employee-code-setplvl-code">3.25. Change priority level of employee: <code>setplvl</code></a></h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1211,7 +1139,7 @@ Example: <code>setplvl 4 plvl/3</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="reset-the-application-code-reset-code"><a class="link" href="#reset-the-application-code-reset-code">3.29. Reset the application : <code>reset</code></a></h3>
+<h3 id="reset-the-application-code-reset-code"><a class="link" href="#reset-the-application-code-reset-code">3.26. Reset the application : <code>reset</code></a></h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1233,14 +1161,14 @@ Format: <code>reset</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.30. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.27. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.31. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.28. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -1260,53 +1188,48 @@ There is no need to save manually.</p>
 <div class="sect1">
 <h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="personal-user-account"><a class="link" href="#personal-user-account">5.1. Personal User Account</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Help</strong>: <code>help</code></p>
+<p><strong>Login</strong>: <code>login ic/NRIC pwd/PASSWORD</code></p>
 </li>
 <li>
-<p><strong>Check in/out working hours</strong>: <code>check n/NAME ic/NRIC mode/IN-OUT</code></p>
+<p><strong>Logout</strong>: <code>logout</code></p>
 </li>
 <li>
-<p><strong>List schedule</strong>: <code>schedule INDEX</code></p>
+<p><strong>Check login status</strong>: <code>checkloginstatus</code></p>
 </li>
 <li>
-<p><strong>Set schedule</strong>: <code>setschedule INDEX ts/TIME_START te/TIME_END v/VENUE</code></p>
+<p><strong>Edit particulars</strong>: <code>edit [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
 </li>
-<li>
-<p><strong>Access payroll</strong>: <code>payroll n/NAME ic/NRIC pass/PASSWORD</code></p>
-</li>
-<li>
-<p><strong>Edit particulars</strong>: <code>edit [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]&#8230;&#8203;.</code></p>
-</li>
-<li>
-<p><strong>Set priority level</strong>: <code>setplvl INDEX plvl/PRIORITY_LEVEL</code></p>
-</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="employee-management-database"><a class="link" href="#employee-management-database">5.2. Employee Management Database</a></h3>
+<div class="ulist">
+<ul>
 <li>
 <p><strong>Add employee</strong>: <code>add n/NAME ic/NRIC pwd/PASSWORD p/PHONE NUMBER e/EMAIL d/DEPARTMENT a/ADDRESS [plvl/PRIORITY_LEVEL] [t/TAGS]&#8230;&#8203;</code></p>
 </li>
 <li>
-<p><strong>Find employee</strong>: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
+<p><strong>Deleting employee</strong>: <code>delete INDEX</code></p>
 </li>
 <li>
-<p><strong>Sort address book contacts</strong>: <code>sort name asc</code></p>
-</li>
-<li>
-<p><strong>List available departments</strong>: <code>listdepartment</code></p>
-</li>
-<li>
-<p><strong>Filter departments</strong>: <code>filterdepartment junior</code></p>
+<p><strong>Set priority level of an employee</strong>: <code>setplvl INDEX plvl/PRIORITY_LEVEL</code></p>
 </li>
 <li>
 <p><strong>Change department of an employee</strong>: <code>setdepartment INDEX d/DEPARTMENT</code></p>
 </li>
-<li>
-<p><strong>Deleting employee</strong>: <code>delete INDEX [MORE_INDEX]</code></p>
-</li>
-<li>
-<p><strong>Change priority level of employee</strong>: <code>setplvl ic/NRIC plvl/LEVEL</code></p>
-</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="leave-application"><a class="link" href="#leave-application">5.3. Leave Application</a></h3>
+<div class="ulist">
+<ul>
 <li>
 <p><strong>Add leave application</strong>: <code>leave date/DATE</code></p>
 </li>
@@ -1325,10 +1248,59 @@ There is no need to save manually.</p>
 <li>
 <p><strong>Reject leave application</strong>: <code>reject INDEX</code></p>
 </li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="scheduling"><a class="link" href="#scheduling">5.4. Scheduling</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>List schedule</strong>: <code>schedule INDEX</code></p>
+</li>
+<li>
+<p><strong>Set schedule</strong>: <code>setschedule INDEX ts/TIME_START te/TIME_END v/VENUE</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="filtering-sorting"><a class="link" href="#filtering-sorting">5.5. Filtering/Sorting</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Find employee</strong>: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
+</li>
+<li>
+<p><strong>Sort address book contacts</strong>: <code>sort name asc</code></p>
+</li>
+<li>
+<p><strong>List available departments</strong>: <code>listdepartment</code></p>
+</li>
+<li>
+<p><strong>Filter departments</strong>: <code>filterdepartment junior</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="miscellaneous"><a class="link" href="#miscellaneous">5.6. Miscellaneous</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Check in/out working hours</strong>: <code>check ic/NRIC pwd/PASSWORD mode/IN-OUT</code></p>
+</li>
+<li>
+<p><strong>Help</strong>: <code>help</code></p>
+</li>
 <li>
 <p><strong>Reset the application</strong>: <code>reset</code></p>
 </li>
+<li>
+<p><strong>Exit application</strong>: <code>exit</code></p>
+</li>
 </ul>
+</div>
 </div>
 </div>
 </div>
@@ -1403,7 +1375,7 @@ Department names should start with a name, and ends with 'Management'.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Priority Level</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">plvl/PRIORITY_LEVEL</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Priority Level should be a number respective to the following classification: -<br>
-[0] I.T. Unit (HIGHEST)+
+[0] I.T. Unit (HIGHEST)<br>
 [1] Administrator<br>
 [2] Manager<br>
 [3] Basic (LOWEST)</p></td>
@@ -1418,4 +1390,47 @@ Department names should start with a name, and ends with 'Management'.</p></td>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 02:05:22 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="appendix-b-privileges-in-accordance-to-priority-level"><a class="link" href="#appendix-b-privileges-in-accordance-to-priority-level">7. Appendix B: Privileges in accordance to priority level</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 3. Priority level and its' privileges</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Priority Level</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Privileges</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BASIC (3)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">- Edit your own particulars<br>
+- Apply for leave</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MANAGER (2)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">- All privileges of a BASIC Priority Level<br>
+- Approve/Reject/Delete leave of users with lower priority level<br>
+- Allow others to check in/out to/from work</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ADMINISTRATOR (1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">- All privileges of a MANAGER Priority level<br>
+- Add and delete employees from the AddressBook<br>
+- Set the priority level of all employees<br>
+- Set Department of all employees</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I.T. Unit (0)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">- All privileges of a ADMINISTRATOR Priority level<br>
+- Reset the entire AddressBook</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 06:56:01 UTC</div></div></div></body></html>
