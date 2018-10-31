@@ -162,18 +162,22 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Examples: <code>schedule 1</code></p>
+<p>Example: <code>schedule 1</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Shows the schedule of person with ID 1 in the leave list.</p>
+<p>Shows the schedule of person with ID 1 in the list.</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>Sample output:<br>
+<span class="image"><img src="../images/schedule_cmd.png" alt="schedule cmd"></span></p>
 </div>
 </div>
 <div class="sect2">
@@ -197,12 +201,15 @@
 <li>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
+<li>
+<p><code>TIME_START</code> and <code>TIME_END</code> must be in HHMM 24 hour format</p>
+</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Example: <code>setschedule INDEX ts/1100 te/1600 v/Toilet</code><br></p>
+<p>Example: <code>setschedule 1 ts/1100 te/1600 v/Toilet</code><br></p>
 </div>
 </div>
 </div>
@@ -330,4 +337,4 @@ The <code>SetScheduleCommandParser</code>, which implements the <code>Parser</co
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 14:55:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 15:16:16 UTC</div></div></div></body></html>

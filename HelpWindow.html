@@ -209,6 +209,10 @@ e.g.: Specifying parameters in the order ic/NRIC n/NAME is identical to n/NAME i
 <div class="paragraph">
 <p>Format: <code>help</code></p>
 </div>
+<div class="paragraph">
+<p>User Guide will open in a separate window shown below:
+<span class="image"><img src="images/UserGuide.png" alt="UserGuide"></span></p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></h3>
@@ -247,10 +251,13 @@ Format: <code>add n/NAME ic/NRIC pwd/PASSWORD p/PHONE_NUMBER e/EMAIL d/DEPARTMEN
 <div class="ulist">
 <ul>
 <li>
-<p>A person can have any number of tags (including 0)<br></p>
+<p>A person can have any number of tags (including 0)</p>
 </li>
 <li>
-<p>Priority level will be set to BASIC if left empty.</p>
+<p>Priority level will be set to BASIC if left empty</p>
+</li>
+<li>
+<p>A recently added person have no schedule allocated</p>
 </li>
 </ul>
 </div>
@@ -328,6 +335,36 @@ Format : <code>edit [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#820
 </ul>
 </div>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This command will NOT be able to edit the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Department</code></p>
+</li>
+<li>
+<p><code>Leave</code></p>
+</li>
+<li>
+<p><code>Priority Level</code></p>
+</li>
+<li>
+<p><code>Schedule</code></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -1221,18 +1258,22 @@ Examples:<br></p>
 </div>
 </div>
 <div class="paragraph">
-<p>Examples: <code>schedule 1</code></p>
+<p>Example: <code>schedule 1</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Shows the schedule of person with ID 1 in the leave list.</p>
+<p>Shows the schedule of person with ID 1 in the list.</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>Sample output:<br>
+<span class="image"><img src="images/schedule_cmd.png" alt="schedule cmd"></span></p>
 </div>
 </div>
 <div class="sect2">
@@ -1256,12 +1297,15 @@ Examples:<br></p>
 <li>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
+<li>
+<p><code>TIME_START</code> and <code>TIME_END</code> must be in HHMM 24 hour format</p>
+</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Example: <code>setschedule INDEX ts/1100 te/1600 v/Toilet</code><br></p>
+<p>Example: <code>setschedule 1 ts/1100 te/1600 v/Toilet</code><br></p>
 </div>
 </div>
 <div class="sect2">
@@ -1556,13 +1600,50 @@ Department names should start with a name, and ends with 'Management'.</p></td>
 </tr>
 </tbody>
 </table>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 3. List of prefixes used for schedule</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Prefix</th>
+<th class="tableblock halign-left valign-top">Constraints</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start Time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ts/START_TIME</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start Time should only be in numeric HHMM 24 hour format, and it should not be blank</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ts/0900</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">End Time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">te/END_TIME</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">End Time should only be in numeric HHMM 24 hour format, and it should not be blank</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">te/1800</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Venue</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v/VENUE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Venue should only contain alphanumeric characters and spaces, and it should not be blank</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v/Level 5</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">
 <h2 id="appendix-b-privileges-in-accordance-to-priority-level"><a class="link" href="#appendix-b-privileges-in-accordance-to-priority-level">7. Appendix B: Privileges in accordance to priority level</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 3. Priority level and its' privileges</caption>
+<caption class="title">Table 4. Priority level and its' privileges</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1601,4 +1682,4 @@ Department names should start with a name, and ends with 'Management'.</p></td>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 14:55:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 15:16:15 UTC</div></div></div></body></html>
