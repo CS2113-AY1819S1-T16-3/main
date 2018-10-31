@@ -806,14 +806,16 @@ Format: <code>leave date/DATE</code></p>
 </table>
 </div>
 <div class="paragraph">
-<p>Example: <code>leave date/20/03/2019</code></p>
+<p>Example: <code>leave date/20/11/2019</code></p>
 </div>
-<div class="exampleblock">
-<div class="content">
 <div class="paragraph">
-<p>Request leave application on 20/03/2019.</p>
+<p><span class="image"><img src="images/leave.png" alt="leave" width=""></span></p>
 </div>
+<div class="paragraph">
+<p>Requested leave application on 20/11/2019.</p>
 </div>
+<div class="paragraph">
+<p><span class="image"><img src="images/acceptedleave.png" alt="acceptedleave" width=""></span></p>
 </div>
 </div>
 <div class="sect2">
@@ -821,6 +823,15 @@ Format: <code>leave date/DATE</code></p>
 <div class="paragraph">
 <p>List out all leave application in the leave list.<br>
 Format: <code>listleave</code></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/listleave.png" alt="listleave" width=""></span></p>
+</div>
+<div class="paragraph">
+<p>Returns all the leave application in the system.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/listedleave.png" alt="listedleave" width=""></span></p>
 </div>
 </div>
 <div class="sect2">
@@ -850,18 +861,16 @@ Alias: <code>fl</code></p>
 </div>
 <div class="paragraph">
 <p>Example:
-<code>fl S1213452A</code></p>
+<code>fliterleave T1213452E</code></p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>List all leave application requested by the user with NRIC, 'S1213452A'.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p><span class="image"><img src="images/filterleavecmd.png" alt="filterleavecmd" width=""></span></p>
 </div>
+<div class="paragraph">
+<p>List all leave application requested by the user with NRIC, 'T1213452E'.</p>
 </div>
+<div class="paragraph">
+<p><span class="image"><img src="images/filterleave.png" alt="filterleave" width=""></span></p>
 </div>
 </div>
 <div class="sect2">
@@ -895,7 +904,8 @@ Example, MANAGER can delete BASIC user&#8217;s leave application.</p>
 </table>
 </div>
 <div class="paragraph">
-<p>Format: <code>deleteleave INDEX</code></p>
+<p>Format: <code>deleteleave INDEX</code><br>
+Alias: <code>dl</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -916,18 +926,19 @@ Example, MANAGER can delete BASIC user&#8217;s leave application.</p>
 </div>
 <div class="paragraph">
 <p>Example:
-<code>deleteleave 2</code></p>
+<code>deleteleave 1</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the leave application with INDEX 2 in the leave list.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p><span class="image"><img src="images/deleteleavecmd.png" alt="deleteleavecmd" width=""></span></p>
 </div>
+<div class="paragraph">
+<p><span class="image"><img src="images/deletingleave.png" alt="deletingleave" width=""></span></p>
 </div>
+<div class="paragraph">
+<p>Deletes the leave application with INDEX 1 in the leave list.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/deletedleave.png" alt="deletedleave" width=""></span></p>
 </div>
 </div>
 <div class="sect2">
@@ -981,16 +992,14 @@ Example, MANAGER can approve BASIC user&#8217;s leave application.</p>
 <p>Example:
 <code>approve 2</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
+<p><span class="image"><img src="images/approvecmd.png" alt="approvecmd" width=""></span></p>
+</div>
+<div class="paragraph">
 <p>Approve the leave application with INDEX 2 in the leave list.</p>
-</li>
-</ul>
 </div>
-</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/approved.png" alt="approved" width=""></span></p>
 </div>
 </div>
 <div class="sect2">
@@ -1044,16 +1053,14 @@ Example, MANAGER can reject BASIC user&#8217;s leave application.</p>
 <p>Example:
 <code>reject 2</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
+<p><span class="image"><img src="images/rejectcmd.png" alt="rejectcmd" width=""></span></p>
+</div>
+<div class="paragraph">
 <p>Reject the leave application with INDEX 2 in the leave list.</p>
-</li>
-</ul>
 </div>
-</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/rejected.png" alt="rejected" width=""></span></p>
 </div>
 </div>
 <div class="sect2">
@@ -1509,4 +1516,4 @@ Department names should start with a name, and ends with 'Management'.</p></td>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 11:53:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 12:33:32 UTC</div></div></div></body></html>
