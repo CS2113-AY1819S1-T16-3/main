@@ -11,7 +11,7 @@
 <ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a></li>
 <li><a href="#quick-start">2. Quick Start</a></li>
-<li><a href="#Features">3. Features</a>
+<li><a href="#features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
 <li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
@@ -104,7 +104,7 @@ or when ResetCommand was executed in the previous runtime.</p>
 </li>
 </ol>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table id="defaultcontacts" class="tableblock frame-all grid-all spread">
 <caption class="title">Table 1. List of user accounts at first launch or upon reset</caption>
 <colgroup>
 <col style="width: 25%;">
@@ -171,14 +171,14 @@ a/311, Clementi Ave 2, #02-25 wr/7.5 t/friends t/owesMoney</code> : adds a conta
 </div>
 </li>
 <li>
-<p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
+<p>Refer to <a href="#features">Features</a> for details of each command.</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="Features"><a class="link" href="#Features">3. Features</a></h2>
+<h2 id="features"><a class="link" href="#features">3. Features</a></h2>
 <div class="sectionbody">
 <div class="exampleblock">
 <div class="content">
@@ -325,6 +325,9 @@ Format : <code>edit [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#820
 </li>
 <li>
 <p>Phone: p/PHONE_NUMBER</p>
+</li>
+<li>
+<p>Email: e/EMAIL</p>
 </li>
 <li>
 <p>Tag(s): t/TAG1 t/TAG2 &#8230;&#8203;</p>
@@ -1128,6 +1131,23 @@ Format: <code>history</code></p>
 Format: <code>login ic/NRIC pwd/PASSWORD</code><br>
 Example: <code>login ic/T1234567E pwd/Password</code></p>
 </div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>A successful login will show the NRIC and name which you have used to login, followed by the schedule of the day (if any).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/loginTextBox.png" alt="loginTextBox">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/login_success_screenShot.png" alt="login success screenShot" width="600">
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="checks-the-login-status-of-the-application-code-checkloginstatus-code"><a class="link" href="#checks-the-login-status-of-the-application-code-checkloginstatus-code">3.20. Checks the login status of the application: <code>checkloginstatus</code></a></h3>
@@ -1144,11 +1164,23 @@ Also prints the logged in NRIC if logged in.</p>
 </div>
 <div class="sect2">
 <h3 id="check-in-out-working-hours-code-check-code"><a class="link" href="#check-in-out-working-hours-code-check-code">3.22. Check in/out working hours: <code>check</code></a></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>Updates check in/out status for employees.<br></p>
+<p>This operation requires a priority level of MANAGER to execute.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Format: <code>check ic/NRIC pwd/PASSWORD m/IN-OUT</code><br>
+<p>Updates check in/out status for employees.<br>
+Format: <code>check ic/NRIC pwd/PASSWORD m/IN-OUT</code><br>
 Examples:<br></p>
 </div>
 <div class="ulist">
@@ -1278,8 +1310,26 @@ Examples:<br></p>
 </div>
 <div class="sect2">
 <h3 id="set-schedule-code-setschedule-code"><a class="link" href="#set-schedule-code-setschedule-code">3.24. Set schedule: <code>setschedule</code></a></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>This operations requires administrator privilege to perform.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
-<p>Set schedule of the employee. This Requires superuser level 1.<br></p>
+<p>Set schedule of the employee.<br></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>setschedule INDEX ts/TIME_START te/TIME_END v/VENUE</code><br></p>
@@ -1325,6 +1375,9 @@ Examples:<br></p>
 <li>
 <p>Refer to the Priority level section in Appendix A for the appropriate input value.</p>
 </li>
+<li>
+<p>You are not able to edit your own priority level.</p>
+</li>
 </ul>
 </div>
 </td>
@@ -1335,6 +1388,47 @@ Examples:<br></p>
 <p>Sets the priority level of an employee at the specified index.<br>
 Format: <code>setplvl INDEX plvl/PRIORITY_LEVEL</code><br>
 Example: <code>setplvl 4 plvl/3</code></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>A successful change of priority level should show the following message:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/setPlvl_success_screenShot.png" alt="setPlvl success screenShot">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Users of insufficient priority level (below administrator priority level) will get the following
+error message when attempting to execute this command:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/setPlvl_failed_screenShot.png" alt="setPlvl failed screenShot">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Users (with sufficient priority level), that attempts to change their own priority level will not be allowed to do so:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/setOwnPlvl_failed_screenShot.png" alt="setOwnPlvl failed screenShot">
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1354,9 +1448,14 @@ Example: <code>setplvl 4 plvl/3</code></p>
 </table>
 </div>
 <div class="paragraph">
-<p>Resets the application into a clean slate, by deleting data/AddressBook.xml. The application will also close upon
-deleting data/AddressBook.xml.<br>
-Format: <code>reset</code></p>
+<p>Resets the application into a default slate, by deleting data/AddressBook.xml. The application will also close upon
+deleting data/AddressBook.xml.</p>
+</div>
+<div class="paragraph">
+<p>Refer to the <a href="#defaultcontacts">List of Default Contacts</a> upon app reset on the contacts available.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>reset</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -1516,10 +1615,10 @@ There is no need to save manually.</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Parameter name</th>
-<th class="tableblock halign-left valign-top">Prefix</th>
-<th class="tableblock halign-left valign-top">Constraints</th>
-<th class="tableblock halign-left valign-top">Example</th>
+<th class="tableblock halign-left valign-top"><strong>Parameter name</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Prefix</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Constraints</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Example</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -1573,13 +1672,13 @@ Department names should start with a name, and ends with 'Management'.</p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Mode</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">m/MODE</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mode should only contains "in" or "out" and it should not be blank.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mode should only contains "in" or "out".</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">m/in</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">WorkingRate</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">wr/WORKINGRATE</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Working rate should only contains whole or decimal numbers and it should not be blank.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Working rate should only contains whole or decimal numbers.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">wr/7.5</p></td>
 </tr>
 <tr>
@@ -1675,11 +1774,11 @@ Department names should start with a name, and ends with 'Management'.</p></td>
 - Set Department of all employees</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">I.T. Unit (0)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I.T. UNIT (0)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">- All privileges of a ADMINISTRATOR Priority level<br>
-- Reset the entire AddressBook</p></td>
+- Reset the entire AddressBook into the default address book.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 15:16:15 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 15:36:41 UTC</div></div></div></body></html>
