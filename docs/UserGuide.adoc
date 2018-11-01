@@ -69,7 +69,7 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 * `list` : lists all contacts
 * `add n/John Doe ic/S9458861T pwd/Password p/98765432 e/johnd@example.com d/Junior Management
 a/311, Clementi Ave 2, #02-25 wr/7.5 t/friends t/owesMoney` : adds a contact named `John Doe` to the Address Book.
-* `schedule 2 : list the schedule of the 2nd person in the address book
+* `schedule 2` : list the schedule of the 2nd person in the address book
 * `exit` : exits the app
 
 .  Refer to <<Features,Features>> for details of each command.
