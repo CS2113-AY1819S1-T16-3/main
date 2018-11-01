@@ -692,43 +692,43 @@ There is no need to save manually.
 == Command Summary
 
 === Personal User Account
-•	*Login*: `login ic/NRIC pwd/PASSWORD`
-•	*Logout*: `logout`
-•	*Check login status*: `checkloginstatus`
-•	*Edit particulars*: `edit [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]...`
+•	*<<Login to the application: `login`, Login>>*: `login ic/NRIC pwd/PASSWORD`
+•	*<<Checks the login status of the application: `checkloginstatus`, Check login status>>*: `checkloginstatus`
+•	*<<Logout of the application: `logout`, Logout>>*: `logout`
+•	*<<Editing a person : `edit`, Edit particulars>>*: `edit [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]...`
 
 === Employee Management Database
-•	*Add employee*: `add n/NAME ic/NRIC pwd/PASSWORD p/PHONE NUMBER e/EMAIL d/DEPARTMENT a/ADDRESS wr/WORKING_RATE [plvl/PRIORITY_LEVEL] [t/TAGS]...`
-•	*Deleting employee*: `delete INDEX`
-•	*Set priority level of an employee*: `setplvl INDEX plvl/PRIORITY_LEVEL`
-•	*Change department of an employee*: `setdepartment INDEX d/DEPARTMENT`
+•	*<<Adding a person: `add`, Add employee>>*: `add n/NAME ic/NRIC pwd/PASSWORD p/PHONE NUMBER e/EMAIL d/DEPARTMENT a/ADDRESS wr/WORKING_RATE [plvl/PRIORITY_LEVEL] [t/TAGS]...`
+•	*<<Deleting a person : `delete`, Deleting employee>>*: `delete INDEX`
+•	*<<Change priority level of employee: `setplvl`, Set priority level of an employee>>*: `setplvl INDEX plvl/PRIORITY_LEVEL`
+•	*<<Change the department of an employee : `setdepartment`, Change department of an employee>>*: `setdepartment INDEX d/DEPARTMENT`
 
 === Leave Application
-•	*Add leave application*: `leave date/DATE`
-•	*List all leave applications*: `listleave`
-•	*Filter leave applications*: `filterleave NRIC`
-•	*Delete leave application*: `deleteleave INDEX`
-•	*Approve leave application*: `approve INDEX`
-•	*Reject leave application*: `reject INDEX`
+•	*<<Leave application : `leave`, Add leave application>>*: `leave date/DATE`
+•	*<<List leave application : `listleave`, List all leave applications>>*: `listleave`
+•	*<<Filter leave application : `filterleave`, Filter leave applications>>*: `filterleave NRIC`
+•	*<<Delete leave application : `deleteleave`, Delete leave application>>*: `deleteleave INDEX`
+•	*<<Approve leave application  : `approve`, Approve leave application>>*: `approve INDEX`
+•	*<<Reject leave application  : `reject`, Reject leave application>>*: `reject INDEX`
 
 === Scheduling
-•	*List schedule*: `schedule INDEX`
-•	*Set schedule*: `setschedule INDEX ts/TIME_START te/TIME_END v/VENUE`
+•	*<<List schedule: `schedule`, List schedule>>*: `schedule INDEX`
+•	*<<Set schedule: `setschedule`, Set schedule>>*: `setschedule INDEX ts/TIME_START te/TIME_END v/VENUE`
 
 === Filtering/Sorting
-•	*List employee list*: `list`
-•	*Find employee*: `find KEYWORD [MORE_KEYWORDS]`
-•	*Sort address book contacts*: `sort name asc`
-•	*List available departments*: `listdepartment`
-•	*Filter departments*: `filterdepartment junior`
+•	*<<Listing all persons : `list`, List employee list>>*: `list`
+•	*<<Locating persons by name: `find`, Find employee>>*: `find KEYWORD [MORE_KEYWORDS]`
+•	*<<Sort address book contacts: `sort`, Sort address book contacts>>*: `sort name asc`
+•	*<<List department : `listdepartment`, List available departments>>*: `listdepartment`
+•	*<<Filtering department : `filterdepartment`, Filter departments>>*: `filterdepartment junior`
 
 === Miscellaneous
-•	*Help*: `help`
-•	*Select the employee*: `select INDEX`
-•	*History of commands*: `history`
-•	*Check in/out working hours*: `check ic/NRIC pwd/PASSWORD m/MODE`
-•	*Reset the application*: `reset`
-•	*Exit application*: `exit`
+•	*<<Viewing help : `help`, Help>>*: `help`
+•	*<<Selecting a person : `select`, Select the employee>>*: `select INDEX`
+•	*<<Listing entered commands : `history`, History of commands>>*: `history`
+•	*<<Check in/out working hours: `check`, Check in/out working hours>>*: `check ic/NRIC pwd/PASSWORD m/MODE`
+•	*<<Reset the application : `reset`, Reset the application>>*: `reset`
+•	*<<Exiting the program : `exit`, Exit application>>*: `exit`
 
 
 == Appendix A: List of prefixes in the application
