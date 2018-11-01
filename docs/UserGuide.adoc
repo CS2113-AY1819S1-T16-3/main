@@ -245,11 +245,11 @@ Alias: `sd`
 
 Example: `setdepartment 2 d/Junior Management`
 
-image::SetDepartmentBefore.png[width="500"]
+image::SetDepartmentBefore.png[width=""]
 ====
 Changes the employee department with ID 2 in the address book to `Junior Management`.
 
-image::SetDepartmentAfter.png[width="500"]
+image::SetDepartmentAfter.png[width=""]
 ====
 // end::setdepartment[]
 
@@ -496,7 +496,7 @@ Examples:
 
 * `sort name asc`
 
-image::SortBefore1.png[width="500"]
+image::SortBefore1.png[width=""]
 ====
 Sorts the employee names in the list in ascending order
 
@@ -504,7 +504,7 @@ image::SortAfter1.png[width="250"]
 ====
 * `sort department desc`
 
-image::SortBefore2.png[width="500"]
+image::SortBefore2.png[width=""]
 ====
 Sorts the department names in the list in descending order
 
@@ -525,12 +525,12 @@ Example:
 
 * `listdepartment`
 
-image::ListDepartmentBefore.png[width="500"]
+image::ListDepartmentBefore.png[width=""]
 ====
 Returns a list of departments available in the addressbook currently.
 Listing of department names are in ascending order.
 
-image::ListDepartmentAfter.png[width="500"]
+image::ListDepartmentAfter.png[width=""]
 ====
 // end::listdepartment[]
 
@@ -557,7 +557,7 @@ Examples:
 
 * `filterdepartment junior`
 
-image::FilterDepartmentBefore1.png[width="500"]
+image::FilterDepartmentBefore1.png[width=""]
 ====
 Returns a list of employees who are in `Junior Management`.
 
@@ -565,7 +565,7 @@ image::FilterDepartmentAfter1.png[width="250"]
 ====
 * `filterdepartment junior senior`
 
-image::FilterDepartmentBefore2.png[width="500"]
+image::FilterDepartmentBefore2.png[width=""]
 ====
 Returns a list of employees who are in `Junior Management` and `Senior Management`.
 
