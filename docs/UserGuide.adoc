@@ -822,6 +822,17 @@ Department names should start with a name, and ends with 'Management'.
 
 |===
 
+.List of prefixes used for leave
+|===
+|Parameter |Prefix |Constraints |Example
+
+| Date
+| date/DATE
+| Date must be in DD/MM/YYYY format
+| date/20/11/2019
+
+|===
+
 
 == Appendix B: Privileges in accordance to priority level
 .Priority level and its' privileges
