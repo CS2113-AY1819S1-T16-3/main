@@ -86,53 +86,29 @@ a/311, Clementi Ave 2, #02-25 wr/7.5 t/friends t/owesMoney` : adds a contact nam
 * All the commands listed below requires user to login unless specified.
 ====
 
-=== Viewing help : `help`
+=== Personal User Account
 
-Format: `help`
-[NOTE]
+==== Login to the application: `login`
+Logs in to the application using a registered NRIC and password. +
+Format: `login ic/NRIC pwd/PASSWORD` +
+Example: `login ic/T1234567E pwd/Password`
+
 ====
-* Does not require the user to log in before using the command.
-====
+A successful login will show the NRIC and name which you have used to login, followed by the schedule of the day (if any).
 
-User Guide will open in a separate window shown below:
-image:UserGuide.png[]
+image::loginTextBox.png[]
 
-=== Adding a person: `add`
-
-[NOTE]
-====
-* Refer to <<Appendix A: List of prefixes in the application, Appendix A>> for the list of prefixes and its' constraints.
-* Refer to <<Appendix B: Privileges in accordance to priority level, Appendix B>> for the different privileges in each priority level.
-* This operation requires administrator privilege to perform.
+image::login_success_screenShot.png[width="600"]
 ====
 
-Adds an employee to the address book +
-Format: `add n/NAME ic/NRIC pwd/PASSWORD p/PHONE_NUMBER e/EMAIL d/DEPARTMENT a/ADDRESS wr/WORKING_RATE [plvl/PRIORITY_LEVEL] [t/TAG]...`
+==== Checks the login status of the application: `checkloginstatus`
+Prints whether this application is logged in. +
+Also prints the logged in NRIC if logged in.
 
-[TIP]
-====
-* A person can have any number of tags (including 0)
-* Priority level will be set to BASIC if left empty
-* A recently added person have no schedule allocated
-====
+==== Logout of the application: `logout`
+Logs out of the application, allowing for other users to log in again.
 
-Examples:
-
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 wr/7.5 d/Junior Management ic/T0249855I
-pwd/9EwciT plvl/1`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Tower p/1234567 d/Senior Management
-t/Creditor ic/S1875858E pwd/Fed528F wr/10`
-
-=== Listing all persons : `list`
-[NOTE]
-====
-* Does not require the user to log in before using the command.
-====
-
-Shows a list of all persons in the address book. +
-Format: `list`
-
-=== Editing a person : `edit`
+==== Editing a person : `edit`
 
 Edits the existing particulars of the logged in user. +
 Format : `edit [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]...` +
@@ -172,7 +148,303 @@ Sets the logged in person's details to the aforementioned email and phone number
 * `edit t/friend t/lecturer n/John Doe` +
 Sets the logged in person's details to the name of John Doe; clears all tag and sets the two aforementioned tags. +
 
-=== Locating persons by name: `find`
+=== Employee Management Database
+
+==== Adding a person: `add`
+
+[NOTE]
+====
+* Refer to <<Appendix A: List of prefixes in the application, Appendix A>> for the list of prefixes and its' constraints.
+* Refer to <<Appendix B: Privileges in accordance to priority level, Appendix B>> for the different privileges in each priority level.
+* This operation requires administrator privilege to perform.
+====
+
+Adds an employee to the address book +
+Format: `add n/NAME ic/NRIC pwd/PASSWORD p/PHONE_NUMBER e/EMAIL d/DEPARTMENT a/ADDRESS wr/WORKING_RATE [plvl/PRIORITY_LEVEL] [t/TAG]...`
+
+[TIP]
+====
+* A person can have any number of tags (including 0)
+* Priority level will be set to BASIC if left empty
+* A recently added person have no schedule allocated
+====
+
+Examples:
+
+* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 wr/7.5 d/Junior Management ic/T0249855I
+pwd/9EwciT plvl/1`
+* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Tower p/1234567 d/Senior Management
+t/Creditor ic/S1875858E pwd/Fed528F wr/10`
+
+==== Deleting a person : `delete`
+[NOTE]
+====
+This operation requires administrator privilege to perform.
+====
+
+Deletes the specified person from the address book. +
+Format: `delete INDEX`
+
+****
+* Deletes the person at the specified `INDEX`.
+* The index refers to the index number shown in the displayed person list.
+* The index *must be a positive integer* 1, 2, 3, ...
+****
+
+Examples:
+
+* `delete 1`
+====
+Deletes the employee with ID 1 in the address book.
+====
+
+==== Change priority level of employee: `setplvl`
+[NOTE]
+====
+* This operations requires administrator privilege to perform.
+* Refer to the Priority level section in <<Appendix A: List of prefixes in the application, Appendix A>> for the appropriate input value.
+* Refer to <<Appendix B: Privileges in accordance to priority level, Appendix B>> for the different privileges in each priority level.
+* You are not able to edit your own priority level.
+====
+Sets the priority level of an employee at the specified index. +
+Format: `setplvl INDEX plvl/PRIORITY_LEVEL` +
+Example: `setplvl 4 plvl/3`
+
+====
+- A successful change of priority level should show the following message:
+
+image::setPlvl_success_screenShot.png[]
+
+- Users of insufficient priority level (below administrator priority level) will get the following
+error message when attempting to execute this command:
+
+image::setPlvl_failed_screenShot.png[]
+
+- Users (with sufficient priority level), that attempts to change their own priority level will not be allowed to do so:
+
+image::setOwnPlvl_failed_screenShot.png[]
+====
+
+// tag::setdepartment[]
+==== Change the department of an employee : `setdepartment`
+[NOTE]
+====
+* This operation requires administrator privilege to perform.
+* Administrator can only change the departments of other employees but not himself/herself.
+====
+Changes the department of an employee. +
+Format: `setdepartment INDEX d/DEPARTMENT` +
+Alias: `sd`
+****
+* Changes the employee's department at the specified `INDEX`.
+* The index refers to the index number shown in the displayed employee list.
+* The index *must be a positive integer* 1, 2, 3, ...
+* Refer to the *Department* section at <<Appendix A: List of prefixes in the application, Appendix A>> for the appropriate input for the department name.
+****
+
+Example: `setdepartment 2 d/Junior Management`
+
+image::SetDepartmentBefore.png[width=""]
+====
+Changes the employee department with ID 2 in the address book to `Junior Management`.
+
+image::SetDepartmentAfter.png[width=""]
+====
+// end::setdepartment[]
+
+=== Leave Application
+
+==== Leave application : `leave`
+Request leave application of the user for approval. +
+Format: `leave date/DATE`
+[NOTE]
+====
+* DATE must be in the format DD/MM/YYYY
+====
+
+Example: `leave date/20/11/2019`
+
+image:leave.png[width=""]
+
+Requested leave application on 20/11/2019.
+
+image:acceptedleave.png[width=""]
+
+
+==== List leave application : `listleave`
+[NOTE]
+====
+* Does not require the user to log in before using the command.
+====
+List out all leave application in the leave list. +
+Format: `listleave`
+
+image:listleave.png[width=""]
+
+Returns all the leave application in the system.
+
+image:listedleave.png[width=""]
+
+==== Filter leave application : `filterleave`
+[NOTE]
+====
+* Does not require the user to log in before using the command.
+====
+Filter leave applications based on NRIC. +
+Format: `filterleave NRIC` +
+Alias: `fl`
+
+[NOTE]
+====
+* Filter is case insensitive eg. `s1234567a` matches `S1234567A`
+====
+Example:
+`filterleave T1213452E`
+
+image:filterleavecmd.png[width=""]
+
+List all leave application requested by the user with NRIC, 'T1213452E'.
+
+image:filterleave.png[width=""]
+
+==== Delete leave application : `deleteleave`
+Delete the specified leave from leave list.
+
+[NOTE]
+====
+* User can only delete leave application he/she requested.
+* To delete other user's application, requires higher privilege to perform.
+Example, MANAGER can delete BASIC user's leave application.
+====
+
+Format: `deleteleave INDEX` +
+Alias: `dl`
+
+****
+* Deletes the leave at the specified `INDEX`.
+* The index refers to the index number shown in the displayed leave list.
+* The index *must be a positive integer* 1, 2, 3, ...
+****
+
+Example:
+`deleteleave 1`
+
+image:deleteleavecmd.png[width=""]
+
+image:deletingleave.png[width=""]
+
+Deletes the leave application with INDEX 1 in the leave list.
+
+image:deletedleave.png[width=""]
+
+
+==== Approve leave application  : `approve`
+Approve the specified leave application from leave list.
+
+[NOTE]
+====
+* Only higher priority users can approve leave application.
+Example, MANAGER can approve BASIC user's leave application.
+====
+
+Format: `approve INDEX`
+****
+* Approve the leave at the specified `INDEX`.
+* The index refers to the index number shown in the displayed leave list.
+* The index *must be a positive integer* 1, 2, 3, ...
+****
+
+Example:
+`approve 2`
+
+image:approvecmd.png[width=""]
+
+Approve the leave application with INDEX 2 in the leave list.
+
+image:approved.png[width=""]
+
+==== Reject leave application  : `reject`
+Reject the specified leave application from leave list.
+
+[NOTE]
+====
+* Only higher priority users can reject leave application.
+Example, MANAGER can reject BASIC user's leave application.
+====
+
+Format: `reject INDEX`
+****
+* Reject the leave at the specified `INDEX`.
+* The index refers to the index number shown in the displayed leave list.
+* The index *must be a positive integer* 1, 2, 3, ...
+****
+
+Example:
+`reject 2`
+
+image:rejectcmd.png[width=""]
+
+Reject the leave application with INDEX 2 in the leave list.
+
+image:rejected.png[width=""]
+
+=== Scheduling
+
+// tag::schedule[]
+==== List schedule: `schedule`
+
+List schedule for the employee. +
+
+Format: `schedule INDEX` +
+
+****
+* Shows schedule at the specified `INDEX`.
+* The index refers to the index number shown in the displayed leave list.
+* The index *must be a positive integer* 1, 2, 3, ...
+* You need to have administrator privilege to view other user's schedule.
+****
+
+Example: `schedule 1`
+
+****
+* Shows the schedule of person with ID 1 in the list.
+****
+
+Sample output: +
+image:schedule_cmd.png[]
+
+==== Set schedule: `setschedule`
+[NOTE]
+====
+* This operations requires administrator privilege to perform.
+====
+
+Set schedule of the employee. +
+
+Format: `setschedule INDEX ts/TIME_START te/TIME_END v/VENUE` +
+
+****
+* Set the schedule at the specified `INDEX`.
+* The index refers to the index number shown in the displayed leave list.
+* The index *must be a positive integer* 1, 2, 3, ...
+* `TIME_START` and `TIME_END` must be in HHMM 24 hour format
+****
+
+Example: `setschedule 1 ts/1100 te/1600 v/Toilet` +
+// end::schedule[]
+
+=== Filtering/Sorting
+
+==== Listing all persons : `list`
+[NOTE]
+====
+* Does not require the user to log in before using the command.
+====
+
+Shows a list of all persons in the address book. +
+Format: `list`
+
+==== Locating persons by name: `find`
 [NOTE]
 ====
 * Does not require the user to log in before using the command.
@@ -201,7 +473,7 @@ Returns any person having names `Betsy`, `Tim`, or `John`
 ====
 
 // tag::sort[]
-=== Sort address book contacts: `sort`
+==== Sort address book contacts: `sort`
 [NOTE]
 ====
 * Does not require the user to log in before using the command.
@@ -240,7 +512,7 @@ image::SortAfter2.png[width=""]
 // end::sort[]
 
 // tag::listdepartment[]
-=== List department : `listdepartment`
+==== List department : `listdepartment`
 [NOTE]
 ====
 * Does not require the user to log in before using the command.
@@ -262,7 +534,7 @@ image::ListDepartmentAfter.png[width=""]
 // end::listdepartment[]
 
 // tag::filterdepartment[]
-=== Filtering department : `filterdepartment`
+==== Filtering department : `filterdepartment`
 [NOTE]
 ====
 * Does not require the user to log in before using the command.
@@ -300,67 +572,31 @@ image::FilterDepartmentAfter2.png[width=""]
 ====
 // end::filterdepartment[]
 
-// tag::setdepartment[]
-=== Change the department of an employee : `setdepartment`
-[NOTE]
-====
-* This operation requires administrator privilege to perform.
-* Administrator can only change the departments of other employees but not himself/herself.
-====
-Changes the department of an employee. +
-Format: `setdepartment INDEX d/DEPARTMENT` +
-Alias: `sd`
-****
-* Changes the employee's department at the specified `INDEX`.
-* The index refers to the index number shown in the displayed employee list.
-* The index *must be a positive integer* 1, 2, 3, ...
-* Refer to the *Department* section at <<Appendix A: List of prefixes in the application, Appendix A>> for the appropriate input for the department name.
-****
+=== Miscellaneous
 
-Example: `setdepartment 2 d/Junior Management`
+==== Viewing help : `help`
 
-image::SetDepartmentBefore.png[width=""]
-====
-Changes the employee department with ID 2 in the address book to `Junior Management`.
-
-image::SetDepartmentAfter.png[width=""]
-====
-// end::setdepartment[]
-
-=== Deleting a person : `delete`
-[NOTE]
-====
-This operation requires administrator privilege to perform.
-====
-
-Deletes the specified person from the address book. +
-Format: `delete INDEX`
-
-****
-* Deletes the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
-* The index *must be a positive integer* 1, 2, 3, ...
-****
-
-Examples:
-
-* `delete 1`
-====
-Deletes the employee with ID 1 in the address book.
-====
-
-=== Selecting a person : `select`
+Format: `help`
 [NOTE]
 ====
 * Does not require the user to log in before using the command.
 ====
 
-Selects the person identified by the index number used in the displayed person list. +
+User Guide will open in a separate window shown below:
+image:UserGuide.png[]
+
+==== Selecting a person : `select`
+[NOTE]
+====
+* Does not require the user to log in before using the command.
+====
+
+Selects the employee identified by the index number used in the displayed employee list. +
 Format: `select INDEX`
 
 ****
-* Selects the person at the specified `INDEX` and loads the homepage of BankAB.
-* The index refers to the index number shown in the displayed person list.
+* Selects the employee at the specified `INDEX` and loads the homepage of BankAB.
+* The index refers to the index number shown in the displayed employee list.
 * The index *must be a positive integer* `1, 2, 3, ...`
 ****
 
@@ -373,143 +609,7 @@ Selects the 2nd person in the address book.
 `select 1` +
 Selects the 1st person in the results of the `find` command.
 
-=== Leave application : `leave`
-Request leave application of the user for approval. +
-Format: `leave date/DATE`
-[NOTE]
-====
-* DATE must be in the format DD/MM/YYYY
-====
-
-Example: `leave date/20/11/2019`
-
-image:leave.png[width=""]
-
-Requested leave application on 20/11/2019.
-
-image:acceptedleave.png[width=""]
-
-
-=== List leave application : `listleave`
-[NOTE]
-====
-* Does not require the user to log in before using the command.
-====
-List out all leave application in the leave list. +
-Format: `listleave`
-
-image:listleave.png[width=""]
-
-Returns all the leave application in the system.
-
-image:listedleave.png[width=""]
-
-=== Filter leave application : `filterleave`
-[NOTE]
-====
-* Does not require the user to log in before using the command.
-====
-Filter leave applications based on NRIC. +
-Format: `filterleave NRIC` +
-Alias: `fl`
-
-[NOTE]
-====
-* Filter is case insensitive eg. `s1234567a` matches `S1234567A`
-====
-Example:
-`filterleave T1213452E`
-
-image:filterleavecmd.png[width=""]
-
-List all leave application requested by the user with NRIC, 'T1213452E'.
-
-image:filterleave.png[width=""]
-
-=== Delete leave application : `deleteleave`
-Delete the specified leave from leave list.
-
-[NOTE]
-====
-* User can only delete leave application he/she requested.
-* To delete other user's application, requires higher privilege to perform.
-Example, MANAGER can delete BASIC user's leave application.
-====
-
-Format: `deleteleave INDEX` +
-Alias: `dl`
-
-****
-* Deletes the leave at the specified `INDEX`.
-* The index refers to the index number shown in the displayed leave list.
-* The index *must be a positive integer* 1, 2, 3, ...
-****
-
-Example:
-`deleteleave 1`
-
-image:deleteleavecmd.png[width=""]
-
-image:deletingleave.png[width=""]
-
-Deletes the leave application with INDEX 1 in the leave list.
-
-image:deletedleave.png[width=""]
-
-
-=== Approve leave application  : `approve`
-Approve the specified leave application from leave list.
-
-[NOTE]
-====
-* Only higher priority users can approve leave application.
-Example, MANAGER can approve BASIC user's leave application.
-====
-
-Format: `approve INDEX`
-****
-* Approve the leave at the specified `INDEX`.
-* The index refers to the index number shown in the displayed leave list.
-* The index *must be a positive integer* 1, 2, 3, ...
-****
-
-Example:
-`approve 2`
-
-image:approvecmd.png[width=""]
-
-Approve the leave application with INDEX 2 in the leave list.
-
-image:approved.png[width=""]
-
-
-=== Reject leave application  : `reject`
-Reject the specified leave application from leave list.
-
-[NOTE]
-====
-* Only higher priority users can reject leave application.
-Example, MANAGER can reject BASIC user's leave application.
-====
-
-Format: `reject INDEX`
-****
-* Reject the leave at the specified `INDEX`.
-* The index refers to the index number shown in the displayed leave list.
-* The index *must be a positive integer* 1, 2, 3, ...
-****
-
-Example:
-`reject 2`
-
-image:rejectcmd.png[width=""]
-
-Reject the leave application with INDEX 2 in the leave list.
-
-image:rejected.png[width=""]
-
-
-=== Listing entered commands : `history`
+==== Listing entered commands : `history`
 [NOTE]
 ====
 * Does not require the user to log in before using the command.
@@ -523,27 +623,7 @@ Format: `history`
 Pressing the kbd:[&uarr;] and kbd:[&darr;] arrows will display the previous and next input respectively in the command box.
 ====
 
-=== Login to the application: `login`
-Logs in to the application using a registered NRIC and password. +
-Format: `login ic/NRIC pwd/PASSWORD` +
-Example: `login ic/T1234567E pwd/Password`
-
-====
-A successful login will show the NRIC and name which you have used to login, followed by the schedule of the day (if any).
-
-image::loginTextBox.png[]
-
-image::login_success_screenShot.png[width="600"]
-====
-
-=== Checks the login status of the application: `checkloginstatus`
-Prints whether this application is logged in. +
-Also prints the logged in NRIC if logged in.
-
-=== Logout of the application: `logout`
-Logs out of the application, allowing for other users to log in again.
-
-=== Check in/out working hours: `check`
+==== Check in/out working hours: `check`
 Updates check in/out status for employees. +
 Format: `check ic/NRIC pwd/PASSWORD m/IN-OUT` +
 Examples: +
@@ -581,77 +661,7 @@ Checked out shows: +
 image::checkedOut.PNG[width="270"]
 ====
 
-// tag::schedule[]
-=== List schedule: `schedule`
-
-List schedule for the employee. +
-
-Format: `schedule INDEX` +
-
-****
-* Shows schedule at the specified `INDEX`.
-* The index refers to the index number shown in the displayed leave list.
-* The index *must be a positive integer* 1, 2, 3, ...
-* You need to have administrator privilege to view other user's schedule.
-****
-
-Example: `schedule 1`
-
-****
-* Shows the schedule of person with ID 1 in the list.
-****
-
-Sample output: +
-image:schedule_cmd.png[]
-
-=== Set schedule: `setschedule`
-[NOTE]
-====
-* This operations requires administrator privilege to perform.
-====
-
-Set schedule of the employee. +
-
-Format: `setschedule INDEX ts/TIME_START te/TIME_END v/VENUE` +
-
-****
-* Set the schedule at the specified `INDEX`.
-* The index refers to the index number shown in the displayed leave list.
-* The index *must be a positive integer* 1, 2, 3, ...
-* `TIME_START` and `TIME_END` must be in HHMM 24 hour format
-****
-
-Example: `setschedule 1 ts/1100 te/1600 v/Toilet` +
-// end::schedule[]
-
-=== Change priority level of employee: `setplvl`
-[NOTE]
-====
-* This operations requires administrator privilege to perform.
-* Refer to the Priority level section in <<Appendix A: List of prefixes in the application, Appendix A>> for the appropriate input value.
-* Refer to <<Appendix B: Privileges in accordance to priority level, Appendix B>> for the different privileges in each priority level.
-* You are not able to edit your own priority level.
-====
-Sets the priority level of an employee at the specified index. +
-Format: `setplvl INDEX plvl/PRIORITY_LEVEL` +
-Example: `setplvl 4 plvl/3`
-
-====
-- A successful change of priority level should show the following message:
-
-image::setPlvl_success_screenShot.png[]
-
-- Users of insufficient priority level (below administrator priority level) will get the following
-error message when attempting to execute this command:
-
-image::setPlvl_failed_screenShot.png[]
-
-- Users (with sufficient priority level), that attempts to change their own priority level will not be allowed to do so:
-
-image::setOwnPlvl_failed_screenShot.png[]
-====
-
-=== Reset the application : `reset`
+==== Reset the application : `reset`
 [NOTE]
 ====
 This operation requires user to be logged in with a privilege level of `I.T. Unit` to perform.
@@ -663,7 +673,7 @@ Refer to the <<defaultcontacts, List of Default Contacts>> upon app reset on the
 
 Format: `reset`
 
-=== Exiting the program : `exit`
+==== Exiting the program : `exit`
 
 Exits the program. +
 Format: `exit`
@@ -705,14 +715,17 @@ There is no need to save manually.
 •	*Set schedule*: `setschedule INDEX ts/TIME_START te/TIME_END v/VENUE`
 
 === Filtering/Sorting
+•	*List employee list*: `list`
 •	*Find employee*: `find KEYWORD [MORE_KEYWORDS]`
 •	*Sort address book contacts*: `sort name asc`
 •	*List available departments*: `listdepartment`
 •	*Filter departments*: `filterdepartment junior`
 
 === Miscellaneous
-•	*Check in/out working hours*: `check ic/NRIC pwd/PASSWORD m/MODE`
 •	*Help*: `help`
+•	*Select the employee*: `select INDEX`
+•	*History of commands*: `history`
+•	*Check in/out working hours*: `check ic/NRIC pwd/PASSWORD m/MODE`
 •	*Reset the application*: `reset`
 •	*Exit application*: `exit`
 
