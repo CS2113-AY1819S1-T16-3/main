@@ -120,7 +120,7 @@ Format : `edit [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]...` +
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
 * You can remove all the person's tags by typing `t/` without specifying any tags after it.
-* You are able to edit the following fields for this command: -
+* You are able to edit the following fields for this command:
 ** Name: n/NAME
 ** Address: a/ADDRESS
 ** Phone: p/PHONE_NUMBER
@@ -759,7 +759,7 @@ alphabet.
 
 | Email
 | e/EMAIL_ADDRESS
-| Emails should be of the format local-part@domain, and also satisfy the following requirements: - +
+| Emails should be of the format local-part@domain, and also satisfy the following requirements: +
     1) "local-part" should contain only alphanumeric characters and an underscore '_' +
     2) "domain" can consist of alphanumeric characters, a period, or hyphen, but should start and end with only
     alphanumeric characters.
@@ -788,7 +788,7 @@ Department names should start with a name, and ends with 'Management'.
 
 | Priority Level
 | plvl/PRIORITY_LEVEL
-| Priority Level should be a number respective to the following classification: - +
+| Priority Level should be a number respective to the following classification: +
 [0] I.T. Unit (HIGHEST) +
 [1] Administrator +
 [2] Manager +
