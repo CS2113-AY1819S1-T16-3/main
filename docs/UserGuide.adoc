@@ -304,7 +304,7 @@ Example:
 
 image:filterleavecmd.png[width=""]
 
-List all leave application requested by the user with NRIC, 'T1213452E'.
+List all leave application requested by the user with NRIC, 'T1234567E'.
 
 image:filterleave.png[width=""]
 
