@@ -500,7 +500,7 @@ image::SortBefore1.png[width=""]
 ====
 Sorts the employee names in the list in ascending order
 
-image::SortAfter1.png[width=""]
+image::SortAfter1.png[width="270"]
 ====
 * `sort department desc`
 
@@ -508,7 +508,7 @@ image::SortBefore2.png[width=""]
 ====
 Sorts the department names in the list in descending order
 
-image::SortAfter2.png[width=""]
+image::SortAfter2.png[width="270"]
 ====
 // end::sort[]
 
@@ -561,7 +561,7 @@ image::FilterDepartmentBefore1.png[width=""]
 ====
 Returns a list of employees who are in `Junior Management`.
 
-image::FilterDepartmentAfter1.png[width=""]
+image::FilterDepartmentAfter1.png[width="270"]
 ====
 * `filterdepartment junior senior`
 
@@ -569,7 +569,7 @@ image::FilterDepartmentBefore2.png[width=""]
 ====
 Returns a list of employees who are in `Junior Management` and `Senior Management`.
 
-image::FilterDepartmentAfter2.png[width=""]
+image::FilterDepartmentAfter2.png[width="270"]
 ====
 // end::filterdepartment[]
 
