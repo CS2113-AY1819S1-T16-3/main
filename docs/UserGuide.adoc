@@ -17,10 +17,10 @@ endif::[]
 By: `T16-3`      Since: `Aug 2018`      Licence: `MIT`
 
 == Introduction
-Bank AddressBook (BankAB) is an employee management application.
-You can use BankAB to check working schedule, apply off day, check working hours
-and daily notification. The managers and boss will have more access of BankAB such as changing the
-priority level of the employee and approve or reject off day requests. This user guide will give
+Bank AddressBook (BankAB) is a business process management and workflow application platform.
+You can use BankAB to check working schedule, apply off day, check working hours.
+The managers and administrators will have higher priority access level of BankAB such as changing the
+priority level of the employee and approve or reject leave requests. This user guide will give
 you step by step instruction on how you can use the features of BankAB.
 
 == Quick Start
@@ -64,12 +64,12 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 |===
 .  Some example commands you can try:
 
-* *`login ic/S1234567E pwd/Password`* : Log in as Alex Yeoh, with a priority level of ADMINISTRATOR.
-* *`list`* : lists all contacts
-* `*add* n/John Doe ic/S9458861T pwd/Password p/98765432 e/johnd@example.com d/Junior Management
+* `login ic/S1234567E pwd/Password` : Log in as Alex Yeoh, with a priority level of ADMINISTRATOR.
+* `list` : lists all contacts
+* `add n/John Doe ic/S9458861T pwd/Password p/98765432 e/johnd@example.com d/Junior Management
 a/311, Clementi Ave 2, #02-25 wr/7.5 t/friends t/owesMoney` : adds a contact named `John Doe` to the Address Book.
-* `*schedule* n/John Doe ic/s1234567a` : list input user’s schedule
-* *`exit`* : exits the app
+* `schedule 2 : list the schedule of the 2nd person in the address book
+* `exit` : exits the app
 
 .  Refer to <<Features,Features>> for details of each command.
 
@@ -83,11 +83,16 @@ a/311, Clementi Ave 2, #02-25 wr/7.5 t/friends t/owesMoney` : adds a contact nam
 * Items with `…`​ after them can be used multiple times including zero times e.g. `[t/TAG]...` can be used as `{nbsp}` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
 * Parameters can be in any order.
     e.g.: Specifying parameters in the order ic/NRIC n/NAME is identical to n/NAME ic/NRIC.
+* All the commands listed below requires user to login unless specified.
 ====
 
 === Viewing help : `help`
 
 Format: `help`
+[NOTE]
+====
+* Does not require the user to log in before using the command.
+====
 
 User Guide will open in a separate window shown below:
 image:UserGuide.png[]
@@ -97,11 +102,12 @@ image:UserGuide.png[]
 [NOTE]
 ====
 * Refer to <<Appendix A: List of prefixes in the application, Appendix A>> for the list of prefixes and its' constraints.
+* Refer to <<Appendix B: Privileges in accordance to priority level, Appendix B>> for the different privileges in each priority level.
 * This operation requires administrator privilege to perform.
 ====
 
 Adds an employee to the address book +
-Format: `add n/NAME ic/NRIC pwd/PASSWORD p/PHONE_NUMBER e/EMAIL d/DEPARTMENT a/ADDRESS wr/WORKINGRATE [plvl/PRIORITY_LEVEL] [t/TAG]...`
+Format: `add n/NAME ic/NRIC pwd/PASSWORD p/PHONE_NUMBER e/EMAIL d/DEPARTMENT a/ADDRESS wr/WORKING_RATE [plvl/PRIORITY_LEVEL] [t/TAG]...`
 
 [TIP]
 ====
@@ -118,6 +124,10 @@ pwd/9EwciT plvl/1`
 t/Creditor ic/S1875858E pwd/Fed528F wr/10`
 
 === Listing all persons : `list`
+[NOTE]
+====
+* Does not require the user to log in before using the command.
+====
 
 Shows a list of all persons in the address book. +
 Format: `list`
@@ -147,8 +157,12 @@ This command will NOT be able to edit the following:
 
 * `Department`
 * `Leave`
+* `NRIC`
+* `Password`
 * `Priority Level`
 * `Schedule`
+* `Working Rate`
+
 ====
 
 Examples:
@@ -159,6 +173,10 @@ Sets the logged in person's details to the aforementioned email and phone number
 Sets the logged in person's details to the name of John Doe; clears all tag and sets the two aforementioned tags. +
 
 === Locating persons by name: `find`
+[NOTE]
+====
+* Does not require the user to log in before using the command.
+====
 
 Finds persons whose names contain any of the given keywords. +
 Format: `find KEYWORD [MORE_KEYWORDS]`
@@ -184,6 +202,10 @@ Returns any person having names `Betsy`, `Tim`, or `John`
 
 // tag::sort[]
 === Sort address book contacts: `sort`
+[NOTE]
+====
+* Does not require the user to log in before using the command.
+====
 Shows the sorted list of the employees or departments in the address book.
 The list can be sorted in ascending or descending order. +
 Format: `sort FIELD ORDER`
@@ -219,6 +241,10 @@ image::SortAfter2.png[width=""]
 
 // tag::listdepartment[]
 === List department : `listdepartment`
+[NOTE]
+====
+* Does not require the user to log in before using the command.
+====
 Shows a list of departments available in the addressbook. +
 Format: `listdepartment` +
 Alias: `ld` +
@@ -237,6 +263,10 @@ image::ListDepartmentAfter.png[width=""]
 
 // tag::filterdepartment[]
 === Filtering department : `filterdepartment`
+[NOTE]
+====
+* Does not require the user to log in before using the command.
+====
 Filter departments and list out the employees who are in the department. +
 Format: `filterdepartment KEYWORD [MORE KEYWORDS]` +
 Alias: `fd`
@@ -284,7 +314,7 @@ Alias: `sd`
 * Changes the employee's department at the specified `INDEX`.
 * The index refers to the index number shown in the displayed employee list.
 * The index *must be a positive integer* 1, 2, 3, ...
-* Refer to the *Department* section at *Appendix A* for the appropriate input for the department name.
+* Refer to the *Department* section at <<Appendix A: List of prefixes in the application, Appendix A>> for the appropriate input for the department name.
 ****
 
 Example: `setdepartment 2 d/Junior Management`
@@ -320,12 +350,16 @@ Deletes the employee with ID 1 in the address book.
 ====
 
 === Selecting a person : `select`
+[NOTE]
+====
+* Does not require the user to log in before using the command.
+====
 
 Selects the person identified by the index number used in the displayed person list. +
 Format: `select INDEX`
 
 ****
-* Selects the person and loads the Google search page the person at the specified `INDEX`.
+* Selects the person at the specified `INDEX` and loads the homepage of BankAB.
 * The index refers to the index number shown in the displayed person list.
 * The index *must be a positive integer* `1, 2, 3, ...`
 ****
@@ -339,12 +373,11 @@ Selects the 2nd person in the address book.
 `select 1` +
 Selects the 1st person in the results of the `find` command.
 
-=== Add leave application : `leave`
-Add leave application of the user for approval. +
+=== Leave application : `leave`
+Request leave application of the user for approval. +
 Format: `leave date/DATE`
 [NOTE]
 ====
-* Requires the user to log in before using the command.
 * DATE must be in the format DD/MM/YYYY
 ====
 
@@ -358,6 +391,10 @@ image:acceptedleave.png[width=""]
 
 
 === List leave application : `listleave`
+[NOTE]
+====
+* Does not require the user to log in before using the command.
+====
 List out all leave application in the leave list. +
 Format: `listleave`
 
@@ -368,6 +405,10 @@ Returns all the leave application in the system.
 image:listedleave.png[width=""]
 
 === Filter leave application : `filterleave`
+[NOTE]
+====
+* Does not require the user to log in before using the command.
+====
 Filter leave applications based on NRIC. +
 Format: `filterleave NRIC` +
 Alias: `fl`
@@ -377,7 +418,7 @@ Alias: `fl`
 * Filter is case insensitive eg. `s1234567a` matches `S1234567A`
 ====
 Example:
-`fliterleave T1213452E`
+`filterleave T1213452E`
 
 image:filterleavecmd.png[width=""]
 
@@ -390,7 +431,6 @@ Delete the specified leave from leave list.
 
 [NOTE]
 ====
-* Requires the user to log in before using the command.
 * User can only delete leave application he/she requested.
 * To delete other user's application, requires higher privilege to perform.
 Example, MANAGER can delete BASIC user's leave application.
@@ -418,11 +458,10 @@ image:deletedleave.png[width=""]
 
 
 === Approve leave application  : `approve`
-Approve the specified leave from leave list.
+Approve the specified leave application from leave list.
 
 [NOTE]
 ====
-* Requires the user to log in before using the command.
 * Only higher priority users can approve leave application.
 Example, MANAGER can approve BASIC user's leave application.
 ====
@@ -445,11 +484,10 @@ image:approved.png[width=""]
 
 
 === Reject leave application  : `reject`
-Reject the specified leave from leave list.
+Reject the specified leave application from leave list.
 
 [NOTE]
 ====
-* Requires the user to log in before using the command.
 * Only higher priority users can reject leave application.
 Example, MANAGER can reject BASIC user's leave application.
 ====
@@ -472,6 +510,10 @@ image:rejected.png[width=""]
 
 
 === Listing entered commands : `history`
+[NOTE]
+====
+* Does not require the user to log in before using the command.
+====
 
 Lists all the commands that you have entered in reverse chronological order. +
 Format: `history`
@@ -550,6 +592,7 @@ Format: `schedule INDEX` +
 * Shows schedule at the specified `INDEX`.
 * The index refers to the index number shown in the displayed leave list.
 * The index *must be a positive integer* 1, 2, 3, ...
+* You need to have administrator privilege to view other user's schedule.
 ****
 
 Example: `schedule 1`
@@ -585,7 +628,8 @@ Example: `setschedule 1 ts/1100 te/1600 v/Toilet` +
 [NOTE]
 ====
 * This operations requires administrator privilege to perform.
-* Refer to the Priority level section in Appendix A for the appropriate input value.
+* Refer to the Priority level section in <<Appendix A: List of prefixes in the application, Appendix A>> for the appropriate input value.
+* Refer to <<Appendix B: Privileges in accordance to priority level, Appendix B>> for the different privileges in each priority level.
 * You are not able to edit your own priority level.
 ====
 Sets the priority level of an employee at the specified index. +
@@ -610,7 +654,7 @@ image::setOwnPlvl_failed_screenShot.png[]
 === Reset the application : `reset`
 [NOTE]
 ====
-This operation requires user to be logged in with a priviledge level of `I.T. Unit` to perform.
+This operation requires user to be logged in with a privilege level of `I.T. Unit` to perform.
 ====
 Resets the application into a default slate, by deleting data/AddressBook.xml. The application will also close upon
 deleting data/AddressBook.xml.
@@ -643,7 +687,7 @@ There is no need to save manually.
 •	*Edit particulars*: `edit [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]...`
 
 === Employee Management Database
-•	*Add employee*: `add n/NAME ic/NRIC pwd/PASSWORD p/PHONE NUMBER e/EMAIL d/DEPARTMENT a/ADDRESS [plvl/PRIORITY_LEVEL] [t/TAGS]...`
+•	*Add employee*: `add n/NAME ic/NRIC pwd/PASSWORD p/PHONE NUMBER e/EMAIL d/DEPARTMENT a/ADDRESS wr/WORKING_RATE [plvl/PRIORITY_LEVEL] [t/TAGS]...`
 •	*Deleting employee*: `delete INDEX`
 •	*Set priority level of an employee*: `setplvl INDEX plvl/PRIORITY_LEVEL`
 •	*Change department of an employee*: `setdepartment INDEX d/DEPARTMENT`
@@ -667,14 +711,14 @@ There is no need to save manually.
 •	*Filter departments*: `filterdepartment junior`
 
 === Miscellaneous
-•	*Check in/out working hours*: `check ic/NRIC pwd/PASSWORD mode/IN-OUT`
+•	*Check in/out working hours*: `check ic/NRIC pwd/PASSWORD m/MODE`
 •	*Help*: `help`
 •	*Reset the application*: `reset`
 •	*Exit application*: `exit`
 
 
 == Appendix A: List of prefixes in the application
-.List of prefixes
+.List of prefixes used for employee
 |===
 |*Parameter name* |*Prefix* |*Constraints* |*Example*
 
@@ -723,8 +767,8 @@ Department names should start with a name, and ends with 'Management'.
 | Mode should only contains "in" or "out".
 | m/in
 
-| WorkingRate
-| wr/WORKINGRATE
+| Working Rate
+| wr/WORKING_RATE
 | Working rate should only contains whole or decimal numbers.
 | wr/7.5
 
