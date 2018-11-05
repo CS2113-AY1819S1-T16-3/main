@@ -10,7 +10,7 @@
 <div id="toctitle"></div>
 <ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a></li>
-<li><a href="#quick-start">2. Quick Start</a></li>
+<li><a href="#getting-started-with-bankab">2. Getting Started with BankAB</a></li>
 <li><a href="#features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#personal-user-account">3.1. Personal User Account</a>
@@ -87,16 +87,31 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Bank AddressBook (BankAB) is a business process management and workflow application platform.
-You can use BankAB to check working schedule, apply off day, check working hours.
-The managers and administrators will have higher priority access level of BankAB such as changing the
-priority level of the employee and approve or reject leave requests. This user guide will give
-you step by step instruction on how you can use the features of BankAB.</p>
+<p>Bank AddressBook (BankAB) is a business process management and workflow application platform, whereby its users are all the employees in a banking environment.
+This platform supports the basic daily routine of each employee such as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Checking working schedule</p>
+</li>
+<li>
+<p>Applying for leave application</p>
+</li>
+<li>
+<p>Checking in and out during working hours</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The managers and administrators will have higher priority access level of BankAB such as changing the
+priority level of the employee and approve or reject leave requests.<br>
+This user guide will give you step by step instruction on how you can use the features of BankAB.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="quick-start"><a class="link" href="#quick-start">2. Quick Start</a></h2>
+<h2 id="getting-started-with-bankab"><a class="link" href="#getting-started-with-bankab">2. Getting Started with BankAB</a></h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
@@ -105,10 +120,10 @@ you step by step instruction on how you can use the features of BankAB.</p>
 <a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">Download</a></p>
 </li>
 <li>
-<p>Download the latest <code>BankAddressBook.jar</code> <a href="https://github.com/CS2113-AY1819S1-T16-3/main/releases">here</a>.</p>
+<p>Create a folder named <code>BankAB</code> in the desired location.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+<p>Download the latest <code>BankAddressBook.jar</code> <a href="https://github.com/CS2113-AY1819S1-T16-3/main/releases">here</a> into the folder <code>BankAB</code>.</p>
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
@@ -119,12 +134,11 @@ you step by step instruction on how you can use the features of BankAB.</p>
 </div>
 </li>
 <li>
-<p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
-e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
+<p>If the app does not contain any sample data (refer to <a href="#defaultcontacts">Table 1</a>), something went wrong during the download process. Delete the folder <code>BankAB</code> and repeat step 1 to 4.</p>
 </li>
 <li>
-<p>The following table contains a sample list of persons with the respective account details when the application is first run
-or when ResetCommand was executed in the previous runtime.</p>
+<p>The following table contains a sample list of persons with the respective account details when the application
+runs for the first time or when ResetCommand was executed in the previous runtime:</p>
 </li>
 </ol>
 </div>
@@ -171,6 +185,10 @@ or when ResetCommand was executed in the previous runtime.</p>
 </table>
 <div class="olist arabic">
 <ol class="arabic">
+<li>
+<p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
+e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
+</li>
 <li>
 <p>Some example commands you can try:</p>
 <div class="ulist">
@@ -221,6 +239,9 @@ a/311, Clementi Ave 2, #02-25 wr/7.5 t/friends t/owesMoney</code> : adds a conta
 <p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
 </li>
 <li>
+<p>Using items without <code>…</code> after them multiple times will cause the app to either accept the last acceptable item or prompt an error message.</p>
+</li>
+<li>
 <p>Parameters can be in any order.
 e.g.: Specifying parameters in the order ic/NRIC n/NAME is identical to n/NAME ic/NRIC.</p>
 </li>
@@ -252,7 +273,7 @@ Example: <code>login ic/S1234567E pwd/Password</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/login_success_screenShot.png" alt="login success screenShot" width="">
+<img src="images/login_success_screenShot.png" alt="login success screenShot">
 </div>
 </div>
 </div>
@@ -1026,6 +1047,9 @@ Example, MANAGER can reject BASIC user&#8217;s leave application.</p>
 <li>
 <p>This operations requires administrator privilege to perform.</p>
 </li>
+<li>
+<p>If <code>TIME_START</code> is later than <code>TIME_END</code>, <code>TIME_END</code> refers to the following day.</p>
+</li>
 </ul>
 </div>
 </td>
@@ -1059,7 +1083,35 @@ Example, MANAGER can reject BASIC user&#8217;s leave application.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Example: <code>setschedule 1 ts/1100 te/1600 v/Toilet</code><br></p>
+<p>Examples:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>setschedule 1 ts/1100 te/1600 v/Toilet</code><br></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Sets a schedule for 1st user to work in <code>Toilet</code> from 1100 hours to 1600 hours</p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>setschedule 2 ts/2200 te/0800 v/Main Door</code><br></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Sets a schedule for 2nd user to work at <code>Main Door</code> from 2200 hours to 0800 hours of the following day</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1995,30 +2047,38 @@ Department names should start with a name, and ends with 'Management'.</p></td>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 5. Priority level and its' privileges</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top"><strong>Priority Level</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Typical Roles</strong></th>
 <th class="tableblock halign-left valign-top"><strong>Privileges</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">BASIC (3)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">- Intern<br>
+- Security Guard<br>
+- Receptionist</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">- Edit your own particulars<br>
 - Apply for leave<br>
 - Check in/out to/from work for their own</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MANAGER (2)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">- Head of Departments</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">- All privileges of a BASIC Priority Level<br>
 - Approve/Reject/Delete leave of users with lower priority level<br>
 - Check in/out to/from work for others</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ADMINISTRATOR (1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">- Branch Manager<br>
+- Bank Executive<br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">- All privileges of a MANAGER Priority level<br>
 - Add and delete employees from the AddressBook<br>
 - Set the priority level of all employees<br>
@@ -2026,10 +2086,11 @@ Department names should start with a name, and ends with 'Management'.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">I.T. UNIT (0)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">- IT Department</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">- All privileges of a ADMINISTRATOR Priority level<br>
 - Reset the entire AddressBook into the default address book.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-05 07:11:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-05 07:14:48 UTC</div></div></div></body></html>

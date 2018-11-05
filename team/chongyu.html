@@ -199,6 +199,9 @@
 <li>
 <p>This operations requires administrator privilege to perform.</p>
 </li>
+<li>
+<p>If <code>TIME_START</code> is later than <code>TIME_END</code>, <code>TIME_END</code> refers to the following day.</p>
+</li>
 </ul>
 </div>
 </td>
@@ -232,7 +235,35 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Example: <code>setschedule 1 ts/1100 te/1600 v/Toilet</code><br></p>
+<p>Examples:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>setschedule 1 ts/1100 te/1600 v/Toilet</code><br></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Sets a schedule for 1st user to work in <code>Toilet</code> from 1100 hours to 1600 hours</p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>setschedule 2 ts/2200 te/0800 v/Main Door</code><br></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Sets a schedule for 2nd user to work at <code>Main Door</code> from 2200 hours to 0800 hours of the following day</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -361,4 +392,4 @@ The <code>SetScheduleCommandParser</code>, which implements the <code>Parser</co
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-05 07:11:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-05 07:14:48 UTC</div></div></div></body></html>
