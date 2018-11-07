@@ -10,7 +10,25 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Bank Address Book (BankAB) is an employee management application. You can use BankAB to check working schedule, apply off day, check working hours, access payroll and daily notification. The managers and boss will have more access of BankAB such as changing the priority level of the employee and approve or reject off day requests.</p>
+<p>Bank Address Book (BankAB) is a business process management and workflow application platform, whereby its users are all the employees in a banking environment.
+This platform supports the basic daily routine of each employee such as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Checking working schedule</p>
+</li>
+<li>
+<p>Applying for leave application</p>
+</li>
+<li>
+<p>Checking in and out during working hours</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The managers and administrators will have higher priority access level of BankAB such as changing the
+priority level of the employee and approve or reject leave requests.</p>
 </div>
 </div>
 </div>
@@ -20,29 +38,23 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement</strong>: Added commands and enhancements related to <code>Department</code> and <code>Sort Command</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>What it does: It provides the end user to be able to perform <strong>Department</strong> related functions such as list and filter departments, changing an employee&#8217;s department, and sorting the list based on employee&#8217;s name or department.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p>Justification: This feature caters to users who wants to have their employee&#8217;s list sorted, the ability to list out the available departments, filtering out the employee&#8217;s list based on their departments and changing an employee&#8217;s department.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Highlights: This enhancement enhances the user experience to use the commands that are related to <code>Department</code>. It required an understanding on the user profile in order to create the commands that will benefit the users. The implementation is challenging as it requires an understanding on the regular expressions in Java to allow the commands to work as how it is and to minimise bugs from happening due to incorrect regular expressions.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
-</li>
-<li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p><strong>Code contributed</strong>: <a href="https://nuscs2113-ay1819s1.github.io/dashboard/#=undefined&amp;search=woonhian">RepoSense Dashboard</a></p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -53,7 +65,26 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+<p>Managed releases <code>v1.1</code> - <code>v1.4</code> (5 releases) on GitHub.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed the release of .jar files and the descriptions of the release.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Setting up of issue tracker, milestones and tags.</p>
+</li>
+<li>
+<p>Setting up of Travis-CI, AppVeyor, Coveralls and Codacy.</p>
+</li>
+<li>
+<p>Managed vetting through and approving of pull requests.</p>
+</li>
+<li>
+<p>Ensures the team are able to complete the requirements for every milestones.</p>
 </li>
 </ul>
 </div>
@@ -63,10 +94,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+<p>Added <code>Department</code> field to show the employee&#8217;s department: <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/12">#12</a></p>
 </li>
 <li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Made modifications to the existing implementation after the feedback received from the first practical exam: <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/129">#129</a></p>
 </li>
 </ul>
 </div>
@@ -76,7 +107,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Updated About Us page with team member&#8217;s pictures, roles and responsibilities, GitHub and portfolio link: <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/2">#2</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/3">#3</a></p>
+</li>
+<li>
+<p>Updated Developer Guide on FilterDepartment feature. Updated use cases and user stories as we refined our product through the weeks: <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/66">#66</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/86">#86</a></p>
+</li>
+<li>
+<p>Ensuring the User Guide is up to date and details are correct for the listed commands as we refined our product through the weeks: <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/62">#62</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/86">#86</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/95">#95</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/104">#104</a></p>
 </li>
 </ul>
 </div>
@@ -86,29 +123,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/24">#24</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/25">#25</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/27">#27</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/68">#68</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/79">#79</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/81">#81</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/89">#89</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/93">#93</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/94">#94</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/98">#98</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/135">#135</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/136">#136</a></p>
 </li>
 <li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Reported bugs and suggestions for other teams in the class (Examples:  <a href="https://github.com/CS2113-AY1819S1-W12-4/main/issues/113">1</a>, <a href="https://github.com/CS2113-AY1819S1-W12-4/main/issues/115">2</a>, <a href="https://github.com/CS2113-AY1819S1-W12-4/main/issues/137">3</a>, <a href="https://github.com/CS2113-AY1819S1-W12-4/main/issues/126">4</a>, <a href="https://github.com/CS2113-AY1819S1-W12-4/main/issues/130">5</a>)</p>
 </li>
 </ul>
 </div>
@@ -117,9 +135,6 @@
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -136,6 +151,336 @@
 </tr>
 </tbody>
 </table>
+<div class="sect3">
+<h4 id="change-the-department-of-an-employee-code-setdepartment-code"><a class="link" href="#change-the-department-of-an-employee-code-setdepartment-code">Change the department of an employee : <code>setdepartment</code></a></h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>This operation requires administrator privilege to perform.</p>
+</li>
+<li>
+<p>Administrator can only change the departments of other employees but not himself/herself.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Changes the department of an employee.<br>
+Format: <code>setdepartment INDEX d/DEPARTMENT</code><br>
+Alias: <code>sd</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Changes the employee&#8217;s department at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed employee list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>Refer to the <strong>Department</strong> section at <a href="#Appendix A: List of prefixes in the application">Appendix A</a> for the appropriate input for the department name.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example: <code>setdepartment 3 d/Junior Management</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SetDepartmentBefore.png" alt="SetDepartmentBefore" width="">
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Changes the employee department with ID 3 in the address book to <code>Junior Management</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SetDepartmentAfter.png" alt="SetDepartmentAfter" width="">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="sort-address-book-contacts-code-sort-code"><a class="link" href="#sort-address-book-contacts-code-sort-code">Sort address book contacts: <code>sort</code></a></h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Does not require the user to log in before using the command.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Sorts the employees or departments of the current list in sorted order.
+The list can be sorted in ascending or descending order.<br>
+Format: <code>sort FIELD ORDER</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This operation only supports the following fields and orders</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FIELD</code>: <code>name</code> and <code>department</code></p>
+</li>
+<li>
+<p><code>ORDER</code>: <code>asc</code> and <code>desc</code></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sort name asc</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SortBefore1.png" alt="SortBefore1" width="">
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Sorts the employee names in the list in ascending order</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SortAfter1.png" alt="SortAfter1" width="250">
+</div>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sort department desc</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SortBefore2.png" alt="SortBefore2" width="">
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Sorts the department names in the list in descending order</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SortAfter2.png" alt="SortAfter2" width="250">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-department-code-listdepartment-code"><a class="link" href="#list-department-code-listdepartment-code">List department : <code>listdepartment</code></a></h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Does not require the user to log in before using the command.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Shows a list of departments available in the addressbook.<br>
+Format: <code>listdepartment</code><br>
+Alias: <code>ld</code><br>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>listdepartment</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ListDepartmentBefore.png" alt="ListDepartmentBefore" width="">
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Returns a list of departments available in the addressbook currently.
+Listing of department names are in ascending order.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ListDepartmentAfter.png" alt="ListDepartmentAfter" width="">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="filtering-department-code-filterdepartment-code"><a class="link" href="#filtering-department-code-filterdepartment-code">Filtering department : <code>filterdepartment</code></a></h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Does not require the user to log in before using the command.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Filter departments and list out the employees who are in the department.<br>
+Format: <code>filterdepartment KEYWORD [MORE KEYWORDS]</code><br>
+Alias: <code>fd</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The keyword <code>Management</code> will not be accepted to prevent listing of all departments</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g. <code>junior</code> will match employees in <code>Junior Management</code></p>
+</li>
+<li>
+<p>Only full words will be matched. e.g. <code>junio</code> will not match <code>Junior Management</code></p>
+</li>
+<li>
+<p>Filtering of more than one department will list out the employees in the departments.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>filterdepartment junior</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FilterDepartmentBefore1.png" alt="FilterDepartmentBefore1" width="">
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Returns a list of employees who are in <code>Junior Management</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FilterDepartmentAfter1.png" alt="FilterDepartmentAfter1" width="250">
+</div>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>filterdepartment junior senior</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FilterDepartmentBefore2.png" alt="FilterDepartmentBefore2" width="">
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Returns a list of employees who are in <code>Junior Management</code> and <code>Senior Management</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FilterDepartmentAfter2.png" alt="FilterDepartmentAfter2" width="250">
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -151,5 +496,74 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="filterdepartment-feature"><a class="link" href="#filterdepartment-feature">FilterDepartment feature</a></h3>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>filterdepartment</code> is a command that filters out department to list a particular department employee&#8217;s list.
+The <code>filterdepartment</code> mechanism is facilitated by the <code>FilterDepartmentCommandParser</code>, which parses input arguments and creates a new <code>FilterDepartmentCommand</code> object.
+The <code>FilterDepartmentCommandParser</code>, which implements the <code>Parser</code> interface, parses the arguments inputted in to the CLI, and checks if the user input conforms the expected format.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-05 15:22:50 UTC</div></div></div></body></html>
+<div class="paragraph">
+<p>Code snippet from <code>FilterDepartmentCommandParser.java</code> that shows the parsing of arguments and checking for invalid arguments:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> FilterDepartmentCommand parse(<span class="predefined-type">String</span> args) <span class="directive">throws</span> <span class="exception">ParseException</span> {
+        <span class="predefined-type">String</span> trimmedArgs = args.trim();
+        trimmedArgs = trimmedArgs.toLowerCase();
+        <span class="keyword">if</span> (trimmedArgs.isEmpty() || trimmedArgs.contains(<span class="string"><span class="delimiter">&quot;</span><span class="content">management</span><span class="delimiter">&quot;</span></span>)) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="exception">ParseException</span>(
+                    <span class="predefined-type">String</span>.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterDepartmentCommand.MESSAGE_USAGE));
+        }
+        ...
+        ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the second phase, the command is being executed in <code>FilterDepartmentCommand</code>. The updateFilteredPersonList updates the filteredPersonList with the departments that matches the keywords use as the argument in <code>FilterDepartmentCommand</code>.
+The result of <code>FilterDepartmentCommand</code> execution is encapsulated as a <code>CommandResult</code> object and returns it to the <code>LogicManager</code> and subsequently to the UI and display the filtered department employee&#8217;s list.</p>
+</div>
+<div class="paragraph">
+<p>Code snippet from <code>FilterDepartmentCommand.java</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">FilterDepartmentCommand</span> <span class="directive">extends</span> Command {
+
+    ...
+    ...
+
+    private <span class="directive">final</span> DepartmentContainsKeywordsPredicate predicate;
+
+    <span class="directive">public</span> FilterDepartmentCommand(DepartmentContainsKeywordsPredicate predicate) {
+        <span class="local-variable">this</span>.predicate = predicate;
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> CommandResult execute(Model model, CommandHistory history) {
+        requireNonNull(model);
+        model.updateFilteredPersonList(predicate);
+        <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(
+                <span class="predefined-type">String</span>.format(Messages.MESSAGE_PERSONS_LISTED_OVERVIEW, model.getFilteredPersonList().size()));
+    }
+    ...
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below demonstrates the interaction within the <code>Logic</code> component of <code>FilterDepartmentCommand</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FilterDepartmentCommandSequenceDiagram.png" alt="FilterDepartmentCommandSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 1. Sequence diagram of FilterDepartmentCommand</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 07:07:21 UTC</div></div></div></body></html>
