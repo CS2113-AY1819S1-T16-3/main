@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Lee Jin Yao - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">AddressBook-Level4</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level4"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Lee Jin Yao - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Bank Address Book</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2113-AY1819S1-T16-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Lee Jin Yao - Project Portfolio</h1></div><div id="content"><div class="sect1">
 <h2 id="project-bank-address-book"><a class="link" href="#project-bank-address-book">PROJECT: Bank Address Book</a></h2>
 <div class="sectionbody">
 <hr>
@@ -10,7 +10,26 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Bank Address Book (BankAB) is an employee management application. You can use BankAB to check working schedule, apply off day, check working hours, access payroll and daily notification. The managers and boss will have more access of BankAB such as changing the priority level of the employee and approve or reject off day requests.</p>
+<p>Bank Address Book (BankAB) is a business process management and workflow application platform, whereby its users are
+all the employees in a banking environment.
+This platform supports the basic daily routine of each employee such as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Checking working schedule</p>
+</li>
+<li>
+<p>Applying for leave application</p>
+</li>
+<li>
+<p>Checking in and out during working hours</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The managers and administrators will have higher priority access level of BankAB such as changing the
+priority level of the employee and approve or reject leave requests.</p>
 </div>
 </div>
 </div>
@@ -20,7 +39,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement 1</strong>: implemented <strong>user account and commands.</strong></p>
+<p><strong>Major enhancement 1</strong>: implemented <strong>user account with corresponding APIs and commands.</strong></p>
 <div class="ulist">
 <ul>
 <li>
@@ -34,13 +53,14 @@ require user authentication.</p>
 <li>
 <p>Highlights: This enhancement is challenging as we need to modify a major portion of existing source codes and test
 codes, owing to the fact that the newly added NRIC parameter is unique and other existing fields, which are initially
-unique, are now not.</p>
+unique, are now not. In addition, many functions that are developed by my team is dependent on this feature. This
+results in the pressure on me to deliver this feature at the shortest time possible.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Major enhancement 2</strong>: implemented <strong>priority level and commands.</strong></p>
+<p><strong>Major enhancement 2</strong>: implemented <strong>priority access level with corresponding APIs and commands.</strong></p>
 <div class="ulist">
 <ul>
 <li>
@@ -56,10 +76,10 @@ potentially abusing company resources and product functions.</p>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Code contributed</strong>: <a href="https://nuscs2113-ay1819s1.github.io/dashboard/#=undefined&amp;search=jylee-git">Code Dashboard</a></p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p><strong>Minor enhancement</strong>: added a reset command to reset the Bank Address Book to the original state at first start</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -70,7 +90,7 @@ potentially abusing company resources and product functions.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+<p>Managed vetting through and approving individual pull requests</p>
 </li>
 </ul>
 </div>
@@ -80,10 +100,10 @@ potentially abusing company resources and product functions.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+<p>Added a field that shows the user who is logged in at the status footer of the UI</p>
 </li>
 <li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Made significant changes to priority level ranking following the feedback received from the first practical exam: <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/134">#134</a></p>
 </li>
 </ul>
 </div>
@@ -93,7 +113,11 @@ potentially abusing company resources and product functions.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Re-arranged summary of commands in the user guide to make them more organized: <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/89">#89</a></p>
+</li>
+<li>
+<p>Added appendices A and B in the user guide that summarizes the prefixes and corresponding data types, and also various priority levels and its corresponding privileges:
+<a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/60">#60</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/89">#89</a></p>
 </li>
 </ul>
 </div>
@@ -103,29 +127,13 @@ potentially abusing company resources and product functions.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p>PRs reviewed (with non-trivial review comments):
+<a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/26">#26</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/92">#92</a></p>
 </li>
 <li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Reported bugs and suggestions for other teams in the class:
+<a href="https://github.com/CS2113-AY1819S1-F09-2/main/issues/152">1</a>, <a href="https://github.com/CS2113-AY1819S1-F09-2/main/issues/157">2</a>,
+<a href="https://github.com/CS2113-AY1819S1-F09-2/main/issues/167">3</a></p>
 </li>
 </ul>
 </div>
@@ -134,9 +142,6 @@ potentially abusing company resources and product functions.</p>
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -150,6 +155,403 @@ potentially abusing company resources and product functions.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="personal-user-account"><a class="link" href="#personal-user-account">Personal User Account</a></h3>
+<div class="sect3">
+<h4 id="login-to-the-application-code-login-code"><a class="link" href="#login-to-the-application-code-login-code">Login to the application: <code>login</code></a></h4>
+<div class="paragraph">
+<p>Logs in to the application using a registered NRIC and password.<br>
+Format: <code>login ic/NRIC pwd/PASSWORD</code><br>
+Example: <code>login ic/S1234567E pwd/Password</code></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>A successful login will show the NRIC and name which you have used to login, followed by the schedule of the day (if any).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/loginTextBox.png" alt="loginTextBox">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/login_success_screenShot.png" alt="login success screenShot">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="checks-the-login-status-of-the-application-code-checkloginstatus-code"><a class="link" href="#checks-the-login-status-of-the-application-code-checkloginstatus-code">Checks the login status of the application: <code>checkloginstatus</code></a></h4>
+<div class="paragraph">
+<p>Prints whether this application is logged in.<br>
+Also prints the logged in NRIC if logged in.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="logout-of-the-application-code-logout-code"><a class="link" href="#logout-of-the-application-code-logout-code">Logout of the application: <code>logout</code></a></h4>
+<div class="paragraph">
+<p>Logs out of the application, allowing for other users to log in again.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="change-priority-level-of-employee-code-setplvl-code"><a class="link" href="#change-priority-level-of-employee-code-setplvl-code">Change priority level of employee: <code>setplvl</code></a></h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>This operations requires administrator privilege to perform.</p>
+</li>
+<li>
+<p>Refer to the Priority level section in <a href="#appendix-a-list-of-prefixes-in-the-application">Appendix A</a> for the appropriate input value.</p>
+</li>
+<li>
+<p>Refer to <a href="#appendix-b-privileges-in-accordance-to-priority-level">Appendix B</a> for the different privileges in each priority level.</p>
+</li>
+<li>
+<p>You are not able to edit your own priority level.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Sets the priority level of an employee at the specified index.<br>
+Format: <code>setplvl INDEX plvl/PRIORITY_LEVEL</code><br>
+Example: <code>setplvl 1 plvl/0</code></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>A successful change of priority level should show the following message:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/setPlvl_success_screenShot.png" alt="setPlvl success screenShot">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Users of insufficient priority level (below administrator priority level) will get the following
+error message when attempting to execute this command:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/setPlvl_failed_screenShot.png" alt="setPlvl failed screenShot">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Users (with sufficient priority level), that attempts to change their own priority level will not be allowed to do so:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/setOwnPlvl_failed_screenShot.png" alt="setOwnPlvl failed screenShot">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="personal-user-account-2"><a class="link" href="#personal-user-account-2">Personal User Account</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><a href="#login-to-the-application-code-login-code">Login</a></strong>: <code>login ic/NRIC pwd/PASSWORD</code></p>
+</li>
+<li>
+<p><strong><a href="#checks-the-login-status-of-the-application-code-checkloginstatus-code">Check login status</a></strong>: <code>checkloginstatus</code></p>
+</li>
+<li>
+<p><strong><a href="#logout-of-the-application-code-logout-code">Logout</a></strong>: <code>logout</code></p>
+</li>
+<li>
+<p><strong><a href="#Editing a person : <code>edit</code>">Edit particulars</a></strong>: <code>edit [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="employee-management-database"><a class="link" href="#employee-management-database">Employee Management Database</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><a href="#Adding a person: <code>add</code>">Add employee</a></strong>: <code>add n/NAME ic/NRIC pwd/PASSWORD p/PHONE NUMBER e/EMAIL d/DEPARTMENT a/ADDRESS wr/WORKING_RATE [plvl/PRIORITY_LEVEL] [t/TAGS]&#8230;&#8203;</code></p>
+</li>
+<li>
+<p><strong><a href="#Deleting a person : <code>delete</code>">Deleting employee</a></strong>: <code>delete INDEX</code></p>
+</li>
+<li>
+<p><strong><a href="#change-priority-level-of-employee-code-setplvl-code">Set priority level of an employee</a></strong>: <code>setplvl INDEX plvl/PRIORITY_LEVEL</code></p>
+</li>
+<li>
+<p><strong><a href="#Change the department of an employee : <code>setdepartment</code>">Change department of an employee</a></strong>: <code>setdepartment INDEX d/DEPARTMENT</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="leave-application"><a class="link" href="#leave-application">Leave Application</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><a href="#Leave application : <code>leave</code>">Add leave application</a></strong>: <code>leave date/DATE</code></p>
+</li>
+<li>
+<p><strong><a href="#List leave application : <code>listleave</code>">List all leave applications</a></strong>: <code>listleave</code></p>
+</li>
+<li>
+<p><strong><a href="#Filter leave application : <code>filterleave</code>">Filter leave applications</a></strong>: <code>filterleave NRIC</code></p>
+</li>
+<li>
+<p><strong><a href="#Delete leave application : <code>deleteleave</code>">Delete leave application</a></strong>: <code>deleteleave INDEX</code></p>
+</li>
+<li>
+<p><strong><a href="#Approve leave application  : <code>approve</code>">Approve leave application</a></strong>: <code>approve INDEX</code></p>
+</li>
+<li>
+<p><strong><a href="#Reject leave application  : <code>reject</code>">Reject leave application</a></strong>: <code>reject INDEX</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="scheduling"><a class="link" href="#scheduling">Scheduling</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><a href="#List schedule: <code>schedule</code>">List schedule</a></strong>: <code>schedule INDEX</code></p>
+</li>
+<li>
+<p><strong><a href="#Set schedule: <code>setschedule</code>">Set schedule</a></strong>: <code>setschedule INDEX ts/TIME_START te/TIME_END v/VENUE</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="filtering-sorting"><a class="link" href="#filtering-sorting">Filtering/Sorting</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><a href="#Listing all persons : <code>list</code>">List employee list</a></strong>: <code>list</code></p>
+</li>
+<li>
+<p><strong><a href="#Locating persons by name: <code>find</code>">Find employee</a></strong>: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
+</li>
+<li>
+<p><strong><a href="#Sort address book contacts: <code>sort</code>">Sort address book contacts</a></strong>: <code>sort FIELD ORDER</code></p>
+</li>
+<li>
+<p><strong><a href="#List department : <code>listdepartment</code>">List available departments</a></strong>: <code>listdepartment</code></p>
+</li>
+<li>
+<p><strong><a href="#Filtering department : <code>filterdepartment</code>">Filter departments</a></strong>: <code>filterdepartment KEYWORD [MORE KEYWORDS]</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="miscellaneous"><a class="link" href="#miscellaneous">Miscellaneous</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><a href="#Viewing help : <code>help</code>">Help</a></strong>: <code>help</code></p>
+</li>
+<li>
+<p><strong><a href="#Selecting a person : <code>select</code>">Select the employee</a></strong>: <code>select INDEX</code></p>
+</li>
+<li>
+<p><strong><a href="#Listing entered commands : <code>history</code>">History of commands</a></strong>: <code>history</code></p>
+</li>
+<li>
+<p><strong><a href="#Check in/out working hours: <code>check</code>">Check in/out working hours</a></strong>: <code>check ic/NRIC pwd/PASSWORD m/MODE</code></p>
+</li>
+<li>
+<p><strong><a href="#Reset the application : <code>reset</code>">Reset the application</a></strong>: <code>reset</code></p>
+</li>
+<li>
+<p><strong><a href="#Exiting the program : <code>exit</code>">Exit application</a></strong>: <code>exit</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="appendix-a-list-of-prefixes-in-the-application"><a class="link" href="#appendix-a-list-of-prefixes-in-the-application">Appendix A: List of prefixes in the application</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. List of prefixes used for employee</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Parameter name</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Prefix</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Constraints</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">n/NAME</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name must be alphabetical</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">n/Lewis Hamilton</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NRIC Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ic/NRIC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NRIC should start with an upper-case character [S, T, F, G], followed by a seven-digit number, and ending with a upper-case
+alphabet.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ic/S9203948E</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pwd/PASSWORD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password should be alphanumeric and should contain at least five characters</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pwd/NeUeR2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Phone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">p/PHONE_NUMBER</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Phone numbers should contain only numbers, and should have at least three digits.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">p/81667800</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Email</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e/EMAIL_ADDRESS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Emails should be of the format local-part@domain, and also satisfy the following requirements:<br>
+    1) "local-part" should contain only alphanumeric characters and an underscore '_'<br>
+    2) "domain" can consist of alphanumeric characters, a period, or hyphen, but should start and end with only
+    alphanumeric characters.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e/jarvin@eltech.com</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Department</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">d/DEPARTMENT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Department should contain alphabetic characters and spaces, and it should not be blank.
+Department names should start with a name, and ends with 'Management'.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">d/Junior Management</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a/ADDRESS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a/Blk 25, Ang Mo Kio Street 23 #04-21, s(630025)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m/MODE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mode should only contains "in" or "out".</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m/in</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Working Rate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wr/WORKING_RATE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Working rate should only contains whole or decimal numbers.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wr/7.5</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Priority Level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">plvl/PRIORITY_LEVEL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Priority Level should be a number respective to the following classification:<br>
+[0] I.T. Unit (HIGHEST)<br>
+[1] Administrator<br>
+[2] Manager<br>
+[3] Basic (LOWEST)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">plvl/2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tag(s)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">t/TAG1 t/TAG2 &#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tag names should be alphanumeric</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">t/Admin t/Boss t/OweMeMoney</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="appendix-b-privileges-in-accordance-to-priority-level"><a class="link" href="#appendix-b-privileges-in-accordance-to-priority-level">Appendix B: Privileges in accordance to priority level</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 2. Priority level and its' privileges</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Priority Level</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Typical Roles</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Privileges</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BASIC (3)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">- Intern<br>
+- Security Guard<br>
+- Receptionist</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">- Edit your own particulars<br>
+- Apply for leave<br>
+- Check in/out to/from work for their own</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MANAGER (2)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">- Head of Departments</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">- All privileges of a BASIC Priority Level<br>
+- Approve/Reject/Delete leave of users with lower priority level<br>
+- Check in/out to/from work for others</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I.T. UNIT (1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">- I.T. Department</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">- All privileges of a MANAGER Priority level<br>
+- Reset the entire AddressBook into the default address book. (<strong>exclusive to users holding this priority level</strong>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ADMINISTRATOR (0)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">- Branch Manager<br>
+- Bank Executive<br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">- All privileges of a MANAGER Priority level<br>
+- Add and delete employees from the AddressBook<br>
+- Set the priority level of all employees<br>
+- Set Department of all employees</p></td>
 </tr>
 </tbody>
 </table>
@@ -168,5 +570,25 @@ potentially abusing company resources and product functions.</p>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="Design-Session"><a class="link" href="#Design-Session">Session component</a></h3>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/address/model/SessionManager.java"><code>SessionManager.java</code></a></p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 07:07:21 UTC</div></div></div></body></html>
+<div class="paragraph">
+<p>The <code>Session</code> component,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>stores the identity of the user who is logged in to the app during runtime.</p>
+</li>
+<li>
+<p>allows other functions that require elevated user status, to inquire from <code>SessionManager</code> as to whether the user
+is logged in, and also to inquire if the user has sufficient level of access to execute that particular function.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 07:09:01 UTC</div></div></div></body></html>
