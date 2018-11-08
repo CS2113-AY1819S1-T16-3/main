@@ -1013,7 +1013,7 @@ The result of <code>FilterDepartmentCommand</code> execution is encapsulated as 
 <div class="ulist">
 <ul>
 <li>
-<p>Code snippet from <code>checkCommandParser.java</code> that shows the parsing of arguments， checking for invalid arguments and returning a checkCommand object:</p>
+<p>Code snippet from <code>checkCommandParser.java</code> that shows the parsing of arguments，checking for invalid arguments and returning a checkCommand object:</p>
 </li>
 </ul>
 </div>
@@ -1021,18 +1021,20 @@ The result of <code>FilterDepartmentCommand</code> execution is encapsulated as 
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> CheckCommand parse(<span class="predefined-type">String</span> args) <span class="directive">throws</span> <span class="exception">ParseException</span> {
         requireNonNull(args);
-        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_NRIC, PREFIX_PASSWORD, PREFIX_MODE);
+            ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_MODE);
 
-        <span class="keyword">if</span> (!arePrefixesPresent(argMultimap, PREFIX_NRIC, PREFIX_PASSWORD, PREFIX_MODE)
+            <span class="keyword">if</span> (!arePrefixesPresent(argMultimap, PREFIX_MODE)
             || !argMultimap.getPreamble().isEmpty()) {
-            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="exception">ParseException</span>(<span class="predefined-type">String</span>.format(MESSAGE_INVALID_COMMAND_FORMAT, CheckCommand.MESSAGE_USAGE));
-        }
+                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="exception">ParseException</span>(<span class="predefined-type">String</span>.format(MESSAGE_INVALID_COMMAND_FORMAT, CheckCommand.MESSAGE_USAGE));
+            }
 
-        <span class="predefined-type">String</span> nric = argMultimap.getValue(PREFIX_NRIC).orElse(<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>);
-        <span class="predefined-type">String</span> password = argMultimap.getValue(PREFIX_PASSWORD).orElse(<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>);
-        <span class="predefined-type">String</span> mode = argMultimap.getValue(PREFIX_MODE).orElse(<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>);
+            <span class="keyword">if</span> (!didPrefixAppearOnlyOnce(args, PREFIX_MODE.toString())) {
+                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="exception">ParseException</span>(<span class="predefined-type">String</span>.format(MESSAGE_INVALID_COMMAND_FORMAT, CheckCommand.MESSAGE_USAGE));
+            }
 
-        <span class="keyword">return</span> <span class="keyword">new</span> CheckCommand(nric, password, <span class="keyword">new</span> Mode(mode));
+            Mode mode = ParserUtil.parseMode(argMultimap.getValue(PREFIX_MODE).get());
+
+            <span class="keyword">return</span> <span class="keyword">new</span> CheckCommand(mode);
     }</code></pre>
 </div>
 </div>
@@ -3718,4 +3720,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 16:58:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-08 02:20:11 UTC</div></div></div></body></html>
