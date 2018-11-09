@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 4 - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Bank Address Book - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">Bank Address Book</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2113-AY1819S1-T16-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 4 - Developer Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">Bank Address Book</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2113-AY1819S1-T16-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Bank Address Book - Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>T16-3</code>      Since: <code>Aug 2018</code>      Licence: <code>MIT</code></p>
@@ -30,14 +30,13 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
-<li><a href="#add-leave-command">3.2. Add Leave command</a></li>
-<li><a href="#filterdepartment-feature">3.3. FilterDepartment feature</a></li>
-<li><a href="#check-in-out-feature">3.4. Check in/out feature</a></li>
-<li><a href="#schedule-feature">3.5. Schedule Feature</a></li>
-<li><a href="#priority-level-restriction-feature">3.6. Priority level restriction feature</a></li>
-<li><a href="#logging">3.7. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
+<li><a href="#add-leave-command">3.1. Add Leave command</a></li>
+<li><a href="#filterdepartment-feature">3.2. FilterDepartment feature</a></li>
+<li><a href="#check-in-out-feature">3.3. Check in/out feature</a></li>
+<li><a href="#schedule-feature">3.4. Schedule Feature</a></li>
+<li><a href="#priority-level-restriction-feature">3.5. Priority level restriction feature</a></li>
+<li><a href="#logging">3.6. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -75,35 +74,18 @@
 </li>
 <li><a href="#product-scope">Appendix B: Product Scope</a></li>
 <li><a href="#user-stories">Appendix C: User Stories</a></li>
-<li><a href="#use-cases">Appendix D: Use Cases</a>
-<ul class="sectlevel2">
-<li><a href="#use-case-delete-person">D.1. Use case: Delete Person</a></li>
-<li><a href="#use-case-apply-off-days">D.2. Use case: Apply Off days</a></li>
-<li><a href="#use-case-check-in-and-out">D.3. Use case: Check in and out</a></li>
-<li><a href="#use-case-temporary-restrict-access-to-address-book">D.4. Use case: Temporary restrict access to address book</a></li>
-<li><a href="#use-case-access-payroll">D.5. Use case: Access payroll</a></li>
-<li><a href="#use-case-check-notification">D.6. Use case: Check notification</a></li>
-<li><a href="#use-case-sort-contact">D.7. Use case: Sort contact</a></li>
-<li><a href="#use-case-list-department">D.8. Use case: List department</a></li>
-<li><a href="#use-case-filter-department">D.9. Use case: Filter department</a></li>
-<li><a href="#use-case-change-department-of-user">D.10. Use case: Change department of user</a></li>
-<li><a href="#use-case-change-priority-level-of-user">D.11. Use case: Change priority level of user</a></li>
-<li><a href="#use-case-edit-personal-particulars">D.12. Use case: Edit personal particulars</a></li>
-<li><a href="#use-case-find-person">D.13. Use case: Find person</a></li>
-<li><a href="#use-case-approve-reject-off-day-request">D.14. Use case: Approve/reject off day request</a></li>
-<li><a href="#use-case-check-schedule">D.15. Use case: Check schedule</a></li>
-<li><a href="#use-case-set-schedule">D.16. Use case: Set schedule</a></li>
-<li><a href="#use-case-set-password">D.17. Use case: Set password</a></li>
-</ul>
-</li>
+<li><a href="#use-cases">Appendix D: Use Cases</a></li>
 <li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix F: Glossary</a></li>
-<li><a href="#product-survey">Appendix G: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix H: Instructions for Manual Testing</a>
+<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">H.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">H.2. Deleting a person</a></li>
-<li><a href="#saving-data">H.3. Saving data</a></li>
+<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
+<li><a href="#personal-user-account">G.2. Personal User Account</a></li>
+<li><a href="#employee-management-database">G.3. Employee Management Database</a></li>
+<li><a href="#leave-application">G.4. Leave Application</a></li>
+<li><a href="#scheduling">G.5. Scheduling</a></li>
+<li><a href="#filtering-sorting">G.6. Filtering/Sorting</a></li>
+<li><a href="#miscellaneous">G.7. Miscellaneous</a></li>
 </ul>
 </li>
 </ul>
@@ -634,217 +616,7 @@ is logged in, and also to inquire if the user has sufficient level of access to 
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.1. Undo/Redo feature</a></h3>
-<div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
-<div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Saves the current address book state in its history.</p>
-</li>
-<li>
-<p><code>VersionedAddressBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous address book state from its history.</p>
-</li>
-<li>
-<p><code>VersionedAddressBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone address book state from its history.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoStartingStateListDiagram.png" alt="UndoRedoStartingStateListDiagram" width="800">
-</div>
-<div class="title">Figure 10. Undo/Redo Command State List Diagram (Part 1)</div>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoNewCommand1StateListDiagram.png" alt="UndoRedoNewCommand1StateListDiagram" width="800">
-</div>
-<div class="title">Figure 11. Undo/Redo Command State List Diagram (Part 2)</div>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoNewCommand2StateListDiagram.png" alt="UndoRedoNewCommand2StateListDiagram" width="800">
-</div>
-<div class="title">Figure 12. Undo/Redo Command State List Diagram (Part 3)</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoExecuteUndoStateListDiagram.png" alt="UndoRedoExecuteUndoStateListDiagram" width="800">
-</div>
-<div class="title">Figure 13. Undo/Redo Command State List Diagram (Part 4)</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
-</div>
-<div class="title">Figure 14. Undo Command Sequence Diagram</div>
-</div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoNewCommand3StateListDiagram.png" alt="UndoRedoNewCommand3StateListDiagram" width="800">
-</div>
-<div class="title">Figure 15. Undo/Redo Command State List Diagram (Part 5)</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoNewCommand4StateListDiagram.png" alt="UndoRedoNewCommand4StateListDiagram" width="800">
-</div>
-<div class="title">Figure 16. Undo/Redo Command State List Diagram (Part 6)</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
-</div>
-<div class="title">Figure 17. Undo/Redo Command Activity Diagram</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
-</li>
-<li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
-</li>
-<li>
-<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
-</li>
-<li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="add-leave-command"><a class="link" href="#add-leave-command">3.2. Add Leave command</a></h3>
+<h3 id="add-leave-command"><a class="link" href="#add-leave-command">3.1. Add Leave command</a></h3>
 <div class="paragraph">
 <p>The <code>leave</code> is a command that allows the user to request leave applications. This command is only available after the user has logged in successfully.</p>
 </div>
@@ -855,7 +627,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p>It takes in the parameter DATE in a valid format (DD/MM/YYYY).</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">3.2.1. Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The implementation is divided in two phases.</p>
 </div>
@@ -924,14 +696,14 @@ and display the added leave application in the leave list.</p>
 <div class="content">
 <img src="images/AddLeaveCommandSequenceDiagram.png" alt="AddLeaveCommandSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 18. Sequence diagram of AddLeaveCommand</div>
+<div class="title">Figure 10. Sequence diagram of AddLeaveCommand</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="filterdepartment-feature"><a class="link" href="#filterdepartment-feature">3.3. FilterDepartment feature</a></h3>
+<h3 id="filterdepartment-feature"><a class="link" href="#filterdepartment-feature">3.2. FilterDepartment feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">3.3.1. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.2.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>filterdepartment</code> is a command that filters out department to list a particular department employee&#8217;s list.
 The <code>filterdepartment</code> mechanism is facilitated by the <code>FilterDepartmentCommandParser</code>, which parses input arguments and creates a new <code>FilterDepartmentCommand</code> object.
@@ -993,14 +765,14 @@ The result of <code>FilterDepartmentCommand</code> execution is encapsulated as 
 <div class="content">
 <img src="images/FilterDepartmentCommandSequenceDiagram.png" alt="FilterDepartmentCommandSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 19. Sequence diagram of FilterDepartmentCommand</div>
+<div class="title">Figure 11. Sequence diagram of FilterDepartmentCommand</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="check-in-out-feature"><a class="link" href="#check-in-out-feature">3.4. Check in/out feature</a></h3>
+<h3 id="check-in-out-feature"><a class="link" href="#check-in-out-feature">3.3. Check in/out feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.4.1. Current implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">3.3.1. Current implementation</a></h4>
 <div class="paragraph">
 <p>The <code>checkCommand</code> is a command that allows employees to check in and out to work so that their working hours will be recorded according to the time they checked in/out and calculate their pay accordingly.</p>
 </div>
@@ -1049,14 +821,14 @@ The result of <code>checkCommand</code> execution is encapsulated as a <code>Com
 <div class="content">
 <img src="images/CheckCommandSequenceDiagram.png" alt="CheckCommandSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 20. Sequence diagram of CheckCommand</div>
+<div class="title">Figure 12. Sequence diagram of CheckCommand</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="schedule-feature"><a class="link" href="#schedule-feature">3.5. Schedule Feature</a></h3>
+<h3 id="schedule-feature"><a class="link" href="#schedule-feature">3.4. Schedule Feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">3.5.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.4.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>setschedule</code> is a command that set a particular department employee&#8217;s schedule.
 The <code>setschedule</code> mechanism is facilitated by the <code>SetScheduleCommandParser</code>, which parses input arguments and creates a new <code>SetScheduleCommand</code> object.
@@ -1100,7 +872,7 @@ The <code>SetScheduleCommandParser</code>, which implements the <code>Parser</co
 <div class="content">
 <img src="images/SetScheduleCommandParserSequenceDiagram.png" alt="SetScheduleCommandParserSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 21. Sequence diagram of SetScheduleCommandParser</div>
+<div class="title">Figure 13. Sequence diagram of SetScheduleCommandParser</div>
 </div>
 <div class="paragraph">
 <p>The sequence diagram below demonstrates <code>execute()</code> function of <code>SetScheduleCommand</code>:</p>
@@ -1109,11 +881,11 @@ The <code>SetScheduleCommandParser</code>, which implements the <code>Parser</co
 <div class="content">
 <img src="images/SetScheduleCommandSequenceDiagram.png" alt="SetScheduleCommandSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 22. Sequence diagram of SetScheduleCommand</div>
+<div class="title">Figure 14. Sequence diagram of SetScheduleCommand</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.4.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-storage-for-schedule"><a class="link" href="#aspect-storage-for-schedule">Aspect: Storage for schedule</a></h5>
 <div class="ulist">
@@ -1163,13 +935,13 @@ The <code>SetScheduleCommandParser</code>, which implements the <code>Parser</co
 </div>
 </div>
 <div class="sect2">
-<h3 id="priority-level-restriction-feature"><a class="link" href="#priority-level-restriction-feature">3.6. Priority level restriction feature</a></h3>
+<h3 id="priority-level-restriction-feature"><a class="link" href="#priority-level-restriction-feature">3.5. Priority level restriction feature</a></h3>
 <div class="paragraph">
 <p>All employee accounts contain a priority level field. Depending on the priority level that they are given, administrative
 operations may be executed if they have sufficient priority level required to do so.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-5"><a class="link" href="#implementation-5">3.6.1. Implementation</a></h4>
+<h4 id="implementation-5"><a class="link" href="#implementation-5">3.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p>Here is a code snippet of executing the AddCommand function. In this example, adding a person requires a person to be
 logged in with a priority level of ADMINISTRATOR or above, in order to execute this function:</p>
@@ -1206,19 +978,19 @@ logged in with a priority level of ADMINISTRATOR or above, in order to execute t
 <div class="content">
 <img src="images/ImplementPlvlRestrictionSequenceDiagram.png" alt="ImplementPlvlRestrictionSequenceDiagram" width="900">
 </div>
-<div class="title">Figure 23. Sequence diagram of priority level restriction feature</div>
+<div class="title">Figure 15. Sequence diagram of priority level restriction feature</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.7, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1249,7 +1021,7 @@ logged in with a priority level of ADMINISTRATOR or above, in order to execute t
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.8. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.7. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1315,7 +1087,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 24. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 16. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -2573,9 +2345,6 @@ for <code>RemarkCommandParser</code>.</p>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -2583,6 +2352,52 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+</div>
+<h3 id="use-case-login-to-the-application" class="discrete">Use case: Login to the application</h3>
+<h3 id="use-case-check-login-status" class="discrete">Use case: Check login status</h3>
+<h3 id="use-case-logout-of-the-application" class="discrete">Use case: Logout of the application</h3>
+<h3 id="use-case-edit-personal-particulars" class="discrete">Use case: Edit personal particulars</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters edit command.</p>
+</li>
+<li>
+<p>AddressBook shows the format to edit the person details.</p>
+</li>
+<li>
+<p>User edit his/her particulars.</p>
+</li>
+<li>
+<p>AddressBook updates the new particulars.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>4a. The edited format is wrong</p>
+<div class="ulist">
+<ul>
+<li>
+<p>4a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <h3 id="use-case-add-person" class="discrete">Use case: Add Person</h3>
 <div class="paragraph">
@@ -2653,8 +2468,7 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-<div class="sect2">
-<h3 id="use-case-delete-person"><a class="link" href="#use-case-delete-person">D.1. Use case: Delete Person</a></h3>
+<h3 id="use-case-delete-person" class="discrete">Use case: Delete Person</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2703,25 +2517,17 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="use-case-apply-off-days"><a class="link" href="#use-case-apply-off-days">D.2. Use case: Apply Off days</a></h3>
+<h3 id="use-case-change-priority-level-of-user" class="discrete">Use case: Change priority level of user</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters command to apply off day</p>
+<p>User enters <code>setplvl INDEX plvl/PRIORITY_LEVEL</code></p>
 </li>
 <li>
-<p>AddressBook list the remaining off days left and prompts the date the user wants to apply on</p>
-</li>
-<li>
-<p>User enters date</p>
-</li>
-<li>
-<p>AddressBook add the request to the database for approval</p>
+<p>AddressBook updates the priority level of the person at stated index.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2734,275 +2540,50 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>2a. No remaining days left</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-<li>
-<p>4a. The given date is not available for application</p>
-</li>
-<li>
-<p>4a1. AddressBook shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes to step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-check-in-and-out"><a class="link" href="#use-case-check-in-and-out">D.3. Use case: Check in and out</a></h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User enters command to check in.</p>
-</li>
-<li>
-<p>AddressBook starts to time the user working hours.</p>
-</li>
-<li>
-<p>User enters command to check out.</p>
-</li>
-<li>
-<p>AddressBook stops timer, and records the user working hours.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-temporary-restrict-access-to-address-book"><a class="link" href="#use-case-temporary-restrict-access-to-address-book">D.4. Use case: Temporary restrict access to address book</a></h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User enters command to switch to superuser</p>
-</li>
-<li>
-<p>AddressBook prompts for password.</p>
-</li>
-<li>
-<p>User enters password</p>
-</li>
-<li>
-<p>AddressBook prompts a superuser command</p>
-</li>
-<li>
-<p>User enters restrict access command</p>
-</li>
-<li>
-<p>AddressBook restrict access for all users.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
+<p>2a. User is not logged in</p>
 <div class="ulist">
 <ul>
 <li>
-<p>4a. Incorrect password</p>
-<div class="ulist">
-<ul>
-<li>
-<p>4a1. AddressBook shows an error message.</p>
+<p>2a1. AddressBook shows an error message.</p>
 <div class="paragraph">
-<p>Use case resumes to step 2.</p>
+<p>Use case ends.</p>
 </div>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>6a. No such command</p>
+<p>2b. Invalid priority level</p>
 <div class="ulist">
 <ul>
 <li>
-<p>6a1. AddressBook shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes to step 4.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-access-payroll"><a class="link" href="#use-case-access-payroll">D.5. Use case: Access payroll</a></h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User enters command to check payroll.</p>
-</li>
-<li>
-<p>AddressBook shows the user payroll.</p>
+<p>2b1. AddressBook shows an error message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-check-notification"><a class="link" href="#use-case-check-notification">D.6. Use case: Check notification</a></h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User enters command to check for notification.</p>
-</li>
-<li>
-<p>AddressBook list out notifications.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
+</ul>
 </div>
 </li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-sort-contact"><a class="link" href="#use-case-sort-contact">D.7. Use case: Sort contact</a></h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
 <li>
-<p>User enters sort command.</p>
-</li>
-<li>
-<p>AddressBook prompts user to enter the field and order of sort.</p>
-</li>
-<li>
-<p>User enters the field and order to sort.</p>
-</li>
-<li>
-<p>AddressBook shows a sorted list by the field and order.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
+<p>2c. User logged in, but insufficient priority level</p>
 <div class="ulist">
 <ul>
 <li>
-<p>4a. The given field is invalid.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>4a1. AddressBook shows an error message.</p>
+<p>2c1. AddressBook shows an error message.</p>
 <div class="paragraph">
-<p>Use case resumes to step 2.</p>
+<p>Use case ends.</p>
 </div>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>4b. The given order is invalid.</p>
+<p>2d. User logged in, sufficient priority level, but tries to edit his/her own priority level</p>
 <div class="ulist">
 <ul>
 <li>
-<p>4b1. AddressBook shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes to step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-list-department"><a class="link" href="#use-case-list-department">D.8. Use case: List department</a></h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User enters listdepartment command.</p>
-</li>
-<li>
-<p>AddressBook shows a list of available departments.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-filter-department"><a class="link" href="#use-case-filter-department">D.9. Use case: Filter department</a></h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User enters filterdepartment command.</p>
-</li>
-<li>
-<p>AddressBook prompts to enter the departments to filter.</p>
-</li>
-<li>
-<p>User enters the department name to filter.</p>
-</li>
-<li>
-<p>AddressBook shows the list of filtered department.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>4a. The keyword <code>management</code> is entered.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>4a1. AddressBook shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes to step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>4b. The keyword entered is not found.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>4b1. AddressBook shows an empty list.</p>
+<p>2d1. AddressBook shows an error message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3012,9 +2593,7 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="use-case-change-department-of-user"><a class="link" href="#use-case-change-department-of-user">D.10. Use case: Change department of user</a></h3>
+<h3 id="use-case-change-department-of-user" class="discrete">Use case: Change department of user</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -3109,19 +2688,23 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="use-case-change-priority-level-of-user"><a class="link" href="#use-case-change-priority-level-of-user">D.11. Use case: Change priority level of user</a></h3>
+<h3 id="use-case-apply-leave" class="discrete">Use case: Apply leave</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters <code>setplvl INDEX plvl/PRIORITY_LEVEL</code></p>
+<p>User enters command to apply off day</p>
 </li>
 <li>
-<p>AddressBook updates the priority level of the person at stated index.</p>
+<p>AddressBook list the remaining off days left and prompts the date the user wants to apply on</p>
+</li>
+<li>
+<p>User enters date</p>
+</li>
+<li>
+<p>AddressBook add the request to the database for approval</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3134,146 +2717,26 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>2a. User is not logged in</p>
-<div class="ulist">
-<ul>
-<li>
-<p>2a1. AddressBook shows an error message.</p>
+<p>2a. No remaining days left</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
-</ul>
-</div>
-</li>
 <li>
-<p>2b. Invalid priority level</p>
-<div class="ulist">
-<ul>
-<li>
-<p>2b1. AddressBook shows an error message.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
+<p>4a. The given date is not available for application</p>
 </li>
-</ul>
-</div>
-</li>
-<li>
-<p>2c. User logged in, but insufficient priority level</p>
-<div class="ulist">
-<ul>
-<li>
-<p>2c1. AddressBook shows an error message.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>2d. User logged in, sufficient priority level, but tries to edit his/her own priority level</p>
-<div class="ulist">
-<ul>
-<li>
-<p>2d1. AddressBook shows an error message.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-edit-personal-particulars"><a class="link" href="#use-case-edit-personal-particulars">D.12. Use case: Edit personal particulars</a></h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User enters edit command.</p>
-</li>
-<li>
-<p>AddressBook shows the format to edit the person details.</p>
-</li>
-<li>
-<p>User edit his/her particulars.</p>
-</li>
-<li>
-<p>AddressBook updates the new particulars.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>4a. The edited format is wrong</p>
-<div class="ulist">
-<ul>
 <li>
 <p>4a1. AddressBook shows an error message.</p>
 <div class="paragraph">
-<p>Use case ends.</p>
+<p>Use case resumes to step 2.</p>
 </div>
 </li>
 </ul>
 </div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-find-person"><a class="link" href="#use-case-find-person">D.13. Use case: Find person</a></h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User keys in the keyword to search in find command.</p>
-</li>
-<li>
-<p>AddressBook displays the list of names which contains the keyword given.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>2a. AddressBook does not contain the keyword entered.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>2a1. AddressBook displays entered keyword not found.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-approve-reject-off-day-request"><a class="link" href="#use-case-approve-reject-off-day-request">D.14. Use case: Approve/reject off day request</a></h3>
+<h3 id="use-case-list-leave" class="discrete">Use case: List leave</h3>
+<h3 id="use-case-filter-leave" class="discrete">Use case: Filter leave</h3>
+<h3 id="use-case-delete-leave" class="discrete">Use case: Delete leave</h3>
+<h3 id="use-case-approve-reject-leave-request" class="discrete">Use case: Approve/reject leave request</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -3373,9 +2836,7 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="use-case-check-schedule"><a class="link" href="#use-case-check-schedule">D.15. Use case: Check schedule</a></h3>
+<h3 id="use-case-check-schedule" class="discrete">Use case: Check schedule</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -3412,9 +2873,7 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="use-case-set-schedule"><a class="link" href="#use-case-set-schedule">D.16. Use case: Set schedule</a></h3>
+<h3 id="use-case-set-schedule" class="discrete">Use case: Set schedule</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -3488,25 +2947,17 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="use-case-set-password"><a class="link" href="#use-case-set-password">D.17. Use case: Set password</a></h3>
+<h3 id="use-case-find-person" class="discrete">Use case: Find person</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters password command.</p>
+<p>User keys in the keyword to search in find command.</p>
 </li>
 <li>
-<p>AddressBook shows the password format to be keyed in.</p>
-</li>
-<li>
-<p>User keys in password.</p>
-</li>
-<li>
-<p>AddressBook stores the person’s new password.</p>
+<p>AddressBook displays the list of names which contains the keyword given.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3519,11 +2970,11 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>4a. The password is keyed in the wrong format</p>
+<p>2a. AddressBook does not contain the keyword entered.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>4a1. AddressBook shows an error message.</p>
+<p>2a1. AddressBook displays entered keyword not found.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3533,7 +2984,159 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
+<h3 id="use-case-sort-contact" class="discrete">Use case: Sort contact</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
 </div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters sort command.</p>
+</li>
+<li>
+<p>AddressBook prompts user to enter the field and order of sort.</p>
+</li>
+<li>
+<p>User enters the field and order to sort.</p>
+</li>
+<li>
+<p>AddressBook shows a sorted list by the field and order.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>4a. The given field is invalid.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>4a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes to step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>4b. The given order is invalid.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>4b1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes to step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-list-department" class="discrete">Use case: List department</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters listdepartment command.</p>
+</li>
+<li>
+<p>AddressBook shows a list of available departments.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="use-case-filter-department" class="discrete">Use case: Filter department</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters filterdepartment command.</p>
+</li>
+<li>
+<p>AddressBook prompts to enter the departments to filter.</p>
+</li>
+<li>
+<p>User enters the department name to filter.</p>
+</li>
+<li>
+<p>AddressBook shows the list of filtered department.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>4a. The keyword <code>management</code> is entered.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>4a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes to step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>4b. The keyword entered is not found.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>4b1. AddressBook shows an empty list.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-check-in-and-out" class="discrete">Use case: Check in and out</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters command to check in.</p>
+</li>
+<li>
+<p>AddressBook starts to time the user working hours.</p>
+</li>
+<li>
+<p>User enters command to check out.</p>
+</li>
+<li>
+<p>AddressBook stops timer, and records the user working hours.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="use-case-reset-application" class="discrete">Use case: Reset application</h3>
 </div>
 </div>
 <div class="sect1">
@@ -3551,9 +3154,6 @@ for <code>RemarkCommandParser</code>.</p>
 <p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
 </div>
 </div>
 </div>
@@ -3575,44 +3175,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix G: Product Survey</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Product Name</strong></p>
-</div>
-<div class="paragraph">
-<p>Author: &#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Pros:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Cons:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix H: Instructions for Manual Testing</a></h2>
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
@@ -3630,7 +3193,7 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">H.1. Launch and Shutdown</a></h3>
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3663,12 +3226,34 @@ Expected: The most recent window size and location is retained.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
+</div>
+<div class="sect2">
+<h3 id="personal-user-account"><a class="link" href="#personal-user-account">G.2. Personal User Account</a></h3>
+<div class="sect3">
+<h4 id="login-to-the-application"><a class="link" href="#login-to-the-application">G.2.1. Login to the application</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="checks-the-login-status-of-the-application"><a class="link" href="#checks-the-login-status-of-the-application">G.2.2. Checks the login status of the application</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="logout-of-the-application"><a class="link" href="#logout-of-the-application">G.2.3. Logout of the application</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="editing-a-person"><a class="link" href="#editing-a-person">G.2.4. Editing a person</a></h4>
+
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">H.2. Deleting a person</a></h3>
+<h3 id="employee-management-database"><a class="link" href="#employee-management-database">G.3. Employee Management Database</a></h3>
+<div class="sect3">
+<h4 id="adding-a-person"><a class="link" href="#adding-a-person">G.3.1. Adding a person</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.3.2. Deleting a person</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3695,29 +3280,103 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
+</div>
+<div class="sect3">
+<h4 id="change-priority-level-of-employee"><a class="link" href="#change-priority-level-of-employee">G.3.3. Change priority level of employee</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="change-the-department-of-an-employee"><a class="link" href="#change-the-department-of-an-employee">G.3.4. Change the department of an employee</a></h4>
+
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">H.3. Saving data</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Dealing with missing/corrupted data files</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
-</li>
-</ol>
+<h3 id="leave-application"><a class="link" href="#leave-application">G.4. Leave Application</a></h3>
+<div class="sect3">
+<h4 id="leave-application-2"><a class="link" href="#leave-application-2">G.4.1. Leave application</a></h4>
+
 </div>
-</li>
-</ol>
+<div class="sect3">
+<h4 id="list-leave-application"><a class="link" href="#list-leave-application">G.4.2. List leave application</a></h4>
+
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
+<div class="sect3">
+<h4 id="filter-leave-application"><a class="link" href="#filter-leave-application">G.4.3. Filter leave application</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="delete-leave-application"><a class="link" href="#delete-leave-application">G.4.4. Delete leave application</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="approve-leave-application"><a class="link" href="#approve-leave-application">G.4.5. Approve leave application</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="reject-leave-application"><a class="link" href="#reject-leave-application">G.4.6. Reject leave application</a></h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="scheduling"><a class="link" href="#scheduling">G.5. Scheduling</a></h3>
+<div class="sect3">
+<h4 id="list-schedule"><a class="link" href="#list-schedule">G.5.1. List schedule</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="set-schedule"><a class="link" href="#set-schedule">G.5.2. Set schedule</a></h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="filtering-sorting"><a class="link" href="#filtering-sorting">G.6. Filtering/Sorting</a></h3>
+<div class="sect3">
+<h4 id="listing-all-persons"><a class="link" href="#listing-all-persons">G.6.1. Listing all persons</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="locating-persons-by-name"><a class="link" href="#locating-persons-by-name">G.6.2. Locating persons by name</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="sort-address-book-contacts"><a class="link" href="#sort-address-book-contacts">G.6.3. Sort address book contacts</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="list-department"><a class="link" href="#list-department">G.6.4. List department</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="filtering-department"><a class="link" href="#filtering-department">G.6.5. Filtering department</a></h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="miscellaneous"><a class="link" href="#miscellaneous">G.7. Miscellaneous</a></h3>
+<div class="sect3">
+<h4 id="viewing-help"><a class="link" href="#viewing-help">G.7.1. Viewing help</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="selecting-a-person"><a class="link" href="#selecting-a-person">G.7.2. Selecting a person</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="listing-entered-commands"><a class="link" href="#listing-entered-commands">G.7.3. Listing entered commands</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="check-in-out-working-hours"><a class="link" href="#check-in-out-working-hours">G.7.4. Check in/out working hours</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="reset-the-application"><a class="link" href="#reset-the-application">G.7.5. Reset the application</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="exiting-the-program"><a class="link" href="#exiting-the-program">G.7.6. Exiting the program</a></h4>
+
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-08 05:18:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-09 02:31:01 UTC</div></div></div></body></html>
