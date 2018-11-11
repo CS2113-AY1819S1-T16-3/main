@@ -584,7 +584,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="sect2">
 <h3 id="Design-Session"><a class="link" href="#Design-Session">2.6. Session component</a></h3>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/CS2113-AY1819S1-T16-3/main/tree/master//src/main/java/seedu/address/model/SessionManager.java"><code>SessionManager.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/CS2113-AY1819S1-T16-3/main/tree/master//src/main/java/seedu/address/session/SessionManager.java"><code>SessionManager.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Session</code> component,</p>
@@ -768,6 +768,42 @@ The result of <code>FilterDepartmentCommand</code> execution is encapsulated as 
 <div class="title">Figure 11. Sequence diagram of FilterDepartmentCommand</div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-filterdepartment-code-command"><a class="link" href="#aspect-implementation-of-code-filterdepartment-code-command">Aspect: Implementation of <code>FilterDepartment</code> command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> A separate command for filter department.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Command works more accurately and efficiently as it focuses on the keywords related to <code>Department</code>.</p>
+</li>
+<li>
+<p>Cons: The implementation of another command may be unnecessary as we can integrate <code>find</code> command to find for departments.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Using <code>find</code> command to filter department name.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: One command works for finding name and to filter department names.</p>
+</li>
+<li>
+<p>Cons: The command may not work properly. For example, there is an employee whose name is <code>Junior</code> from <code>Senior Management</code>. But if we only want to filter employees who are in <code>Junior Management</code>, the command will output people who are in <code>Junior Management</code> and the employee <code>Junior</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="check-in-out-feature"><a class="link" href="#check-in-out-feature">3.3. Check in/out feature</a></h3>
@@ -885,7 +921,7 @@ The <code>SetScheduleCommandParser</code>, which implements the <code>Parser</co
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.4.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-storage-for-schedule"><a class="link" href="#aspect-storage-for-schedule">Aspect: Storage for schedule</a></h5>
 <div class="ulist">
@@ -2600,13 +2636,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters setdepartment command.</p>
-</li>
-<li>
-<p>AddressBook prompts to enter the INDEX and department name to change.</p>
-</li>
-<li>
-<p>User enters the index and the department name.</p>
+<p>User enters setdepartment command, followed by the index and the department name.</p>
 </li>
 <li>
 <p>AddressBook updates the department of the user at the stated index.</p>
@@ -3249,19 +3279,41 @@ Expected: The most recent window size and location is retained.</p>
 <div class="sect2">
 <h3 id="employee-management-database"><a class="link" href="#employee-management-database">G.3. Employee Management Database</a></h3>
 <div class="sect3">
-<h4 id="adding-a-person"><a class="link" href="#adding-a-person">G.3.1. Adding a person</a></h4>
-
-</div>
-<div class="sect3">
-<h4 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.3.2. Deleting a person</a></h4>
+<h4 id="adding-an-employee"><a class="link" href="#adding-an-employee">G.3.1. Adding an employee</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Deleting a person while all persons are listed</p>
+<p>Adding an employee in to the address book.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+<p>Prerequisites: Logged in as an administrator and add an employee who does not exist in the address book with the <code>add</code> command.<br>
+<code>add n/Betsy Crowe ic/S1875858E pwd/Password p/98758585 e/betsy@abbank-sg.com d/Junior Management a/Block 123 Kaki Bukit Street 123, #12-345 wr/7.5</code></p>
+</li>
+<li>
+<p>Test case: <code>add n/Carol Crowe ic/S1947829E pwd/Password p/94724372 e/carol@abbank-sg.com d/Junior Management a/Block 123 Jurong Street 123, #12-345 wr/7.5</code><br>
+Expected: <code>Carol Crowe</code> is added in to the list. Details of the added contact is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>add n/Carol Crowe ic/S1875858E pwd/Password p/94724372 e/carol@abbank-sg.com d/Junior Management a/Block 123 Jurong Street 123, #12-345 wr/7.5</code><br>
+Expected: No employee is added. The NRIC of <code>Carol Crowe</code> is the same as <code>Betsy Crowe</code>. Error detail shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-an-employee"><a class="link" href="#deleting-an-employee">G.3.2. Deleting an employee</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting an employee while all employees are listed.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all employees using the <code>list</code> command. Multiple employees in the list.</p>
 </li>
 <li>
 <p>Test case: <code>delete 1</code><br>
@@ -3269,10 +3321,10 @@ Expected: First contact is deleted from the list. Details of the deleted contact
 </li>
 <li>
 <p>Test case: <code>delete 0</code><br>
-Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
+Expected: No employee is deleted. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
+<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size)<br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
@@ -3287,7 +3339,34 @@ Expected: Similar to previous.</p>
 </div>
 <div class="sect3">
 <h4 id="change-the-department-of-an-employee"><a class="link" href="#change-the-department-of-an-employee">G.3.4. Change the department of an employee</a></h4>
-
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Change the department of an employee from the given index.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have to be logged in as an administrator and have multiple employees in the list.</p>
+</li>
+<li>
+<p>Test case: <code>setdepartment 1 d/Top Management</code><br>
+Expected: The employee&#8217;s department at index 1 will be changed to <code>Top Management</code>.
+Details of the employee name and the changed department name will be shown in the status message.
+If the employee at index 1 is the logged in employee himself/herself, the department will not be changed. Error details is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>setdepartment 1 d/Top Department</code><br>
+Expected: Department name is of the wrong format. Error details is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>setdepartment 0 d/Top Management</code><br>
+Expected: No employee at index 0. Error details is shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -3331,52 +3410,126 @@ Expected: Similar to previous.</p>
 <div class="sect2">
 <h3 id="filtering-sorting"><a class="link" href="#filtering-sorting">G.6. Filtering/Sorting</a></h3>
 <div class="sect3">
-<h4 id="listing-all-persons"><a class="link" href="#listing-all-persons">G.6.1. Listing all persons</a></h4>
-
+<h4 id="locating-employees-by-name"><a class="link" href="#locating-employees-by-name">G.6.1. Locating employees by name</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Finds the employees whose name contains any of the given keywords.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>find KEYWORD</code><br>
+Expected: Employees whose name matches with <code>KEYWORD</code> is listed. Details of the number of employees listed is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>find KEYWORD1 KEYWORD2</code><br>
+Expected: Employees whose name matches with <code>KEYWORD1</code> or <code>KEYWORD2</code> is listed. Details of the number of employees listed is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>find</code><br>
+Expected: Invalid command format. Error details is shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect3">
-<h4 id="locating-persons-by-name"><a class="link" href="#locating-persons-by-name">G.6.2. Locating persons by name</a></h4>
-
+<h4 id="sort-address-book-contacts"><a class="link" href="#sort-address-book-contacts">G.6.2. Sort address book contacts</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sorts the name list either in ascending or descending order.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all employees using the <code>list</code> command. Multiple employees in the list.</p>
+</li>
+<li>
+<p>Test case: <code>sort name asc</code><br>
+Expected: The list will be sorted in ascending order by names. Details of the address book has been sorted is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>sort department desc</code><br>
+Expected: The list will be sorted in descending order by department names. Details of the address book has been sorted is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>sort invalid asc</code><br>
+Expected: Invalid command format. Error details is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>sort name invalid</code><br>
+Expected: Invalid command format. Error details is shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect3">
-<h4 id="sort-address-book-contacts"><a class="link" href="#sort-address-book-contacts">G.6.3. Sort address book contacts</a></h4>
-
+<h4 id="filtering-department"><a class="link" href="#filtering-department">G.6.3. Filtering department</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Filters the list with employees who are in the department from the provided keywords.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>filterdepartment KEYWORD</code><br>
+Expected: Employees whose department matches with <code>KEYWORD</code> is listed. Details of the number of employees listed is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>filterdepartment KEYWORD1 KEYWORD2</code><br>
+Expected: Employees whose department matches with <code>KEYWORD1</code> or <code>KEYWORD2</code> is listed. Details of the number of employees listed is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>filterdepartment</code><br>
+Expected: Invalid command format. Error details is shown in the status message.</p>
+</li>
+</ol>
 </div>
-<div class="sect3">
-<h4 id="list-department"><a class="link" href="#list-department">G.6.4. List department</a></h4>
-
+</li>
+</ol>
 </div>
-<div class="sect3">
-<h4 id="filtering-department"><a class="link" href="#filtering-department">G.6.5. Filtering department</a></h4>
-
 </div>
 </div>
 <div class="sect2">
 <h3 id="miscellaneous"><a class="link" href="#miscellaneous">G.7. Miscellaneous</a></h3>
 <div class="sect3">
-<h4 id="viewing-help"><a class="link" href="#viewing-help">G.7.1. Viewing help</a></h4>
-
+<h4 id="selecting-an-employee"><a class="link" href="#selecting-an-employee">G.7.1. Selecting an employee</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Selects an employee while all employee are listed.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all employees using the <code>list</code> command. Multiple employees in the list.</p>
+</li>
+<li>
+<p>Test case: <code>select 1</code><br>
+Expected: First contact is selected from the list. Details of the index of the selected employee is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>select 0</code><br>
+Expected: No employee is selected. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect select commands to try: <code>select</code>, <code>select x</code> (where x is larger than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect3">
-<h4 id="selecting-a-person"><a class="link" href="#selecting-a-person">G.7.2. Selecting a person</a></h4>
-
-</div>
-<div class="sect3">
-<h4 id="listing-entered-commands"><a class="link" href="#listing-entered-commands">G.7.3. Listing entered commands</a></h4>
-
-</div>
-<div class="sect3">
-<h4 id="check-in-out-working-hours"><a class="link" href="#check-in-out-working-hours">G.7.4. Check in/out working hours</a></h4>
-
-</div>
-<div class="sect3">
-<h4 id="reset-the-application"><a class="link" href="#reset-the-application">G.7.5. Reset the application</a></h4>
-
-</div>
-<div class="sect3">
-<h4 id="exiting-the-program"><a class="link" href="#exiting-the-program">G.7.6. Exiting the program</a></h4>
+<h4 id="check-in-out-working-hours"><a class="link" href="#check-in-out-working-hours">G.7.2. Check in/out working hours</a></h4>
 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 07:31:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 09:17:50 UTC</div></div></div></body></html>
