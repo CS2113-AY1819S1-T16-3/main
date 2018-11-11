@@ -56,7 +56,7 @@ The implementation was challenging due to the different privileges each priority
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: UI changes such as color theme changes, removal of browser pane, addition of leave application tab and image pane.</p>
+<p><strong>Minor enhancement</strong>: UI changes such as color theme changes, removal of browser panel, addition of leave application tab and image view.</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: <a href="https://nuscs2113-ay1819s1.github.io/dashboard/#=undefined&amp;search=hafizuddin-nus">RepoSense Dashboard</a></p>
@@ -80,7 +80,7 @@ The implementation was challenging due to the different privileges each priority
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme, removal of browser pane, added leave application tab and image pane : <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/25">#25</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/108">#108</a></p>
+<p>Updated the GUI color scheme, removal of browser panel, added leave application tab and image view : <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/25">#25</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/108">#108</a></p>
 </li>
 <li>
 <p>Added functionality for <code>delete</code> command that simultaneously deletes leave applications under the person that is being deleted : <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/25">#25</a></p>
@@ -96,16 +96,16 @@ The implementation was challenging due to the different privileges each priority
 <div class="ulist">
 <ul>
 <li>
-<p>Update of Ui.png : <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/109">#109</a></p>
+<p>Update of Ui.png : <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/109">#109</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/148">#148</a></p>
 </li>
 <li>
 <p>Update of README : <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/93">#93</a></p>
 </li>
 <li>
-<p>Update developer guide on <code>leave</code> feature : <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/67">#67</a></p>
+<p>Update developer guide on <code>leave</code> feature, user stories, user cases, diagrams for storage, model and UI : <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/67">#67</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/148">#148</a></p>
 </li>
 <li>
-<p>Update of User Guide on all <strong>leave application</strong> related commands such as: <code>leave</code>, <code>listleave</code>, <code>filterleave</code>, <code>deleteleave</code>, <code>approve</code>, <code>reject</code>. <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/67">#67</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/90">#90</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/93">#93</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/109">#109</a></p>
+<p>Update of User Guide on all <strong>leave application</strong> related commands such as: <code>leave</code>, <code>listleave</code>, <code>filterleave</code>, <code>deleteleave</code>, <code>approve</code>, <code>reject</code>. <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/67">#67</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/90">#90</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/93">#93</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/109">#109</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/148">#148</a></p>
 </li>
 </ul>
 </div>
@@ -115,7 +115,7 @@ The implementation was challenging due to the different privileges each priority
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/59">#59</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/65">#65</a></p>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/59">#59</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/65">#65</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/147">#147</a></p>
 </li>
 <li>
 <p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com/CS2113-AY1819S1-W13-3/main/issues/82">1</a>, <a href="https://github.com/CS2113-AY1819S1-W13-3/main/issues/85">2</a>, <a href="https://github.com/CS2113-AY1819S1-W13-3/main/issues/79">3</a>, <a href="https://github.com/CS2113-AY1819S1-W13-3/main/issues/87">4</a>)</p>
@@ -143,6 +143,324 @@ The implementation was challenging due to the different privileges each priority
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="leave-application"><a class="link" href="#leave-application">Leave Application</a></h3>
+<div class="sect3">
+<h4 id="leave-application-code-leave-code"><a class="link" href="#leave-application-code-leave-code">Leave application : <code>leave</code></a></h4>
+<div class="paragraph">
+<p>Request leave application of the user for approval.<br>
+Format: <code>leave date/DATE</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>DATE must be in the format DD/MM/YYYY</p>
+</li>
+<li>
+<p>DATE must not be today&#8217;s date or past dates</p>
+</li>
+<li>
+<p>DATE must be a valid calendar date</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example: <code>leave date/20/11/2019</code></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/leave.png" alt="leave" width=""></span></p>
+</div>
+<div class="paragraph">
+<p>Requested leave application on 20/11/2019.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/acceptedleave.png" alt="acceptedleave" width=""></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-leave-application-code-listleave-code"><a class="link" href="#list-leave-application-code-listleave-code">List leave application : <code>listleave</code></a></h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Does not require the user to log in before using the command.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>List out all leave application in the leave list.<br>
+Format: <code>listleave</code></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/listleave.png" alt="listleave" width=""></span></p>
+</div>
+<div class="paragraph">
+<p>Returns all the leave application in the system.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/listedleave.png" alt="listedleave" width=""></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="filter-leave-application-code-filterleave-code"><a class="link" href="#filter-leave-application-code-filterleave-code">Filter leave application : <code>filterleave</code></a></h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Does not require the user to log in before using the command.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Filter leave applications based on NRIC.<br>
+Format: <code>filterleave NRIC</code><br>
+Alias: <code>fl</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Filter is case insensitive eg. <code>s1234567a</code> matches <code>S1234567A</code></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:
+<code>filterleave F2058730E</code></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/filterleavecmd.png" alt="filterleavecmd" width=""></span></p>
+</div>
+<div class="paragraph">
+<p>List all leave application requested by the user with NRIC, 'T1234567E'.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/filteredleave.png" alt="filteredleave" width=""></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-leave-application-code-deleteleave-code"><a class="link" href="#delete-leave-application-code-deleteleave-code">Delete leave application : <code>deleteleave</code></a></h4>
+<div class="paragraph">
+<p>Delete the specified leave from leave list.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>User can only delete leave application he/she requested.</p>
+</li>
+<li>
+<p>To delete other user&#8217;s application, requires higher privilege to perform.
+Example, MANAGER can delete BASIC user&#8217;s leave application.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>deleteleave INDEX</code><br>
+Alias: <code>dl</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the leave at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed leave list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:
+<code>deleteleave 1</code></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/deleteleavecmd.png" alt="deleteleavecmd" width=""></span></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/deletingleave.png" alt="deletingleave" width=""></span></p>
+</div>
+<div class="paragraph">
+<p>Deletes the leave application with INDEX 1 in the leave list.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/deleteresult.png" alt="deleteresult" width=""></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="approve-leave-application-code-approve-code"><a class="link" href="#approve-leave-application-code-approve-code">Approve leave application  : <code>approve</code></a></h4>
+<div class="paragraph">
+<p>Approve the specified leave application from leave list.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Only higher priority users can approve leave application.
+Example, MANAGER can approve BASIC user&#8217;s leave application.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>approve INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Approve the leave at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed leave list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:
+<code>approve 2</code></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/approvecmd.png" alt="approvecmd" width=""></span></p>
+</div>
+<div class="paragraph">
+<p>Approve the leave application with INDEX 2 in the leave list.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/approved.png" alt="approved" width=""></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="reject-leave-application-code-reject-code"><a class="link" href="#reject-leave-application-code-reject-code">Reject leave application  : <code>reject</code></a></h4>
+<div class="paragraph">
+<p>Reject the specified leave application from leave list.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Only higher priority users can reject leave application.
+Example, MANAGER can reject BASIC user&#8217;s leave application.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>reject INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Reject the leave at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed leave list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:
+<code>reject 2</code></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/rejectcmd.png" alt="rejectcmd" width=""></span></p>
+</div>
+<div class="paragraph">
+<p>Reject the leave application with INDEX 2 in the leave list.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/reject.png" alt="reject" width=""></span></p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -158,5 +476,139 @@ The implementation was challenging due to the different privileges each priority
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="add-leave-command"><a class="link" href="#add-leave-command">Add Leave command</a></h3>
+<div class="paragraph">
+<p>The <code>leave</code> is a command that allows the user to request leave applications. This command is only available after the user has logged in successfully.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 13:30:43 UTC</div></div></div></body></html>
+<div class="paragraph">
+<p>The format of the command is: <code>leave date/DATE</code></p>
+</div>
+<div class="paragraph">
+<p>It takes in the parameter DATE in a valid format (DD/MM/YYYY).</p>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>The implementation is divided in two phases.</p>
+</div>
+<div class="paragraph">
+<p>In the first phase, parsing of the input arguments is handled by <code>AddLeaveParser</code>, which will create a new object <code>AddLeaveCommand</code>.
+<code>AddLeaveParser</code> which implements <code>Parser</code> interface, parses the inputted arguments from the CLI and also checks if it conforms the expected input format.</p>
+</div>
+<div class="paragraph">
+<p>Code snippet from <code>AddLeaveParser</code> that shows the above:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"> <span class="directive">public</span> AddLeaveCommand parse(<span class="predefined-type">String</span> args) <span class="directive">throws</span> <span class="exception">ParseException</span> {
+        ArgumentMultimap argMultimap =
+                ArgumentTokenizer.tokenize(args, PREFIX_NRIC, PREFIX_DATE);
+        <span class="predefined-type">String</span> employeeNric = <span class="string"><span class="delimiter">&quot;</span><span class="content">S1234591A</span><span class="delimiter">&quot;</span></span>;
+
+        <span class="keyword">if</span> (!arePrefixesPresent(argMultimap, PREFIX_DATE)
+                || !argMultimap.getPreamble().isEmpty()) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="exception">ParseException</span>(<span class="predefined-type">String</span>.format(MESSAGE_INVALID_COMMAND_FORMAT, AddLeaveCommand.MESSAGE_USAGE));
+        }
+
+        <span class="keyword">if</span> (SessionManager.isLoggedIn()) {
+            employeeNric = SessionManager.getLoggedInEmployeeNric();
+        }
+
+        EmployeeId employeeId = ParserUtil.parseEmployeeId(employeeNric);
+        <span class="predefined-type">Date</span> date = ParserUtil.parseDate(argMultimap.getValue(PREFIX_DATE).get());
+        Approval status = ParserUtil.parseApproval(<span class="string"><span class="delimiter">&quot;</span><span class="content">PENDING</span><span class="delimiter">&quot;</span></span>);
+
+        Leave leave = <span class="keyword">new</span> Leave (employeeId, date, status);
+
+        <span class="keyword">return</span> <span class="keyword">new</span> AddLeaveCommand(leave);
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the second phase, <code>AddLeaveCommand</code> is being executed. The <code>AddLeaveCommand</code>
+adds a <code>Leave</code> to the <code>LeaveList</code>.
+If the leave being added already exists in the LeaveList or when user is not logged in, executing the <code>leave</code>
+command raises a <code>DuplicateLeaveException</code> or <code>UserNotLoggedInException</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> CommandResult execute(Model model, CommandHistory history) <span class="directive">throws</span> CommandException {
+        <span class="keyword">if</span> (isLogin &amp;&amp; !SessionManager.isLoggedIn()) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> CommandException(STATUS_NOT_LOGGED_IN);
+        } <span class="keyword">else</span> <span class="keyword">if</span> (model.hasLeave(toAdd)) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> CommandException(MESSAGE_DUPLICATE_LEAVE);
+        } <span class="keyword">else</span> {
+            model.addLeave(toAdd);
+            model.commitLeaveList();
+            <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(<span class="predefined-type">String</span>.format(MESSAGE_SUCCESS, toAdd));
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The result of <code>AddLeaveCommand</code> execution is encapsulated as a <code>CommandResult</code> object which is passed back to the UI
+and display the added leave application in the leave list.</p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below demonstrates the interaction within the <code>Logic</code> component of <code>AddLeaveCommand</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddLeaveCommandSequenceDiagram.png" alt="AddLeaveCommandSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 1. Sequence diagram of AddLeaveCommand</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-storage-for-leave"><a class="link" href="#aspect-storage-for-leave">Aspect: Storage for leave</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Store in a different XML file.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement by duplicating existing storage, parser and XML related classes to cater for new XML file.</p>
+</li>
+<li>
+<p>Cons: Need to spend extra time on deleting of leaves when a particular person is deleted.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Store in a existing XML file.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to implement, as it only requires to add onto existing parser.</p>
+</li>
+<li>
+<p>Cons: May require extra parameters to create a Person object.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Store in a different file format.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to understand.</p>
+</li>
+<li>
+<p>Cons: Consumes extra time to implement different parser from scratch.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 16:49:06 UTC</div></div></div></body></html>
