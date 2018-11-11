@@ -10,7 +10,25 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Bank Address Book (BankAB) is an employee management application. You can use BankAB to check working schedule, apply off day, check working hours, access payroll and daily notification. The managers and boss will have more access of BankAB such as changing the priority level of the employee and approve or reject off day requests.</p>
+<p>Bank Address Book (BankAB) is a business process management and workflow application platform, whereby its users are all the employees in a banking environment.
+This platform supports the basic daily routine of each employee such as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Checking working schedule</p>
+</li>
+<li>
+<p>Applying for leave application</p>
+</li>
+<li>
+<p>Checking in and out during working hours</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The managers and administrators will have higher priority access level of BankAB such as changing the
+priority level of the employee and approve or reject leave requests.</p>
 </div>
 </div>
 </div>
@@ -20,29 +38,39 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement</strong>: Added the command to <strong>check in/out to/from work</strong> and <strong>calculates the salary per day according to the hours worked.</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>What it does: It allows users to check in to work or check out from work and based on the time they checked in and out, their salary per day will be calculated accordingly and displayed once they checked out from work.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p>Justification: This is a basic and crucial command required by a workflow management product as checking in/out to/from work is a daily process for employees to prove that they came to work and how long they have worked.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Highlights: This enhancement provides the product the checking in/out system. The implementation was challenging as it required creating a new command from scratch.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Minor enhancement</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>added <code>Working Rate</code> field to specify each employee&#8217;s working rate per hour.<br></p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p>added <code>Checked In Time</code> field to specify the time that each employee&#8217;s checked in.<br></p>
+</li>
+<li>
+<p>added checked in/out status display on UI.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: <a href="https://nuscs2113-ay1819s1.github.io/dashboard/#=undefined&amp;search=pinjuen">RepoSense Dashboard</a></p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -53,7 +81,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+<p>Managed vetting through and approving of pull requests.</p>
 </li>
 </ul>
 </div>
@@ -63,10 +91,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+<p>Added <code>Working Rate</code> and  <code>Checked In Time</code> fields. (Pull request <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/92">#92</a>)</p>
 </li>
 <li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Updated checked in/out status colors on UI. (Pull requests <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/102">#102</a>)</p>
 </li>
 </ul>
 </div>
@@ -76,7 +104,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Updated README.doc for the product. (Pull request <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/22">#22</a>)</p>
+</li>
+<li>
+<p>Updated Developer Guide on checking in/out to/from work feature. Updated use cases and user stories as we refined our product through the weeks: <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/71">#71</a></p>
+</li>
+<li>
+<p>Ensuring the User Guide is up to date and details are correct for the listed commands as we refined our product through the weeks: <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/71">#71</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/94">#94</a></p>
 </li>
 </ul>
 </div>
@@ -86,29 +120,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
-</li>
-<li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com/CS2113-AY1819S1-W12-1/main/issues/158">1</a>, <a href="https://github.com/CS2113-AY1819S1-W12-1/main/issues/169">2</a>, <a href="https://github.com/CS2113-AY1819S1-W12-1/main/issues/161">3</a>)</p>
 </li>
 </ul>
 </div>
@@ -117,9 +129,6 @@
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -136,6 +145,94 @@
 </tr>
 </tbody>
 </table>
+<div class="sect3">
+<h4 id="check-in-out-working-hours-code-check-code"><a class="link" href="#check-in-out-working-hours-code-check-code">Check in/out working hours: <code>check</code></a></h4>
+<div class="paragraph">
+<p>Updates check in/out status for employees.<br>
+Format: <code>check m/IN-OUT</code><br>
+Examples:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>check m/in</code></p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>User checked in:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/checkedInStatus.png" alt="checkedInStatus" width="270">
+</div>
+</div>
+<div class="paragraph">
+<p>Checked in shows:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Checked in date</p>
+</li>
+<li>
+<p>Checked in time</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/checkedIn.PNG" alt="checkedIn" width="700">
+</div>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>check m/out</code></p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>User checked out:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/checkedOutStatus.png" alt="checkedOutStatus" width="270">
+</div>
+</div>
+<div class="paragraph">
+<p>Checked out shows:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Checked out date</p>
+</li>
+<li>
+<p>Checked out time</p>
+</li>
+<li>
+<p>Hours worked</p>
+</li>
+<li>
+<p>Salary per day according to employees' working rate per hour.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/checkedOut.PNG" alt="checkedOut" width="700">
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -151,5 +248,61 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="check-in-out-feature"><a class="link" href="#check-in-out-feature">Check in/out feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current implementation</a></h4>
+<div class="paragraph">
+<p>The <code>checkCommand</code> is a command that allows employees to check in and out to work so that their working hours will be recorded according to the time they checked in/out and calculate their pay accordingly.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 13:16:20 UTC</div></div></div></body></html>
+<div class="paragraph">
+<p>The <code>checkCommand</code> mechanism is facilitated by the <code>AddressBookParser</code>, which parses the user input to identify the requested command and calls the particular command parser to deal with the input arguments.</p>
+</div>
+<div class="paragraph">
+<p>The <code>checkCommandParser</code>, which implements the <code>Parser</code> interface, parses the arguments inputted in to the CLI, and checks if the user input conforms the expected format.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Code snippet from <code>checkCommandParser.java</code> that shows the parsing of arguments，checking for invalid arguments and returning a checkCommand object:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> CheckCommand parse(<span class="predefined-type">String</span> args) <span class="directive">throws</span> <span class="exception">ParseException</span> {
+        requireNonNull(args);
+            ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_MODE);
+
+            <span class="keyword">if</span> (!arePrefixesPresent(argMultimap, PREFIX_MODE)
+            || !argMultimap.getPreamble().isEmpty()) {
+                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="exception">ParseException</span>(<span class="predefined-type">String</span>.format(MESSAGE_INVALID_COMMAND_FORMAT, CheckCommand.MESSAGE_USAGE));
+            }
+
+            <span class="keyword">if</span> (!didPrefixAppearOnlyOnce(args, PREFIX_MODE.toString())) {
+                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="exception">ParseException</span>(<span class="predefined-type">String</span>.format(MESSAGE_INVALID_COMMAND_FORMAT, CheckCommand.MESSAGE_USAGE));
+            }
+
+            Mode mode = ParserUtil.parseMode(argMultimap.getValue(PREFIX_MODE).get());
+
+            <span class="keyword">return</span> <span class="keyword">new</span> CheckCommand(mode);
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the second phase, the command is being executed in <code>checkCommand</code>.
+The result of <code>checkCommand</code> execution is encapsulated as a <code>CommandResult</code> object and returns it to the <code>LogicManager</code> and subsequently to the UI and display check in/out mode as one of the fields.</p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below demonstrates the interaction within the <code>Logic</code> component of <code>CheckCommand</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CheckCommandSequenceDiagram.png" alt="CheckCommandSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 1. Sequence diagram of CheckCommand</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 13:21:10 UTC</div></div></div></body></html>
