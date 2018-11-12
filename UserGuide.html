@@ -18,13 +18,13 @@
 <li><a href="#login-to-the-application-code-login-code">3.1.1. Login to the application: <code>login</code></a></li>
 <li><a href="#checks-the-login-status-of-the-application-code-checkloginstatus-code">3.1.2. Checks the login status of the application: <code>checkloginstatus</code></a></li>
 <li><a href="#logout-of-the-application-code-logout-code">3.1.3. Logout of the application: <code>logout</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">3.1.4. Editing a person : <code>edit</code></a></li>
+<li><a href="#editing-an-employee-code-edit-code">3.1.4. Editing an employee : <code>edit</code></a></li>
 </ul>
 </li>
 <li><a href="#employee-management-database">3.2. Employee Management Database</a>
 <ul class="sectlevel3">
-<li><a href="#adding-a-person-code-add-code">3.2.1. Adding a person: <code>add</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">3.2.2. Deleting a person : <code>delete</code></a></li>
+<li><a href="#adding-an-employee-code-add-code">3.2.1. Adding an employee: <code>add</code></a></li>
+<li><a href="#deleting-an-employee-code-delete-code">3.2.2. Deleting an employee : <code>delete</code></a></li>
 <li><a href="#change-priority-level-of-employee-code-setplvl-code">3.2.3. Change priority level of employee: <code>setplvl</code></a></li>
 <li><a href="#change-the-department-of-an-employee-code-setdepartment-code">3.2.4. Change the department of an employee : <code>setdepartment</code></a></li>
 </ul>
@@ -47,8 +47,8 @@
 </li>
 <li><a href="#filtering-sorting">3.5. Filtering/Sorting</a>
 <ul class="sectlevel3">
-<li><a href="#listing-all-persons-code-list-code">3.5.1. Listing all persons : <code>list</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code">3.5.2. Locating persons by name: <code>find</code></a></li>
+<li><a href="#listing-all-employees-code-list-code">3.5.1. Listing all employees : <code>list</code></a></li>
+<li><a href="#locating-employees-by-name-code-find-code">3.5.2. Locating employees by name: <code>find</code></a></li>
 <li><a href="#sort-address-book-contacts-code-sort-code">3.5.3. Sort address book contacts: <code>sort</code></a></li>
 <li><a href="#list-department-code-listdepartment-code">3.5.4. List department : <code>listdepartment</code></a></li>
 <li><a href="#filtering-department-code-filterdepartment-code">3.5.5. Filtering department : <code>filterdepartment</code></a></li>
@@ -57,7 +57,7 @@
 <li><a href="#miscellaneous">3.6. Miscellaneous</a>
 <ul class="sectlevel3">
 <li><a href="#viewing-help-code-help-code">3.6.1. Viewing help : <code>help</code></a></li>
-<li><a href="#selecting-a-person-code-select-code">3.6.2. Selecting a person : <code>select</code></a></li>
+<li><a href="#selecting-an-employee-code-select-code">3.6.2. Selecting an employee : <code>select</code></a></li>
 <li><a href="#listing-entered-commands-code-history-code">3.6.3. Listing entered commands : <code>history</code></a></li>
 <li><a href="#check-in-out-working-hours-code-check-code">3.6.4. Check in/out working hours: <code>check</code></a></li>
 <li><a href="#reset-the-application-code-reset-code">3.6.5. Reset the application : <code>reset</code></a></li>
@@ -204,7 +204,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 a/311, Clementi Ave 2, #02-25 wr/7.5 t/friends t/owesMoney</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
 </li>
 <li>
-<p><code>schedule 2</code> : list the schedule of the 2nd person in the address book</p>
+<p><code>schedule 2</code> : list the schedule of the 2nd employee in the address book</p>
 </li>
 <li>
 <p><code>exit</code> : exits the app</p>
@@ -293,7 +293,7 @@ Also prints the logged in NRIC if logged in.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.1.4. Editing a person : <code>edit</code></a></h4>
+<h4 id="editing-an-employee-code-edit-code"><a class="link" href="#editing-an-employee-code-edit-code">3.1.4. Editing an employee : <code>edit</code></a></h4>
 <div class="paragraph">
 <p>Edits the existing particulars of the logged in user.<br>
 Format : <code>edit [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br></p>
@@ -312,10 +312,10 @@ Format : <code>edit [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#820
 <p>Existing values will be updated to the input values.</p>
 </li>
 <li>
-<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
+<p>When editing tags, the existing tags of the employee will be removed i.e adding of tags is not cumulative.</p>
 </li>
 <li>
-<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+<p>You can remove all the employee&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
 </li>
 <li>
 <p>You are able to edit the following fields for this command:</p>
@@ -389,11 +389,11 @@ Format : <code>edit [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#820
 <ul>
 <li>
 <p><code>edit p/91234567 e/johndoe@example.com</code><br>
-Sets the logged in person&#8217;s details to the aforementioned email and phone number, and also clears tags if any.<br></p>
+Sets the logged in employee&#8217;s details to the aforementioned email and phone number, and also clears tags if any.<br></p>
 </li>
 <li>
 <p><code>edit t/friend t/lecturer n/John Doe</code><br>
-Sets the logged in person&#8217;s details to the name of John Doe; clears all tag and sets the two aforementioned tags.<br></p>
+Sets the logged in employee&#8217;s details to the name of John Doe; clears all tag and sets the two aforementioned tags.<br></p>
 </li>
 </ul>
 </div>
@@ -402,7 +402,7 @@ Sets the logged in person&#8217;s details to the name of John Doe; clears all ta
 <div class="sect2">
 <h3 id="employee-management-database"><a class="link" href="#employee-management-database">3.2. Employee Management Database</a></h3>
 <div class="sect3">
-<h4 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2.1. Adding a person: <code>add</code></a></h4>
+<h4 id="adding-an-employee-code-add-code"><a class="link" href="#adding-an-employee-code-add-code">3.2.1. Adding an employee: <code>add</code></a></h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -441,13 +441,13 @@ Format: <code>add n/NAME ic/NRIC pwd/PASSWORD p/PHONE_NUMBER e/EMAIL d/DEPARTMEN
 <div class="ulist">
 <ul>
 <li>
-<p>A person can have any number of tags (including 0)</p>
+<p>An employee can have any number of tags (including 0)</p>
 </li>
 <li>
 <p>Priority level will be set to BASIC if left empty</p>
 </li>
 <li>
-<p>A recently added person have no schedule allocated</p>
+<p>A recently added employee have no schedule allocated</p>
 </li>
 </ul>
 </div>
@@ -472,7 +472,7 @@ t/Creditor ic/S1875858E pwd/Fed528F wr/10</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.2.2. Deleting a person : <code>delete</code></a></h4>
+<h4 id="deleting-an-employee-code-delete-code"><a class="link" href="#deleting-an-employee-code-delete-code">3.2.2. Deleting an employee : <code>delete</code></a></h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -488,7 +488,7 @@ t/Creditor ic/S1875858E pwd/Fed528F wr/10</code></p>
 </table>
 </div>
 <div class="paragraph">
-<p>Deletes the specified person from the address book.<br>
+<p>Deletes the specified employee from the address book.<br>
 Format: <code>delete INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -496,10 +496,10 @@ Format: <code>delete INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the person at the specified <code>INDEX</code>.</p>
+<p>Deletes the employee at the specified <code>INDEX</code>.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed person list.</p>
+<p>The index refers to the index number shown in the displayed employee list.</p>
 </li>
 <li>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
@@ -797,7 +797,7 @@ Alias: <code>fl</code></p>
 <p><span class="image"><img src="images/filterleavecmd.png" alt="filterleavecmd" width=""></span></p>
 </div>
 <div class="paragraph">
-<p>List all leave application requested by the user with NRIC, 'T1234567E'.</p>
+<p>List all leave application requested by the user with NRIC, 'F2058730E'.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/filteredleave.png" alt="filteredleave" width=""></span></p>
@@ -1023,7 +1023,7 @@ Example, MANAGER can reject BASIC user&#8217;s leave application.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Shows the schedule of person with ID 1 in the list.</p>
+<p>Shows the schedule of employee with ID 1 in the list.</p>
 </li>
 </ul>
 </div>
@@ -1119,7 +1119,7 @@ Example, MANAGER can reject BASIC user&#8217;s leave application.</p>
 <div class="sect2">
 <h3 id="filtering-sorting"><a class="link" href="#filtering-sorting">3.5. Filtering/Sorting</a></h3>
 <div class="sect3">
-<h4 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">3.5.1. Listing all persons : <code>list</code></a></h4>
+<h4 id="listing-all-employees-code-list-code"><a class="link" href="#listing-all-employees-code-list-code">3.5.1. Listing all employees : <code>list</code></a></h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1139,12 +1139,12 @@ Example, MANAGER can reject BASIC user&#8217;s leave application.</p>
 </table>
 </div>
 <div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
+<p>Shows a list of all employees in the address book.<br>
 Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.5.2. Locating persons by name: <code>find</code></a></h4>
+<h4 id="locating-employees-by-name-code-find-code"><a class="link" href="#locating-employees-by-name-code-find-code">3.5.2. Locating employees by name: <code>find</code></a></h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1164,7 +1164,7 @@ Format: <code>list</code></p>
 </table>
 </div>
 <div class="paragraph">
-<p>Finds persons whose names contain any of the given keywords.<br>
+<p>Finds employees whose names contain any of the given keywords.<br>
 Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 </div>
 <div class="sidebarblock">
@@ -1184,7 +1184,7 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 <p>Only full words will be matched e.g. <strong>Han</strong> will not match <strong>Hans</strong></p>
 </li>
 <li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <strong>Hans Bo</strong> will return <strong>Hans Gruber</strong>, <strong>Bo Yang</strong></p>
+<p>Employees matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <strong>Hans Bo</strong> will return <strong>Hans Gruber</strong>, <strong>Bo Yang</strong></p>
 </li>
 </ul>
 </div>
@@ -1217,7 +1217,7 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+<p>Returns any employee having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
 </div>
 </div>
 </div>
@@ -1483,7 +1483,7 @@ Alias: <code>fd</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">3.6.2. Selecting a person : <code>select</code></a></h4>
+<h4 id="selecting-an-employee-code-select-code"><a class="link" href="#selecting-an-employee-code-select-code">3.6.2. Selecting an employee : <code>select</code></a></h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1531,12 +1531,12 @@ Format: <code>select INDEX</code></p>
 <li>
 <p><code>list</code><br>
 <code>select 2</code><br>
-Selects the 2nd person in the address book.</p>
+Selects the 2nd employee in the address book.</p>
 </li>
 <li>
 <p><code>find Betsy</code><br>
 <code>select 1</code><br>
-Selects the 1st person in the results of the <code>find</code> command.</p>
+Selects the 1st employee in the results of the <code>find</code> command.</p>
 </li>
 </ul>
 </div>
@@ -1738,7 +1738,7 @@ There is no need to save manually.</p>
 <p><strong><a href="#logout-of-the-application-code-logout-code">Logout</a></strong>: <code>logout</code></p>
 </li>
 <li>
-<p><strong><a href="#editing-a-person-code-edit-code">Edit particulars</a></strong>: <code>edit [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+<p><strong><a href="#editing-an-employee-code-edit-code">Edit particulars</a></strong>: <code>edit [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
 </li>
 </ul>
 </div>
@@ -1748,10 +1748,10 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong><a href="#adding-a-person-code-add-code">Add employee</a></strong>: <code>add n/NAME ic/NRIC pwd/PASSWORD p/PHONE NUMBER e/EMAIL d/DEPARTMENT a/ADDRESS wr/WORKING_RATE [plvl/PRIORITY_LEVEL] [t/TAGS]&#8230;&#8203;</code></p>
+<p><strong><a href="#adding-an-employee-code-add-code">Add employee</a></strong>: <code>add n/NAME ic/NRIC pwd/PASSWORD p/PHONE NUMBER e/EMAIL d/DEPARTMENT a/ADDRESS wr/WORKING_RATE [plvl/PRIORITY_LEVEL] [t/TAGS]&#8230;&#8203;</code></p>
 </li>
 <li>
-<p><strong><a href="#deleting-a-person-code-delete-code">Deleting employee</a></strong>: <code>delete INDEX</code></p>
+<p><strong><a href="#deleting-an-employee-code-delete-code">Deleting employee</a></strong>: <code>delete INDEX</code></p>
 </li>
 <li>
 <p><strong><a href="#change-priority-level-of-employee-code-setplvl-code">Set priority level of an employee</a></strong>: <code>setplvl INDEX plvl/PRIORITY_LEVEL</code></p>
@@ -1805,10 +1805,10 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong><a href="#listing-all-persons-code-list-code">List employee list</a></strong>: <code>list</code></p>
+<p><strong><a href="#listing-all-employees-code-list-code">List employee list</a></strong>: <code>list</code></p>
 </li>
 <li>
-<p><strong><a href="#locating-persons-by-name-code-find-code">Find employee</a></strong>: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
+<p><strong><a href="#locating-employees-by-name-code-find-code">Find employee</a></strong>: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 </li>
 <li>
 <p><strong><a href="#sort-address-book-contacts-code-sort-code">Sort address book contacts</a></strong>: <code>sort FIELD ORDER</code></p>
@@ -1830,7 +1830,7 @@ There is no need to save manually.</p>
 <p><strong><a href="#viewing-help-code-help-code">Help</a></strong>: <code>help</code></p>
 </li>
 <li>
-<p><strong><a href="#selecting-a-person-code-select-code">Select the employee</a></strong>: <code>select INDEX</code></p>
+<p><strong><a href="#selecting-an-employee-code-select-code">Select the employee</a></strong>: <code>select INDEX</code></p>
 </li>
 <li>
 <p><strong><a href="#listing-entered-commands-code-history-code">History of commands</a></strong>: <code>history</code></p>
@@ -2061,4 +2061,4 @@ Department names should start with a name, and ends with 'Management'.</p></td>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 06:54:17 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 07:30:26 UTC</div></div></div></body></html>
