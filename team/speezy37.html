@@ -20,7 +20,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: implemented <strong>user account with scheduling system.</strong></p>
+<p><strong>Major enhancement</strong>: implemented <strong>scheduling system.</strong></p>
 <div class="ulist">
 <ul>
 <li>
@@ -28,20 +28,55 @@
 </li>
 <li>
 <p>Justification: This feature is a core component of the product as certain functions (such as leave application),
-require user authentication. Both command can be executed by any use to view and set their own schedule.
+require user authentication. Both command can be executed by any user to view and set their own schedule.
 However, a user with priority level of <code>ADMINISTRATOR</code> is needed to view and set schedule for others.</p>
 </li>
 <li>
-<p>Highlights: This is the only variable of a <code>Person</code> object that is more OOP oriented as <code>Schedule</code> is an object with
-3 variables: <code>TimeStart</code>, <code>TimeEnd</code> and <code>Venue</code>. When a <code>Person</code> object is first created, the <code>Schedule</code> object can be
-null if not defined. Calling the <code>toString()</code> method will return either the details of the <code>Schedule</code> in string format
-or the <code>nullPointerException</code> will return <code>'No schedule is allocated'</code>.</p>
+<p>Highlights: This is the only variable within a <code>Person</code> object that is more OOP oriented as <code>Schedule</code> is an object
+that contains 3 variables: <code>TimeStart</code>, <code>TimeEnd</code> and <code>Venue</code>. When a <code>Person</code> object is first created, the <code>Schedule</code>
+object can be null if not defined. Calling the <code>toString()</code> method will return either the details of the <code>Schedule</code> in
+string format or the <code>nullPointerException</code> will return <code>'No schedule is allocated'</code>.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
 <p><strong>Code contributed</strong>: <a href="https://nuscs2113-ay1819s1.github.io/dashboard/#=undefined&amp;search=speezy37">Code Dashboard</a></p>
+</li>
+<li>
+<p>Other contributions:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Code quality:<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Ensure Coverage is above 90 percent: <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/106">#106</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Setup Reposense config file: <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/76">#76</a></p>
+</li>
+<li>
+<p>PRs reviewed: <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/716">#71</a>,
+<a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/77">#77</a>,
+<a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/84">#84</a>,
+<a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/102">#102</a>,
+<a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/104">#104</a>,
+<a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/105">#105</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -315,5 +350,110 @@ The <code>SetScheduleCommandParser</code>, which implements the <code>Parser</co
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="scheduling-2"><a class="link" href="#scheduling-2">Scheduling</a></h3>
+<div class="sect3">
+<h4 id="list-schedule"><a class="link" href="#list-schedule">List schedule</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Lists the schedule of an employee in address book as a non-administrator.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Logged in as an any non-administrator user and is listed at index 4.<br></p>
+</li>
+<li>
+<p>Test case: <code>schedule 4</code><br>
+Expected: Displays own schedule. Details of schedule shown in status message.</p>
+</li>
+<li>
+<p>Test case: <code>schedule 3</code><br>
+Expected: User has invalid priority level. Error details shown in status message.</p>
+</li>
+<li>
+<p>Test case: <code>schedule 0</code><br>
+Expected: Index 0 is invalid. Error details shown in status message.</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 16:49:06 UTC</div></div></div></body></html>
+</li>
+<li>
+<p>Lists the schedule of an employee in address book as an administrator.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Logged in as an any administrator and is listed at index 1.<br></p>
+</li>
+<li>
+<p>Test case: <code>schedule 1</code><br>
+Expected: Displays own schedule. Details of schedule shown in status message.</p>
+</li>
+<li>
+<p>Test case: <code>schedule 3</code><br>
+Expected: Displays schedule of employee at index 3. Details of schedule shown in status message.</p>
+</li>
+<li>
+<p>Test case: <code>schedule 0</code><br>
+Expected: Index 0 is invalid. Error details shown in status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="set-schedule"><a class="link" href="#set-schedule">Set schedule</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sets the schedule of an employee in address book as a non-administrator.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Logged in as an any non-administrator user and is listed at index 4.<br></p>
+</li>
+<li>
+<p>Test case: <code>setschedule 4 ts/0900 te/1700 v/Level 5</code><br>
+Expected: Successfully set own schedule. Message is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>setschedule 3 ts/0900 te/1700 v/Level 5</code><br>
+Expected: User has invalid priority level. Error detail shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>setschedule 4 ts/0900 te/0900 v/Level 5</code><br>
+Expected: Time start and time end are the same. Error detail shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Sets the schedule of an employee in address book as an administrator.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Logged in as an any administrator and is listed at index 1.<br></p>
+</li>
+<li>
+<p>Test case: <code>setschedule 1 ts/0900 te/1700 v/Level 5</code><br>
+Expected: Successfully set own schedule. Message is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>setschedule 3 ts/0900 te/1700 v/Level 5</code><br>
+Expected: Successfully set schedule for employee at index 3. Message is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>setschedule 4 ts/0900 te/0900 v/Level 5</code><br>
+Expected: Time start and time end are the same. Error detail shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 06:51:10 UTC</div></div></div></body></html>
