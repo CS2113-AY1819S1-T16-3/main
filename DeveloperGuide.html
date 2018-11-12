@@ -2574,7 +2574,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>2b1. AddressBook shows error message.</p>
+<p>2b1. AddressBook shows an error message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2587,7 +2587,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>2c1. AddressBook shows error message.</p>
+<p>2c1. AddressBook shows an error message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2641,7 +2641,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>2a1. AddressBook shows error message that the user is not logged in.</p>
+<p>2a1. AddressBook shows an error message that the user is not logged in.</p>
 </li>
 </ul>
 </div>
@@ -2764,7 +2764,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>2d1. AddressBook shows error message.</p>
+<p>2d1. AddressBook shows an error message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2777,7 +2777,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>2e1. AddressBook shows error message.</p>
+<p>2e1. AddressBook shows an error message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2814,7 +2814,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>2a1. AddressBook shows error message followed by the command usage guide.</p>
+<p>2a1. AddressBook shows an error message followed by the command usage guide.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2827,7 +2827,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>2b1. AddressBook shows error message.</p>
+<p>2b1. AddressBook shows an error message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2840,7 +2840,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>2c1. AddressBook shows error message.</p>
+<p>2c1. AddressBook shows an error message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2853,7 +2853,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>2d1. AddressBook shows error message.</p>
+<p>2d1. AddressBook shows an error message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2867,7 +2867,7 @@ list of People tab.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>2e1. Address shows error message.</p>
+<p>2e1. Address shows an error message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3724,7 +3724,7 @@ list of People tab.</p>
 <p>User enters command <code>reset</code>.</p>
 </li>
 <li>
-<p>AddressBook deletes <code>data/AddressBook.xml</code> and exits the program.</p>
+<p>AddressBook deletes <code>data/AddressBook.xml</code> and <code>data/leave.xml</code> and exits the program.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -4249,7 +4249,11 @@ Expected: Leave application requested. Details of the leave application will be 
 </li>
 <li>
 <p>Test case: <code>leave date/01/02/2018</code><br>
-Expected: No leave application created. Error details shown in the status message.</p>
+Expected: No leave application created as the given date has passed. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>leave date/29/02/2019</code><br>
+Expected: No leave application created as invalid calendar date is given. Error details shown in the status message.</p>
 </li>
 </ol>
 </div>
@@ -4663,4 +4667,4 @@ Expected: Application will exit. The two files will be deleted upon application 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 10:38:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 10:41:12 UTC</div></div></div></body></html>
