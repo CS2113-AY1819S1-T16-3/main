@@ -150,6 +150,7 @@ This command will NOT be able to edit the following:
 * `Password`
 * `Priority Level`
 * `Schedule`
+* `Mode`
 * `Working Rate`
 
 ====
@@ -180,6 +181,7 @@ Format: `add n/NAME ic/NRIC pwd/PASSWORD p/PHONE_NUMBER e/EMAIL d/DEPARTMENT a/A
 * An employee can have any number of tags (including 0)
 * Priority level will be set to BASIC if left empty
 * A recently added employee have no schedule allocated
+* More than 2 decimal places for working rate is acceptable
 ====
 
 Examples:
@@ -662,7 +664,7 @@ Pressing the kbd:[&uarr;] and kbd:[&darr;] arrows will display the previous and 
 // tag::check[]
 ==== Check in/out working hours: `check`
 Updates check in/out status for employees. +
-Format: `check m/IN-OUT` +
+Format: `check m/MODE` +
 Examples: +
 
 * `check m/in`
@@ -693,7 +695,7 @@ Checked out shows: +
 - Checked out date
 - Checked out time
 - Hours worked
-- Salary per day according to employees' working rate per hour.
+- Salary per day according to employees' working rate per hour, both rounded off to 2 decimal places.
 
 image::checkedOut.PNG[width="700"]
 ====
