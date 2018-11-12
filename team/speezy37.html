@@ -118,12 +118,27 @@ string format or the <code>nullPointerException</code> will return <code>'No sch
 <li>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
-<li>
-<p>You need to have administrator privilege to view other user&#8217;s schedule.</p>
-</li>
 </ul>
 </div>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>ADMINISTRATOR</code> priority level is required to view schedule of other employees</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Example: <code>schedule 1</code></p>
@@ -146,27 +161,6 @@ string format or the <code>nullPointerException</code> will return <code>'No sch
 </div>
 <div class="sect3">
 <h4 id="set-schedule-code-setschedule-code"><a class="link" href="#set-schedule-code-setschedule-code">Set schedule: <code>setschedule</code></a></h4>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>This operations requires administrator privilege to perform.</p>
-</li>
-<li>
-<p>If <code>TIME_START</code> is later than <code>TIME_END</code>, <code>TIME_END</code> refers to the following day.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p>Set schedule of the employee.<br></p>
 </div>
@@ -192,6 +186,30 @@ string format or the <code>nullPointerException</code> will return <code>'No sch
 </ul>
 </div>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If <code>TIME_START</code> is later than <code>TIME_END</code>, <code>TIME_END</code> refers to the following day.</p>
+</li>
+<li>
+<p><code>TIME_START</code> cannot be the same as <code>TIME_END</code>.</p>
+</li>
+<li>
+<p><code>ADMINISTRATOR</code> priority level is required to set schedule of other employees</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:<br></p>
@@ -361,7 +379,7 @@ The <code>SetScheduleCommandParser</code>, which implements the <code>Parser</co
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: Logged in as an any non-administrator user and is listed at index 4.<br></p>
+<p>Prerequisites: Logged in as any non-administrator user and is listed at index 4.<br></p>
 </li>
 <li>
 <p>Test case: <code>schedule 4</code><br>
@@ -383,7 +401,7 @@ Expected: Index 0 is invalid. Error details shown in status message.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: Logged in as an any administrator and is listed at index 1.<br></p>
+<p>Prerequisites: Logged in as any administrator and is listed at index 1.<br></p>
 </li>
 <li>
 <p>Test case: <code>schedule 1</code><br>
@@ -412,7 +430,7 @@ Expected: Index 0 is invalid. Error details shown in status message.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: Logged in as an any non-administrator user and is listed at index 4.<br></p>
+<p>Prerequisites: Logged in as any non-administrator user and is listed at index 4.<br></p>
 </li>
 <li>
 <p>Test case: <code>setschedule 4 ts/0900 te/1700 v/Level 5</code><br>
@@ -434,7 +452,7 @@ Expected: Time start and time end are the same. Error detail shown in the status
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: Logged in as an any administrator and is listed at index 1.<br></p>
+<p>Prerequisites: Logged in as any administrator and is listed at index 1.<br></p>
 </li>
 <li>
 <p>Test case: <code>setschedule 1 ts/0900 te/1700 v/Level 5</code><br>
@@ -456,4 +474,4 @@ Expected: Time start and time end are the same. Error detail shown in the status
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 10:25:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 10:37:34 UTC</div></div></div></body></html>

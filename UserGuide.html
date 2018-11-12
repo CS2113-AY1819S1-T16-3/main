@@ -1026,12 +1026,27 @@ Example, MANAGER can reject BASIC user&#8217;s leave application.</p>
 <li>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
-<li>
-<p>You need to have administrator privilege to view other user&#8217;s schedule.</p>
-</li>
 </ul>
 </div>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>ADMINISTRATOR</code> priority level is required to view schedule of other employees</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Example: <code>schedule 1</code></p>
@@ -1054,27 +1069,6 @@ Example, MANAGER can reject BASIC user&#8217;s leave application.</p>
 </div>
 <div class="sect3">
 <h4 id="set-schedule-code-setschedule-code"><a class="link" href="#set-schedule-code-setschedule-code">3.4.2. Set schedule: <code>setschedule</code></a></h4>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>This operations requires administrator privilege to perform.</p>
-</li>
-<li>
-<p>If <code>TIME_START</code> is later than <code>TIME_END</code>, <code>TIME_END</code> refers to the following day.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p>Set schedule of the employee.<br></p>
 </div>
@@ -1100,6 +1094,30 @@ Example, MANAGER can reject BASIC user&#8217;s leave application.</p>
 </ul>
 </div>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If <code>TIME_START</code> is later than <code>TIME_END</code>, <code>TIME_END</code> refers to the following day.</p>
+</li>
+<li>
+<p><code>TIME_START</code> cannot be the same as <code>TIME_END</code>.</p>
+</li>
+<li>
+<p><code>ADMINISTRATOR</code> priority level is required to set schedule of other employees</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:<br></p>
@@ -1895,13 +1913,13 @@ alphabet. NRIC for every single individuals must be unique.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Phone</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">p/PHONE_NUMBER</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">p/PHONE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Phone numbers should contain only numbers, and should have at least three digits.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">p/81667800</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Email</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">e/EMAIL_ADDRESS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e/EMAIL</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Emails should be of the format local-part@domain, and also satisfy the following requirements:<br>
     1) "local-part" should contain only alphanumeric characters and an underscore '_'<br>
     2) "domain" can consist of alphanumeric characters, a period, or hyphen, but should start and end with only
@@ -1970,13 +1988,13 @@ Department names should start with a name, and ends with 'Management'.</p></td>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Start Time</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ts/START_TIME</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ts/TIME_START</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Start Time should only be in numeric HHMM 24 hour format, and it should not be blank</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ts/0900</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">End Time</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">te/END_TIME</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">te/TIME_END</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">End Time should only be in numeric HHMM 24 hour format, and it should not be blank</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">te/1800</p></td>
 </tr>
@@ -2066,4 +2084,4 @@ Department names should start with a name, and ends with 'Management'.</p></td>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 10:25:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 10:37:34 UTC</div></div></div></body></html>
