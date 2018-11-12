@@ -18,7 +18,7 @@
 <li><a href="#login-to-the-application-code-login-code">3.1.1. Login to the application: <code>login</code></a></li>
 <li><a href="#checks-the-login-status-of-the-application-code-checkloginstatus-code">3.1.2. Checks the login status of the application: <code>checkloginstatus</code></a></li>
 <li><a href="#logout-of-the-application-code-logout-code">3.1.3. Logout of the application: <code>logout</code></a></li>
-<li><a href="#editing-an-employee-code-edit-code">3.1.4. Editing an employee : <code>edit</code></a></li>
+<li><a href="#editing-personal-particulars-code-edit-code">3.1.4. Editing personal particulars : <code>edit</code></a></li>
 </ul>
 </li>
 <li><a href="#employee-management-database">3.2. Employee Management Database</a>
@@ -293,7 +293,7 @@ Also prints the logged in NRIC if logged in.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-an-employee-code-edit-code"><a class="link" href="#editing-an-employee-code-edit-code">3.1.4. Editing an employee : <code>edit</code></a></h4>
+<h4 id="editing-personal-particulars-code-edit-code"><a class="link" href="#editing-personal-particulars-code-edit-code">3.1.4. Editing personal particulars : <code>edit</code></a></h4>
 <div class="paragraph">
 <p>Edits the existing particulars of the logged in user.<br>
 Format : <code>edit [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br></p>
@@ -392,7 +392,7 @@ Format : <code>edit [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#820
 <ul>
 <li>
 <p><code>edit p/91234567 e/johndoe@example.com</code><br>
-Sets the logged in employee&#8217;s details to the aforementioned email and phone number, and also clears tags if any.<br></p>
+Sets the logged in employee&#8217;s details to the aforementioned email and phone number.<br></p>
 </li>
 <li>
 <p><code>edit t/friend t/lecturer n/John Doe</code><br>
@@ -450,7 +450,7 @@ Format: <code>add n/NAME ic/NRIC pwd/PASSWORD p/PHONE_NUMBER e/EMAIL d/DEPARTMEN
 <p>Priority level will be set to BASIC if left empty</p>
 </li>
 <li>
-<p>A recently added employee have no schedule allocated</p>
+<p>A recently added employee will have no schedule allocated</p>
 </li>
 <li>
 <p>More than 2 decimal places for working rate is acceptable</p>
@@ -1708,7 +1708,8 @@ Examples:<br></p>
 </table>
 </div>
 <div class="paragraph">
-<p>Resets the application into a default slate, by deleting data/AddressBook.xml and data/leave.xml. The application will also close upon
+<p>Resets the application into a default state, by deleting data/AddressBook.xml and data/leave.xml. The application will
+also close upon
 deleting the two files.</p>
 </div>
 <div class="paragraph">
@@ -1761,7 +1762,8 @@ There is no need to save manually.</p>
 <p><strong><a href="#logout-of-the-application-code-logout-code">Logout</a></strong>: <code>logout</code></p>
 </li>
 <li>
-<p><strong><a href="#editing-an-employee-code-edit-code">Edit particulars</a></strong>: <code>edit [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+<p><strong><a href="#editing-personal-particulars-code-edit-code">Edit personal particulars</a></strong>: <code>edit [n/NAME] [p/PHONE] [e/EMAIL]
+[a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
 </li>
 </ul>
 </div>
@@ -1771,7 +1773,8 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong><a href="#adding-an-employee-code-add-code">Add employee</a></strong>: <code>add n/NAME ic/NRIC pwd/PASSWORD p/PHONE NUMBER e/EMAIL d/DEPARTMENT a/ADDRESS wr/WORKING_RATE [plvl/PRIORITY_LEVEL] [t/TAGS]&#8230;&#8203;</code></p>
+<p><strong><a href="#adding-an-employee-code-add-code">Add employee</a></strong>: <code>add n/NAME ic/NRIC pwd/PASSWORD p/PHONE_NUMBER e/EMAIL d/DEPARTMENT
+a/ADDRESS wr/WORKING_RATE [plvl/PRIORITY_LEVEL] [t/TAG]&#8230;&#8203;</code></p>
 </li>
 <li>
 <p><strong><a href="#deleting-an-employee-code-delete-code">Deleting employee</a></strong>: <code>delete INDEX</code></p>
@@ -2058,7 +2061,8 @@ Department names should start with a name, and ends with 'Management'.</p></td>
 - Receptionist</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">- Edit your own particulars<br>
 - Apply for leave<br>
-- Check in/out to/from work for their own</p></td>
+- Check in/out to/from work for their own<br>
+- Set and view your own schedule</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MANAGER (2)</p></td>
@@ -2079,9 +2083,10 @@ Department names should start with a name, and ends with 'Management'.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">- All privileges of a MANAGER Priority level<br>
 - Add and delete employees from the AddressBook<br>
 - Set the priority level of all employees<br>
-- Set Department of all employees</p></td>
+- Set Department of all employees<br>
+- Set and view other employee&#8217;s schedules</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 10:37:34 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 10:38:13 UTC</div></div></div></body></html>
