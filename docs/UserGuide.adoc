@@ -39,7 +39,7 @@ This user guide will give you step by step instruction on how you can use the fe
 image::Ui.png[width="790"]
 +
 .  If the app does not contain any sample data (refer to <<List of sample user accounts at first launch or upon reset, Table 1>>), something went wrong during the download process. Delete the folder `BankAB` and repeat step 1 to 4.
-.  The following table contains a sample list of persons with the respective account details when the application
+.  The following table contains a sample list of employees with the respective account details when the application
 runs for the first time or when ResetCommand was executed in the previous runtime:
 
 .List of sample user accounts at first launch or upon reset
@@ -208,7 +208,7 @@ Examples:
 
 * `delete 1`
 ====
-Deletes the employee with ID 1 in the address book.
+Deletes the employee with index 1 in the address book.
 ====
 
 //tag::jylee-git_login[]
@@ -246,6 +246,7 @@ image::setOwnPlvl_failed_screenShot.png[width=800]
 ====
 * This operation requires administrator privilege to perform.
 * Administrator can only change the departments of other employees but not himself/herself.
+* Department names should start with a name, and ends with 'Management'.
 ====
 Changes the department of an employee. +
 Format: `setdepartment INDEX d/DEPARTMENT` +
@@ -575,15 +576,11 @@ image::ListDepartmentAfter.png[width="500"]
 [NOTE]
 ====
 * Does not require the user to log in before using the command.
+* The keyword `Management` will not be accepted to prevent listing of all departments.
 ====
 Filter departments and list out the employees who are in the department. +
 Format: `filterdepartment KEYWORD [MORE KEYWORDS]` +
 Alias: `fd`
-
-[NOTE]
-====
-* The keyword `Management` will not be accepted to prevent listing of all departments
-====
 
 * The search is case insensitive. e.g. `junior` will match employees in `Junior Management`
 * Only full words will be matched. e.g. `junio` will not match `Junior Management`
@@ -619,7 +616,7 @@ Format: `help`
 
 User Guide will open in a separate window shown below:
 
-image:UserGuide.png[]
+image:UserGuide.png[width="500"]
 
 ==== Selecting an employee : `select`
 [NOTE]

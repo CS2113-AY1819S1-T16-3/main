@@ -1813,7 +1813,7 @@ Refer to <<UserGuide.adoc#appendix-b-privileges-in-accordance-to-priority-level,
                 does not have the rights to do so. Status message box shows an error message.
 //end::jylee-git_dg_setplvl[]
 
-
+// tag::Woonhian_setdepartment_test[]
 ==== Change the department of an employee
 
 . Change the department of an employee from the given index.
@@ -1828,6 +1828,7 @@ If the employee at index 1 is the logged in employee himself/herself, the depart
 Expected: Department name is of the wrong format. Error details is shown in the status message.
 .. Test case: `setdepartment 0 d/Top Management` +
 Expected: No employee at index 0. Error details is shown in the status message.
+// end::Woonhian_setdepartment_test[]
 
 === Leave Application
 
@@ -1933,16 +1934,17 @@ Expected: Successfully set schedule for employee at index 3. Message is shown in
 Expected: Time start and time end are the same. Error detail shown in the status message.
 // end::schedule_test[]
 
+// tag::Woonhian_filtering/sorting_test[]
 === Filtering/Sorting
 
 ==== Locating employees by name
 
 . Finds the employees whose name contains any of the given keywords.
 
-.. Test case: `find KEYWORD` +
-Expected: Employees whose name matches with `KEYWORD` is listed. Details of the number of employees listed is shown in the status message.
-.. Test case: `find KEYWORD1 KEYWORD2` +
-Expected: Employees whose name matches with `KEYWORD1` or `KEYWORD2` is listed. Details of the number of employees listed is shown in the status message.
+.. Test case: `find alex` +
+Expected: Employees whose name matches with `alex` is listed. Details of the number of employees listed is shown in the status message.
+.. Test case: `find alex bernice` +
+Expected: Employees whose name matches with `alex` or `bernice` is listed. Details of the number of employees listed is shown in the status message.
 .. Test case: `find` +
 Expected: Invalid command format. Error details is shown in the status message.
 
@@ -1964,12 +1966,13 @@ Expected: Invalid command format. Error details is shown in the status message.
 
 . Filters the list with employees who are in the department from the provided keywords.
 
-.. Test case: `filterdepartment KEYWORD` +
-Expected: Employees whose department matches with `KEYWORD` is listed. Details of the number of employees listed is shown in the status message.
-.. Test case: `filterdepartment KEYWORD1 KEYWORD2` +
-Expected: Employees whose department matches with `KEYWORD1` or `KEYWORD2` is listed. Details of the number of employees listed is shown in the status message.
+.. Test case: `filterdepartment junior` +
+Expected: Employees whose department matches with `junior` is listed. Details of the number of employees listed is shown in the status message.
+.. Test case: `filterdepartment junior senior` +
+Expected: Employees whose department matches with `junior` or `senior` is listed. Details of the number of employees listed is shown in the status message.
 .. Test case: `filterdepartment` +
 Expected: Invalid command format. Error details is shown in the status message.
+// end::Woonhian_filtering/sorting_test[]
 
 === Miscellaneous
 
