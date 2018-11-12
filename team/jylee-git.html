@@ -90,6 +90,9 @@ potentially abusing company resources and product functions.</p>
 <div class="ulist">
 <ul>
 <li>
+<p>Set up the organization and project repo on Github</p>
+</li>
+<li>
 <p>Managed vetting through and approving individual pull requests</p>
 </li>
 <li>
@@ -121,6 +124,15 @@ potentially abusing company resources and product functions.</p>
 <li>
 <p>Added appendices A and B in the user guide that summarizes the prefixes and corresponding data types, and also various priority levels and its corresponding privileges:
 <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/60">#60</a>, <a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/89">#89</a></p>
+</li>
+<li>
+<p>Updated documentations as the project progresses:
+<a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/60">#60</a>,
+<a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/68">#68</a>,
+<a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/89">#89</a>,
+<a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/96">#96</a>,
+<a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/136">#136</a>,
+<a href="https://github.com/CS2113-AY1819S1-T16-3/main/pull/144">#144</a></p>
 </li>
 </ul>
 </div>
@@ -216,7 +228,7 @@ Also prints the logged in NRIC if logged in.</p>
 <p>This operations requires administrator privilege to perform.</p>
 </li>
 <li>
-<p>Refer to the Priority level section in <a href="#appendix-a-list-of-prefixes-in-the-application">Appendix A</a> for the appropriate input value.</p>
+<p>Refer to the Priority level section in <a href="#Appendix A: List of prefixes in the application">Appendix A</a> for the appropriate input value.</p>
 </li>
 <li>
 <p>Refer to <a href="#appendix-b-privileges-in-accordance-to-priority-level">Appendix B</a> for the different privileges in each priority level.</p>
@@ -246,7 +258,7 @@ Example: <code>setplvl 1 plvl/0</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/setPlvl_success_screenShot.png" alt="setPlvl success screenShot">
+<img src="../images/setPlvl_success_screenShot.png" alt="setPlvl success screenShot" width="800">
 </div>
 </div>
 <div class="ulist">
@@ -259,7 +271,7 @@ error message when attempting to execute this command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/setPlvl_failed_screenShot.png" alt="setPlvl failed screenShot">
+<img src="../images/setPlvl_failed_screenShot.png" alt="setPlvl failed screenShot" width="800">
 </div>
 </div>
 <div class="ulist">
@@ -271,247 +283,20 @@ error message when attempting to execute this command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/setOwnPlvl_failed_screenShot.png" alt="setOwnPlvl failed screenShot">
+<img src="../images/setOwnPlvl_failed_screenShot.png" alt="setOwnPlvl failed screenShot" width="800">
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="personal-user-account-2"><a class="link" href="#personal-user-account-2">Personal User Account</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p><strong><a href="#login-to-the-application-code-login-code">Login</a></strong>: <code>login ic/NRIC pwd/PASSWORD</code></p>
-</li>
-<li>
-<p><strong><a href="#checks-the-login-status-of-the-application-code-checkloginstatus-code">Check login status</a></strong>: <code>checkloginstatus</code></p>
-</li>
-<li>
-<p><strong><a href="#logout-of-the-application-code-logout-code">Logout</a></strong>: <code>logout</code></p>
-</li>
-<li>
-<p><strong><a href="#Editing a person : <code>edit</code>">Edit particulars</a></strong>: <code>edit [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="employee-management-database"><a class="link" href="#employee-management-database">Employee Management Database</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p><strong><a href="#Adding a person: <code>add</code>">Add employee</a></strong>: <code>add n/NAME ic/NRIC pwd/PASSWORD p/PHONE NUMBER e/EMAIL d/DEPARTMENT a/ADDRESS wr/WORKING_RATE [plvl/PRIORITY_LEVEL] [t/TAGS]&#8230;&#8203;</code></p>
-</li>
-<li>
-<p><strong><a href="#Deleting a person : <code>delete</code>">Deleting employee</a></strong>: <code>delete INDEX</code></p>
-</li>
-<li>
-<p><strong><a href="#change-priority-level-of-employee-code-setplvl-code">Set priority level of an employee</a></strong>: <code>setplvl INDEX plvl/PRIORITY_LEVEL</code></p>
-</li>
-<li>
-<p><strong><a href="#Change the department of an employee : <code>setdepartment</code>">Change department of an employee</a></strong>: <code>setdepartment INDEX d/DEPARTMENT</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="leave-application"><a class="link" href="#leave-application">Leave Application</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p><strong><a href="#Leave application : <code>leave</code>">Add leave application</a></strong>: <code>leave date/DATE</code></p>
-</li>
-<li>
-<p><strong><a href="#List leave application : <code>listleave</code>">List all leave applications</a></strong>: <code>listleave</code></p>
-</li>
-<li>
-<p><strong><a href="#Filter leave application : <code>filterleave</code>">Filter leave applications</a></strong>: <code>filterleave NRIC</code></p>
-</li>
-<li>
-<p><strong><a href="#Delete leave application : <code>deleteleave</code>">Delete leave application</a></strong>: <code>deleteleave INDEX</code></p>
-</li>
-<li>
-<p><strong><a href="#Approve leave application  : <code>approve</code>">Approve leave application</a></strong>: <code>approve INDEX</code></p>
-</li>
-<li>
-<p><strong><a href="#Reject leave application  : <code>reject</code>">Reject leave application</a></strong>: <code>reject INDEX</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="scheduling"><a class="link" href="#scheduling">Scheduling</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p><strong><a href="#List schedule: <code>schedule</code>">List schedule</a></strong>: <code>schedule INDEX</code></p>
-</li>
-<li>
-<p><strong><a href="#Set schedule: <code>setschedule</code>">Set schedule</a></strong>: <code>setschedule INDEX ts/TIME_START te/TIME_END v/VENUE</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="filtering-sorting"><a class="link" href="#filtering-sorting">Filtering/Sorting</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p><strong><a href="#Listing all persons : <code>list</code>">List employee list</a></strong>: <code>list</code></p>
-</li>
-<li>
-<p><strong><a href="#Locating persons by name: <code>find</code>">Find employee</a></strong>: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
-</li>
-<li>
-<p><strong><a href="#Sort address book contacts: <code>sort</code>">Sort address book contacts</a></strong>: <code>sort FIELD ORDER</code></p>
-</li>
-<li>
-<p><strong><a href="#List department : <code>listdepartment</code>">List available departments</a></strong>: <code>listdepartment</code></p>
-</li>
-<li>
-<p><strong><a href="#Filtering department : <code>filterdepartment</code>">Filter departments</a></strong>: <code>filterdepartment KEYWORD [MORE KEYWORDS]</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="miscellaneous"><a class="link" href="#miscellaneous">Miscellaneous</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p><strong><a href="#Viewing help : <code>help</code>">Help</a></strong>: <code>help</code></p>
-</li>
-<li>
-<p><strong><a href="#Selecting a person : <code>select</code>">Select the employee</a></strong>: <code>select INDEX</code></p>
-</li>
-<li>
-<p><strong><a href="#Listing entered commands : <code>history</code>">History of commands</a></strong>: <code>history</code></p>
-</li>
-<li>
-<p><strong><a href="#Check in/out working hours: <code>check</code>">Check in/out working hours</a></strong>: <code>check m/MODE</code></p>
-</li>
-<li>
-<p><strong><a href="#Reset the application : <code>reset</code>">Reset the application</a></strong>: <code>reset</code></p>
-</li>
-<li>
-<p><strong><a href="#Exiting the program : <code>exit</code>">Exit application</a></strong>: <code>exit</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="appendix-a-list-of-prefixes-in-the-application"><a class="link" href="#appendix-a-list-of-prefixes-in-the-application">Appendix A: List of prefixes in the application</a></h2>
-<div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 1. List of prefixes used for employee</caption>
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"><strong>Parameter name</strong></th>
-<th class="tableblock halign-left valign-top"><strong>Prefix</strong></th>
-<th class="tableblock halign-left valign-top"><strong>Constraints</strong></th>
-<th class="tableblock halign-left valign-top"><strong>Example</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">n/NAME</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name must be alphabetical</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">n/Lewis Hamilton</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NRIC Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ic/NRIC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NRIC should start with an upper-case character [S, T, F, G], followed by a seven-digit number, and ending with a upper-case
-alphabet.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ic/S9203948E</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Password</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pwd/PASSWORD</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Password should be alphanumeric and should contain at least five characters</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pwd/NeUeR2018</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Phone</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">p/PHONE_NUMBER</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Phone numbers should contain only numbers, and should have at least three digits.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">p/81667800</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Email</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">e/EMAIL_ADDRESS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Emails should be of the format local-part@domain, and also satisfy the following requirements:<br>
-    1) "local-part" should contain only alphanumeric characters and an underscore '_'<br>
-    2) "domain" can consist of alphanumeric characters, a period, or hyphen, but should start and end with only
-    alphanumeric characters.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">e/jarvin@eltech.com</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Department</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">d/DEPARTMENT</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Department should contain alphabetic characters and spaces, and it should not be blank.
-Department names should start with a name, and ends with 'Management'.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">d/Junior Management</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Address</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">a/ADDRESS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">a/Blk 25, Ang Mo Kio Street 23 #04-21, s(630025)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mode</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">m/MODE</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mode should only contains "in" or "out".</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">m/in</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Working Rate</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">wr/WORKING_RATE</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Working rate should only contains whole or decimal numbers.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">wr/7.5</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Priority Level</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">plvl/PRIORITY_LEVEL</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Priority Level should be a number respective to the following classification:<br>
-[0] I.T. Unit (HIGHEST)<br>
-[1] Administrator<br>
-[2] Manager<br>
-[3] Basic (LOWEST)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">plvl/2</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tag(s)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">t/TAG1 t/TAG2 &#8230;&#8203;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tag names should be alphanumeric</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">t/Admin t/Boss t/OweMeMoney</p></td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 <div class="sect1">
 <h2 id="appendix-b-privileges-in-accordance-to-priority-level"><a class="link" href="#appendix-b-privileges-in-accordance-to-priority-level">Appendix B: Privileges in accordance to priority level</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 2. Priority level and its' privileges</caption>
+<caption class="title">Table 1. Priority level and its' privileges</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -574,6 +359,12 @@ Department names should start with a name, and ends with 'Management'.</p></td>
 </table>
 <div class="sect2">
 <h3 id="Design-Session"><a class="link" href="#Design-Session">Session component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SessionComponentClassDiagram.png" alt="SessionComponentClassDiagram" width="600">
+</div>
+<div class="title">Figure 1. Structure of the Session Component</div>
+</div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/address/session/SessionManager.java"><code>SessionManager.java</code></a></p>
 </div>
@@ -586,11 +377,351 @@ Department names should start with a name, and ends with 'Management'.</p></td>
 <p>stores the identity of the user who is logged in to the app during runtime.</p>
 </li>
 <li>
-<p>allows other functions that require elevated user status, to inquire from <code>SessionManager</code> as to whether the user
-is logged in, and also to inquire if the user has sufficient level of access to execute that particular function.</p>
+<p>provides the necessary APIs for functions that require elevated user status, to inquire from <code>SessionManager</code> as to
+whether the user is logged in, and also to inquire if the user has sufficient level of access to execute that
+particular function.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>AllPersonsHashMap</code> is a hash map that stores all the persons from the AddressBook into the varialbe. This improves the efficiency
+ of logging in, and also for functions that require the details of the logged in person.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="priority-level-restriction-feature"><a class="link" href="#priority-level-restriction-feature">Priority level restriction feature</a></h3>
+<div class="paragraph">
+<p>All employee accounts contain a priority level field. Depending on the priority level that they are given, administrative
+operations may be executed if they have sufficient priority level required to do so.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>Here is a code snippet of executing the AddCommand function. In this example, adding a person requires a person to be
+logged in with a priority level of ADMINISTRATOR or above, in order to execute this function:</p>
+</div>
+<div class="listingblock">
+<div class="title">AddCommand.java</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@Override</span>
+<span class="directive">public</span> CommandResult execute(Model model, CommandHistory history) <span class="directive">throws</span> CommandException {
+        requireNonNull(model);
+        SessionManager sessionManager = SessionManager.getInstance(model);
+        <span class="comment">/**
+         * Throws exception if user is not logged in.
+         */</span>
+        <span class="keyword">if</span> (!sessionManager.isLoggedIn()) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> CommandException(SessionManager.NOT_LOGGED_IN);
+        }
+        <span class="comment">/**
+         * Throws exception if user does not have the required access level.
+         */</span>
+        <span class="keyword">if</span> (!sessionManager.hasSufficientPriorityLevelForThisSession(PriorityLevelEnum.ADMINISTRATOR)) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> CommandException(<span class="predefined-type">String</span>.format(PriorityLevel.INSUFFICIENT_PRIORITY_LEVEL,
+                    PriorityLevelEnum.ADMINISTRATOR));
+        }
+
+        <span class="comment">// ... Complete the execution, now that user is verified to be an admin.</span>
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the above code, adding a person requires the user that is logged in to the application to have priority level of ADMINISTRATOR.
+    Hence, a method in SessionManager will be called to ascertain if the logged in user does indeed have sufficient priority level
+    of an ADMINISTRATOR.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram below shows the flow of how the feature works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ImplementPlvlRestrictionSequenceDiagram.png" alt="ImplementPlvlRestrictionSequenceDiagram" width="750">
+</div>
+<div class="title">Figure 2. Sequence diagram of priority level restriction feature</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-elevated-user-rights"><a class="link" href="#aspect-implementation-of-elevated-user-rights">Aspect: Implementation of elevated user rights</a></h5>
+<div class="paragraph">
+<p>As this is a CLI-driven application, we prioritized on the speed and efficiency of getting things done over security,
+    which will result in users having to execute multiple commands just to get an administrative command executed.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Able to perform administrative rights the moment a user with elevated priority level is logged in.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Able to immediately perform administrative functions the moment user is logged in, such as adding or deleting employees.</p>
+</li>
+<li>
+<p>Cons: Potential security issue; user with admin rights may accidentally forget to logout, resulting in other people
+with ill intentions to execute administrative functions without the permission of the actual user.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Users with elevated priority level will need to type in a command to enable "super user" status prior to executing
+any administrative functions.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Better security; company resources will be less-prone to abuse by employees with ill intentions.</p>
+</li>
+<li>
+<p>Cons: Less efficient in getting things done. Reason being, this is a CLI-driven application. Hence, implementing
+this alternative means that users will need to key in multiple commands just to get administrative functions done
+as a trade-off to beefing up security.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 06:51:10 UTC</div></div></div></body></html>
+<div class="sect3">
+<h4 id="login-to-the-application"><a class="link" href="#login-to-the-application">Login to the application</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Logs in to the application using a registered NRIC and associating password when <strong>not logged in prior to executing the command</strong>.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: -</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Login NRIC has to be registered in the application, either through the sample data or added manually by an administrator.</p>
+</li>
+<li>
+<p>The following test cases assume a <strong>default slate</strong> when the app is first launched, <strong>without any prior modifications to the accounts</strong>.</p>
+</li>
+<li>
+<p>You are <strong>not logged in</strong> prior to testing this function.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>login ic/S1234567E pwd/Password</code><br>
+Expected: Status message box states that you are logged in successfully, with your name, and your shcedule (if any).
+            Status bar will now show that you are logged in with the corresponding name of the user who logged in.</p>
+</li>
+<li>
+<p>Test case: <code>login ic/S12345678 pwd/Password</code><br>
+Expected: Not logged in. Format of NRIC is incorrect and Status message box shows the NRIC constraints. Status bar remains unchanged.</p>
+</li>
+<li>
+<p>Test case: <code>login ic/S1234567E pwd/high-five</code><br>
+Expected: Not logged in. Password format is incorrect and Status message box shows password constraints. Status bar remains unchanged.</p>
+</li>
+<li>
+<p>Test case: <code>login ic/S1234567E</code><br>
+Expected: Not logged in. Command format is invalid and Status message box shows the command usage. Status bar remains unchanged.</p>
+</li>
+<li>
+<p>Test case: <code>login ic/S1234567E pwd/SomeRandomPwd</code><br>
+Expected: Not logged in. Password does not match the one that&#8217;s registered with the app; Status message box shows error.
+            Status bar remains unchanged.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Logs in to the application using a registered NRIC and associating password when <strong>already logged in prior to executing the command</strong>.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: You are <strong>already logged in</strong> prior to testing this function.</p>
+</li>
+<li>
+<p>Test case: <code>login ic/T1234567E pwd/Password</code><br>
+Expected: Status message box shows the message: -<br>
+            <code>You are already logged in. Logout first before logging in again</code>.<br>
+            Login status remain unchanged; status bar remain unchanged.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="checks-the-login-status-of-the-application"><a class="link" href="#checks-the-login-status-of-the-application">Checks the login status of the application</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Checks the login status of this app. For this case, someone is logged in to the app.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: Someone is logged in to the app.</p>
+</li>
+<li>
+<p>Test case: <code>checkloginstatus</code><br>
+Expected: Status message box shows the NRIC of the user who is logged in to the app.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Checks the login status of this app. For this case, user is not logged in prior to executing this command.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: User is not logged in prior to executing this command.</p>
+</li>
+<li>
+<p>Test case: <code>checkloginstatus</code><br>
+Expected: Status message box shows that you are not logged in.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="logout-of-the-application"><a class="link" href="#logout-of-the-application">Logout of the application</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Logs out of the application.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: User is logged into the app prior to executing this command.</p>
+</li>
+<li>
+<p>Test case: <code>logout</code><br>
+Expected: Status message box shows that you have successfully logged out. Status bar footer now shows: <code>Not logged in</code>.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="change-priority-level-of-employee"><a class="link" href="#change-priority-level-of-employee">Change priority level of employee</a></h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Refer to <a href="UserGuide.html#appendix-b-privileges-in-accordance-to-priority-level">Appendix B of User Guide</a> for the list of priority level.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Change the priority level of an employee with one logged in as ADMINISTRATOR.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: -</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>You must be logged in as an administrator.</p>
+</li>
+<li>
+<p>The following test cases assume a <strong>default slate</strong> when the app is first launched, <strong>without any prior modifications to the employees list</strong>.
+Modify your test case according to whatever changes that were made prior to executing the following test cases.</p>
+</li>
+<li>
+<p>The following test cases assume that the employee list is <strong>neither sorted nor filtered</strong> prior to executing the
+test cases. Modify your test cases accordingly if you have sorted the list.</p>
+</li>
+<li>
+<p>The following test cases assume that you are logged in as Alex Yeoh, an administrator with NRIC of <code>S1234567E</code> and
+password of <code>Password</code>. Modify the test cases accordingly if you have made any modifications to the employee list
+prior to executing the following test cases.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>setplvl 1 plvl/3</code><br>
+Expected: Priority level of the employee at index 1 gets updated to a priority level of BASIC.
+            Status message box shows that the priority level of the name of employee at index 1 has been changed to BASIC.</p>
+</li>
+<li>
+<p>Test case: Attempting to change your own priority level <code>setplvl 2 plvl/3</code><br>
+Expected: Priority level of the logged in user does not get changed. Status message box shows error that you are not allowed
+            to update your own priority level.</p>
+</li>
+<li>
+<p>Test case: <code>setplvl 1 plvl/999</code><br>
+Expected: Priority level of the employee at index 1 is not updated. Input priority level is out of the range of valid
+            priority level values. Status message bar shows error message.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Attempt to change the priority level of an employee with one logged in without admin rights.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: You must be logged in with an account that is not of ADMINISTRATOR priority level.</p>
+</li>
+<li>
+<p>Test case: <code>setplvl 2 plvl/3</code><br>
+Expected: Priority level of the employee at index 2 is not updated. The user who is attempting to change the priority level
+            does not have the rights to do so. Status message box shows an error message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="reset-the-application"><a class="link" href="#reset-the-application">Reset the application</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Resets the application, by deleting <code>data/AddressBook.xml</code> and <code>data/leave.xml</code>, provided that any of the files exist.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: -<br></p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>User must be logged in with a priority level of <code>I.T. UNIT</code>.</p>
+</li>
+<li>
+<p>In order for the test to be efficient, you may ensure that the files <code>data/AddressBook.xml</code> and <code>data/leave.xml</code>
+exist in the folder <code>data</code>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: type command <code>reset</code><br>
+Expected: Application will exit. The two files will be deleted upon application exit.
+            When you <strong>manually</strong> re-open the app, a sample list of employee and leave will be shown.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 06:52:12 UTC</div></div></div></body></html>

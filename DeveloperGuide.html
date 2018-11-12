@@ -583,6 +583,12 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </div>
 <div class="sect2">
 <h3 id="Design-Session"><a class="link" href="#Design-Session">2.6. Session component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/SessionComponentClassDiagram.png" alt="SessionComponentClassDiagram" width="600">
+</div>
+<div class="title">Figure 10. Structure of the Session Component</div>
+</div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/CS2113-AY1819S1-T16-3/main/tree/master//src/main/java/seedu/address/session/SessionManager.java"><code>SessionManager.java</code></a></p>
 </div>
@@ -595,10 +601,15 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>stores the identity of the user who is logged in to the app during runtime.</p>
 </li>
 <li>
-<p>allows other functions that require elevated user status, to inquire from <code>SessionManager</code> as to whether the user
-is logged in, and also to inquire if the user has sufficient level of access to execute that particular function.</p>
+<p>provides the necessary APIs for functions that require elevated user status, to inquire from <code>SessionManager</code> as to
+whether the user is logged in, and also to inquire if the user has sufficient level of access to execute that
+particular function.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p><code>AllPersonsHashMap</code> is a hash map that stores all the persons from the AddressBook into the varialbe. This improves the efficiency
+ of logging in, and also for functions that require the details of the logged in person.</p>
 </div>
 </div>
 <div class="sect2">
@@ -696,7 +707,7 @@ and display the added leave application in the leave list.</p>
 <div class="content">
 <img src="images/AddLeaveCommandSequenceDiagram.png" alt="AddLeaveCommandSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 10. Sequence diagram of AddLeaveCommand</div>
+<div class="title">Figure 11. Sequence diagram of AddLeaveCommand</div>
 </div>
 </div>
 <div class="sect3">
@@ -814,7 +825,7 @@ The result of <code>FilterDepartmentCommand</code> execution is encapsulated as 
 <div class="content">
 <img src="images/FilterDepartmentCommandSequenceDiagram.png" alt="FilterDepartmentCommandSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 11. Sequence diagram of FilterDepartmentCommand</div>
+<div class="title">Figure 12. Sequence diagram of FilterDepartmentCommand</div>
 </div>
 </div>
 <div class="sect3">
@@ -906,7 +917,7 @@ The result of <code>checkCommand</code> execution is encapsulated as a <code>Com
 <div class="content">
 <img src="images/CheckCommandSequenceDiagram.png" alt="CheckCommandSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 12. Sequence diagram of CheckCommand</div>
+<div class="title">Figure 13. Sequence diagram of CheckCommand</div>
 </div>
 </div>
 </div>
@@ -957,7 +968,7 @@ The <code>SetScheduleCommandParser</code>, which implements the <code>Parser</co
 <div class="content">
 <img src="images/SetScheduleCommandParserSequenceDiagram.png" alt="SetScheduleCommandParserSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 13. Sequence diagram of SetScheduleCommandParser</div>
+<div class="title">Figure 14. Sequence diagram of SetScheduleCommandParser</div>
 </div>
 <div class="paragraph">
 <p>The sequence diagram below demonstrates <code>execute()</code> function of <code>SetScheduleCommand</code>:</p>
@@ -966,7 +977,7 @@ The <code>SetScheduleCommandParser</code>, which implements the <code>Parser</co
 <div class="content">
 <img src="images/SetScheduleCommandSequenceDiagram.png" alt="SetScheduleCommandSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 14. Sequence diagram of SetScheduleCommand</div>
+<div class="title">Figure 15. Sequence diagram of SetScheduleCommand</div>
 </div>
 </div>
 <div class="sect3">
@@ -1057,13 +1068,62 @@ logged in with a priority level of ADMINISTRATOR or above, in order to execute t
 </div>
 </div>
 <div class="paragraph">
+<p>In the above code, adding a person requires the user that is logged in to the application to have priority level of ADMINISTRATOR.
+    Hence, a method in SessionManager will be called to ascertain if the logged in user does indeed have sufficient priority level
+    of an ADMINISTRATOR.</p>
+</div>
+<div class="paragraph">
 <p>The following sequence diagram below shows the flow of how the feature works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ImplementPlvlRestrictionSequenceDiagram.png" alt="ImplementPlvlRestrictionSequenceDiagram" width="900">
+<img src="images/ImplementPlvlRestrictionSequenceDiagram.png" alt="ImplementPlvlRestrictionSequenceDiagram" width="750">
 </div>
-<div class="title">Figure 15. Sequence diagram of priority level restriction feature</div>
+<div class="title">Figure 16. Sequence diagram of priority level restriction feature</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.5.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-elevated-user-rights"><a class="link" href="#aspect-implementation-of-elevated-user-rights">Aspect: Implementation of elevated user rights</a></h5>
+<div class="paragraph">
+<p>As this is a CLI-driven application, we prioritized on the speed and efficiency of getting things done over security,
+    which will result in users having to execute multiple commands just to get an administrative command executed.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Able to perform administrative rights the moment a user with elevated priority level is logged in.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Able to immediately perform administrative functions the moment user is logged in, such as adding or deleting employees.</p>
+</li>
+<li>
+<p>Cons: Potential security issue; user with admin rights may accidentally forget to logout, resulting in other people
+with ill intentions to execute administrative functions without the permission of the actual user.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Users with elevated priority level will need to type in a command to enable "super user" status prior to executing
+any administrative functions.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Better security; company resources will be less-prone to abuse by employees with ill intentions.</p>
+</li>
+<li>
+<p>Cons: Less efficient in getting things done. Reason being, this is a CLI-driven application. Hence, implementing
+this alternative means that users will need to key in multiple commands just to get administrative functions done
+as a trade-off to beefing up security.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -1172,7 +1232,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 16. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 17. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -1929,6 +1989,20 @@ Do take a look at <a href="#Design-Storage">Section 2.5, &#8220;Storage componen
 </li>
 </ol>
 </div>
+<div class="sect3">
+<h4 id="code-session-code-component"><a class="link" href="#code-session-code-component">A.1.1. <code>Session</code> component</a></h4>
+<div class="paragraph">
+<p><strong>Scenario:</strong> You are in charge of <code>session</code>, whereby it is used to manage users logging in/out. Currently, there is a
+ <code>allPersonsHashMap</code> variable that stores the data of all employees of the company in the app. This improves the efficiency of
+  logging into the application with a time complexity of O(1). One issue with this current implementation right now is that
+   whenever one&#8217;s particulars are updated, <code>updatePersonHashMap</code> will be called as well, which <strong>re-uploads every single enployee
+   into the variable</strong>, which is not efficient in this case, with a time complexity of O(N).</p>
+</div>
+<div class="paragraph">
+<p>Hence, your task is to modify the <code>updatePersonHashMap</code> such that whenever one&#8217;s particulars is edited, only the affected
+ person object will be re-uploaded to the <code>allPersonsHashMap</code> variable, hence improving the efficiency.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="GetStartedProgramming-RemarkCommand"><a class="link" href="#GetStartedProgramming-RemarkCommand">A.2. Creating a new command: <code>remark</code></a></h3>
@@ -2463,25 +2537,16 @@ for <code>RemarkCommandParser</code>.</p>
 <p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
 <h3 id="use-case-login-to-the-application" class="discrete">Use case: Login to the application</h3>
-<h3 id="use-case-check-login-status" class="discrete">Use case: Check login status</h3>
-<h3 id="use-case-logout-of-the-application" class="discrete">Use case: Logout of the application</h3>
-<h3 id="use-case-edit-personal-particulars" class="discrete">Use case: Edit personal particulars</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters edit command.</p>
+<p>User types <code>login</code> command, followed by the appropriate parameters.</p>
 </li>
 <li>
-<p>AddressBook shows the format to edit the person details.</p>
-</li>
-<li>
-<p>User edit his/her particulars.</p>
-</li>
-<li>
-<p>AddressBook updates the new particulars.</p>
+<p>AddressBook shows welcome message upon successful login.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2494,11 +2559,138 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>4a. The edited format is wrong</p>
+<p>2a. Format of login command is wrong.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>4a1. AddressBook shows an error message.</p>
+<p>2a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2b. Format of login command is correct, but invalid NRIC and/or password.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2b1. AddressBook shows error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2c. Attempts to login when someone (whether the user himself or someone else) is already logged in.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2c1. AddressBook shows error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-check-login-status" class="discrete">Use case: Check login status</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters command <code>checkloginstatus</code>.</p>
+</li>
+<li>
+<p>AddressBook shows whether the user is logged in or out.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="use-case-logout-of-the-application" class="discrete">Use case: Logout of the application</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters command <code>logout</code>.</p>
+</li>
+<li>
+<p>AddressBook logs the user out of the application and shows a success message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>2a. User is not logged in when executing that command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2a1. AddressBook shows error message that the user is not logged in.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-edit-personal-particulars" class="discrete">Use case: Edit personal particulars</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters <code>edit</code> command, followed by appropriate parameters.</p>
+</li>
+<li>
+<p>AddressBook shows a success message followed by the logged in person&#8217;s particulars.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>2a. The edited format is wrong</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2a1. AddressBook shows an error message, followed by command usage guide.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2b. User is not logged in</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2b1. AddressBook shows an error message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2515,16 +2707,10 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters add command.</p>
+<p>User enters add command, followed by the details of the person to be added.</p>
 </li>
 <li>
-<p>AddressBook prompts to add person.</p>
-</li>
-<li>
-<p>User enters the details of the new person.</p>
-</li>
-<li>
-<p>AddressBook adds the new person.</p>
+<p>AddressBook shows a success message followed by the details of the newly added person.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2537,11 +2723,11 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>4a. Person already exists in the AddressBook.</p>
+<p>2a. Person already exists (identical NRIC number) in the AddressBook.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>4a1. AddressBook shows person already exists message.</p>
+<p>2a1. AddressBook shows person already exists message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2550,11 +2736,11 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </li>
 <li>
-<p>4b. The added person has missing details.</p>
+<p>2b. The added person has missing details.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>4b1. AddressBook shows an error message.</p>
+<p>2b1. AddressBook shows an error message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2563,11 +2749,37 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </li>
 <li>
-<p>4c. The added person has wrong entry format.</p>
+<p>2c. The added person has wrong entry format.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>4c1. AddressBook shows an error message.</p>
+<p>2c1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2d. User is not logged in prior to executing this command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2d1. AddressBook shows error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2e. User does not have sufficient priority level prior to executing this command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2e1. AddressBook shows error message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2584,16 +2796,10 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters delete command</p>
+<p>User enters delete command followed by the <code>INDEX</code> of the person in the AddressBook list to delete.</p>
 </li>
 <li>
-<p>AddressBook shows the list of employees</p>
-</li>
-<li>
-<p>User requests to delete a specific employee</p>
-</li>
-<li>
-<p>AddressBook deletes the employee</p>
+<p>AddressBook shows success message followed by the details of the person that has been deleted.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2606,19 +2812,66 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>2a. The list is empty.</p>
+<p>2a. User entered command in wrong format.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2a1. AddressBook shows error message followed by the command usage guide.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
+</ul>
+</div>
+</li>
 <li>
-<p>4a. The given employee name is invalid</p>
+<p>2b. User is not logged in prior to executing this command.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>4a1. AddressBook shows an error message.</p>
+<p>2b1. AddressBook shows error message.</p>
 <div class="paragraph">
-<p>Use case resumes to step 2.</p>
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2c. User does not have sufficient priority level prior to executing this command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2c1. AddressBook shows error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2d. User attempts to delete him/herself</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2d1. AddressBook shows error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2e. User entered a value <code>INDEX</code> that is out of range of the list of persons that is currently shown on the
+list of People tab.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2e1. Address shows error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
 </div>
 </li>
 </ul>
@@ -2633,7 +2886,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters <code>setplvl INDEX plvl/PRIORITY_LEVEL</code></p>
+<p>User enters <code>setplvl</code> command, followed by the appropriate parameters.</p>
 </li>
 <li>
 <p>AddressBook updates the priority level of the person at stated index.</p>
@@ -2662,11 +2915,11 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </li>
 <li>
-<p>2b. Invalid priority level</p>
+<p>2b. User entered inappropriate parameters.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>2b1. AddressBook shows an error message.</p>
+<p>2b1. AddressBook shows an error message with the details of the error.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3376,6 +3629,22 @@ Use case ends.</p>
 </ol>
 </div>
 <h3 id="use-case-reset-application" class="discrete">Use case: Reset application</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters command <code>reset</code>.</p>
+</li>
+<li>
+<p>AddressBook deletes <code>data/AddressBook.xml</code> and exits the program.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -3444,7 +3713,7 @@ These instructions only provide a starting point for testers to work on; testers
 </li>
 <li>
 <p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
+Expected: Shows the GUI with a set of sample employees and leave applications. The window size may not be optimum.</p>
 </li>
 </ol>
 </div>
@@ -3470,19 +3739,180 @@ Expected: The most recent window size and location is retained.</p>
 <h3 id="personal-user-account"><a class="link" href="#personal-user-account">G.2. Personal User Account</a></h3>
 <div class="sect3">
 <h4 id="login-to-the-application"><a class="link" href="#login-to-the-application">G.2.1. Login to the application</a></h4>
-
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Logs in to the application using a registered NRIC and associating password when <strong>not logged in prior to executing the command</strong>.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: -</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Login NRIC has to be registered in the application, either through the sample data or added manually by an administrator.</p>
+</li>
+<li>
+<p>The following test cases assume a <strong>default slate</strong> when the app is first launched, <strong>without any prior modifications to the accounts</strong>.</p>
+</li>
+<li>
+<p>You are <strong>not logged in</strong> prior to testing this function.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>login ic/S1234567E pwd/Password</code><br>
+Expected: Status message box states that you are logged in successfully, with your name, and your shcedule (if any).
+            Status bar will now show that you are logged in with the corresponding name of the user who logged in.</p>
+</li>
+<li>
+<p>Test case: <code>login ic/S12345678 pwd/Password</code><br>
+Expected: Not logged in. Format of NRIC is incorrect and Status message box shows the NRIC constraints. Status bar remains unchanged.</p>
+</li>
+<li>
+<p>Test case: <code>login ic/S1234567E pwd/high-five</code><br>
+Expected: Not logged in. Password format is incorrect and Status message box shows password constraints. Status bar remains unchanged.</p>
+</li>
+<li>
+<p>Test case: <code>login ic/S1234567E</code><br>
+Expected: Not logged in. Command format is invalid and Status message box shows the command usage. Status bar remains unchanged.</p>
+</li>
+<li>
+<p>Test case: <code>login ic/S1234567E pwd/SomeRandomPwd</code><br>
+Expected: Not logged in. Password does not match the one that&#8217;s registered with the app; Status message box shows error.
+            Status bar remains unchanged.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Logs in to the application using a registered NRIC and associating password when <strong>already logged in prior to executing the command</strong>.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: You are <strong>already logged in</strong> prior to testing this function.</p>
+</li>
+<li>
+<p>Test case: <code>login ic/T1234567E pwd/Password</code><br>
+Expected: Status message box shows the message: -<br>
+            <code>You are already logged in. Logout first before logging in again</code>.<br>
+            Login status remain unchanged; status bar remain unchanged.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect3">
 <h4 id="checks-the-login-status-of-the-application"><a class="link" href="#checks-the-login-status-of-the-application">G.2.2. Checks the login status of the application</a></h4>
-
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Checks the login status of this app. For this case, someone is logged in to the app.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: Someone is logged in to the app.</p>
+</li>
+<li>
+<p>Test case: <code>checkloginstatus</code><br>
+Expected: Status message box shows the NRIC of the user who is logged in to the app.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Checks the login status of this app. For this case, user is not logged in prior to executing this command.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: User is not logged in prior to executing this command.</p>
+</li>
+<li>
+<p>Test case: <code>checkloginstatus</code><br>
+Expected: Status message box shows that you are not logged in.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect3">
 <h4 id="logout-of-the-application"><a class="link" href="#logout-of-the-application">G.2.3. Logout of the application</a></h4>
-
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Logs out of the application.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: User is logged into the app prior to executing this command.</p>
+</li>
+<li>
+<p>Test case: <code>logout</code><br>
+Expected: Status message box shows that you have successfully logged out. Status bar footer now shows: <code>Not logged in</code>.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect3">
-<h4 id="editing-a-person"><a class="link" href="#editing-a-person">G.2.4. Editing a person</a></h4>
-
+<h4 id="editing-personal-particulars-of-the-person-who-is-logged-in"><a class="link" href="#editing-personal-particulars-of-the-person-who-is-logged-in">G.2.4. Editing personal particulars of the person who is logged in</a></h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Refer to <a href="UserGuide.html#editing-a-person-code-edit-code">EditCommand section of the User Guide</a> for the list of
+editable parameters.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Edits the editable particulars of the person who is logged in.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-Condition: User must be logged in to the application.</p>
+</li>
+<li>
+<p>Test case: <code>edit n/Stacy Mak e/stacym@banksy.com</code><br>
+Expected: Particular of the logged in person gets updated with name of <code>Stacy Mak</code> and email of <code>stacym@banksy.com</code>.
+            Status message box shows the details of the updated person. Status bar footer now shows that the new name of the person who is logged in.</p>
+</li>
+<li>
+<p>Test case: <code>edit a/Yishun, Singapore p/91234567</code><br>
+Expected: Particular of the logged in person gets updated with address now at <code>Yishun, Singapore</code>, and phone number of <code>91234567</code>.
+                Status message box shows the details of the updated person. Status bar footer remains unchanged.</p>
+</li>
+<li>
+<p>Test case: <code>edit p/string p/96289700</code><br>
+Expected: Particular of the logged in person gets updated with phone number of <code>96289700</code>. The previous invalid phone input of
+            <code>string</code> gets ignored as it is superseded with the valid phone input of <code>96289700</code>.
+            Status message box shows the details of the updated person. Status bar footer remains unchanged.</p>
+</li>
+<li>
+<p>Test case: <code>edit p/96289700 p/string</code><br>
+Expected: Details of the person not edited. Status message box shows error message with the constraints of a phone number.
+The phone input of <code>96289700</code> gets ignored as it is superseded by the phone input of <code>string</code>, and hence led to the error message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -3544,7 +3974,84 @@ Expected: Similar to previous.</p>
 </div>
 <div class="sect3">
 <h4 id="change-priority-level-of-employee"><a class="link" href="#change-priority-level-of-employee">G.3.3. Change priority level of employee</a></h4>
-
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Refer to <a href="UserGuide.html#appendix-b-privileges-in-accordance-to-priority-level">Appendix B of User Guide</a> for the list of priority level.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Change the priority level of an employee with one logged in as ADMINISTRATOR.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: -</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>You must be logged in as an administrator.</p>
+</li>
+<li>
+<p>The following test cases assume a <strong>default slate</strong> when the app is first launched, <strong>without any prior modifications to the employees list</strong>.
+Modify your test case according to whatever changes that were made prior to executing the following test cases.</p>
+</li>
+<li>
+<p>The following test cases assume that the employee list is <strong>neither sorted nor filtered</strong> prior to executing the
+test cases. Modify your test cases accordingly if you have sorted the list.</p>
+</li>
+<li>
+<p>The following test cases assume that you are logged in as Alex Yeoh, an administrator with NRIC of <code>S1234567E</code> and
+password of <code>Password</code>. Modify the test cases accordingly if you have made any modifications to the employee list
+prior to executing the following test cases.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>setplvl 1 plvl/3</code><br>
+Expected: Priority level of the employee at index 1 gets updated to a priority level of BASIC.
+            Status message box shows that the priority level of the name of employee at index 1 has been changed to BASIC.</p>
+</li>
+<li>
+<p>Test case: Attempting to change your own priority level <code>setplvl 2 plvl/3</code><br>
+Expected: Priority level of the logged in user does not get changed. Status message box shows error that you are not allowed
+            to update your own priority level.</p>
+</li>
+<li>
+<p>Test case: <code>setplvl 1 plvl/999</code><br>
+Expected: Priority level of the employee at index 1 is not updated. Input priority level is out of the range of valid
+            priority level values. Status message bar shows error message.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Attempt to change the priority level of an employee with one logged in without admin rights.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: You must be logged in with an account that is not of ADMINISTRATOR priority level.</p>
+</li>
+<li>
+<p>Test case: <code>setplvl 2 plvl/3</code><br>
+Expected: Priority level of the employee at index 2 is not updated. The user who is attempting to change the priority level
+            does not have the rights to do so. Status message box shows an error message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect3">
 <h4 id="change-the-department-of-an-employee"><a class="link" href="#change-the-department-of-an-employee">G.3.4. Change the department of an employee</a></h4>
@@ -3976,6 +4483,39 @@ Expected: Similar to previous.</p>
 </ol>
 </div>
 </div>
+<div class="sect3">
+<h4 id="reset-the-application"><a class="link" href="#reset-the-application">G.7.3. Reset the application</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Resets the application, by deleting <code>data/AddressBook.xml</code> and <code>data/leave.xml</code>, provided that any of the files exist.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: -<br></p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>User must be logged in with a priority level of <code>I.T. UNIT</code>.</p>
+</li>
+<li>
+<p>In order for the test to be efficient, you may ensure that the files <code>data/AddressBook.xml</code> and <code>data/leave.xml</code>
+exist in the folder <code>data</code>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: type command <code>reset</code><br>
+Expected: Application will exit. The two files will be deleted upon application exit.
+            When you <strong>manually</strong> re-open the app, a sample list of employee and leave will be shown.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 06:51:10 UTC</div></div></div></body></html>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 06:52:12 UTC</div></div></div></body></html>
