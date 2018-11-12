@@ -3757,7 +3757,8 @@ Use case ends.</p>
 <h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Given below are instructions to test the app manually.</p>
+<p>Given below are instructions to test the app manually. <strong>Read the following note and warning messages before
+proceeding to conduct the tests</strong>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -3767,6 +3768,33 @@ Use case ends.</p>
 </td>
 <td class="content">
 These instructions only provide a starting point for testers to work on; testers are expected to do more <em>exploratory</em> testing.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The following prerequisites apply to <strong>ALL</strong> test cases: -<br></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The following test cases assume a <strong>default slate</strong> when the app is first launched or reset, <strong>without any prior
+modifications to the employees list and its' corresponding accounts</strong>. Modify your test case according to whatever
+changes that were made prior to executing each individual test cases.</p>
+</li>
+<li>
+<p>The following test cases assume that the employee list is <strong>neither sorted nor filtered</strong> prior to executing the
+test cases. Modify your test cases accordingly if you have sorted or filtered the list.</p>
+</li>
+</ol>
+</div>
 </td>
 </tr>
 </table>
@@ -3817,14 +3845,11 @@ Expected: The most recent window size and location is retained.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Pre-requisites: -</p>
+<p>Prerequisites: -</p>
 <div class="olist lowerroman">
 <ol class="lowerroman" type="i">
 <li>
 <p>Login NRIC has to be registered in the application, either through the sample data or added manually by an administrator.</p>
-</li>
-<li>
-<p>The following test cases assume a <strong>default slate</strong> when the app is first launched, <strong>without any prior modifications to the accounts</strong>.</p>
 </li>
 <li>
 <p>You are <strong>not logged in</strong> prior to testing this function.</p>
@@ -3862,7 +3887,7 @@ Expected: Not logged in. Password does not match the one that&#8217;s registered
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Pre-requisites: You are <strong>already logged in</strong> prior to testing this function.</p>
+<p>Prerequisites: You are <strong>already logged in</strong> prior to testing this function.</p>
 </li>
 <li>
 <p>Test case: <code>login ic/T1234567E pwd/Password</code><br>
@@ -3885,7 +3910,7 @@ Expected: Status message box shows the message: -<br>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Pre-requisites: Someone is logged in to the app.</p>
+<p>Prerequisites: Someone is logged in to the app.</p>
 </li>
 <li>
 <p>Test case: <code>checkloginstatus</code><br>
@@ -3899,7 +3924,7 @@ Expected: Status message box shows the NRIC of the user who is logged in to the 
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Pre-requisites: User is not logged in prior to executing this command.</p>
+<p>Prerequisites: User is not logged in prior to executing this command.</p>
 </li>
 <li>
 <p>Test case: <code>checkloginstatus</code><br>
@@ -3920,7 +3945,7 @@ Expected: Status message box shows that you are not logged in.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Pre-requisites: User is logged into the app prior to executing this command.</p>
+<p>Prerequisites: User is logged into the app prior to executing this command.</p>
 </li>
 <li>
 <p>Test case: <code>logout</code><br>
@@ -3956,7 +3981,7 @@ editable parameters.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Pre-Condition: User must be logged in to the application.</p>
+<p>Prerequisites: User must be logged in to the application.</p>
 </li>
 <li>
 <p>Test case: <code>edit n/Stacy Mak e/stacym@banksy.com</code><br>
@@ -4065,19 +4090,11 @@ Expected: Similar to previous.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Pre-requisites: -</p>
+<p>Prerequisites: -</p>
 <div class="olist lowerroman">
 <ol class="lowerroman" type="i">
 <li>
 <p>You must be logged in as an administrator.</p>
-</li>
-<li>
-<p>The following test cases assume a <strong>default slate</strong> when the app is first launched, <strong>without any prior modifications to the employees list</strong>.
-Modify your test case according to whatever changes that were made prior to executing the following test cases.</p>
-</li>
-<li>
-<p>The following test cases assume that the employee list is <strong>neither sorted nor filtered</strong> prior to executing the
-test cases. Modify your test cases accordingly if you have sorted the list.</p>
 </li>
 <li>
 <p>The following test cases assume that you are logged in as Alex Yeoh, an administrator with NRIC of <code>S1234567E</code> and
@@ -4110,7 +4127,7 @@ Expected: Priority level of the employee at index 1 is not updated. Input priori
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Pre-requisites: You must be logged in with an account that is not of ADMINISTRATOR priority level.</p>
+<p>Prerequisites: You must be logged in with an account that is not of ADMINISTRATOR priority level.</p>
 </li>
 <li>
 <p>Test case: <code>setplvl 2 plvl/3</code><br>
@@ -4562,7 +4579,7 @@ Expected: Similar to previous.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Pre-requisites: -<br></p>
+<p>Prerequisites: -<br></p>
 <div class="olist lowerroman">
 <ol class="lowerroman" type="i">
 <li>
@@ -4588,4 +4605,4 @@ Expected: Application will exit. The two files will be deleted upon application 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 07:30:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 07:54:27 UTC</div></div></div></body></html>
